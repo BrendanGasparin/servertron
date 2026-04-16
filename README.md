@@ -34,7 +34,7 @@ Project: SERVERTRON is built on a single-node virtualised infrastructure running
 The system is structured into two environments:  
 
 - **Production Environment:** Hosts stable, persistent, Internet-facing and complex services requiring strong isolation.  
-- **Lab Environment:** Used for experimentation, testing, and learning, with a focus on container orchestration and emerging technologies.  
+- **Lab Environment:** Used for development, experimentation, testing, and learning, with a focus on container orchestration and emerging technologies.  
 
 Workloads are distributed according to the following principles:  
 
