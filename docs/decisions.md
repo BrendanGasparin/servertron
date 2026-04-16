@@ -1,0 +1,13 @@
+# Decisions
+
+This document logs all decisions made about Project: SERVERTRON.  
+
+Decision: Use lab environment for production  
+Reason: Simpler than a separate lane, can be changed later  
+Alternatives: Separate production lane  
+Date: 2026-04-17  
+
+Decision: Use Proxmox as hypervisor  
+Reason: Supports VMs + containers, industry-relevant, strong UI  
+Alternatives: ESXi, Hyper-V  
+Date: 2026-04-17  
