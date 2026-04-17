@@ -13,6 +13,6 @@ Alternatives: Separate production lane
 Date: 2026-04-17  
 
 Decision: Use Proxmox as hypervisor  
-Reason: Supports VMs + containers, industry-relevant, strong UI  
+Reason: Learn Proxmox, supports VMs + containers, industry-relevant, strong UI  
 Alternatives: ESXi, Hyper-V  
 Date: 2026-04-17  
