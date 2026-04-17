@@ -1,6 +1,9 @@
 # Project: SERVERTRON
 
+![Project SERVERTRON cover image](./images/servertron-github-cover.png)
+
 ## 1. Overview
+
 Project: SERVERTRON is an effort to implement a Proxmox-based server infrastructure using modern DevOps principles.  
 
 SERVERTRON's purpose is to use real world infrastructure to host practical workloads, and to document the learning process as I go.  
