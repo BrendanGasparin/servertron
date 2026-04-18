@@ -2,7 +2,7 @@
 
 This document logs all decisions made about Project: SERVERTRON.  
 
-Decision: Use Kubernetes for lab environment  
+Decision: Use Kubernetes for lab environment (but not production environment) 
 Reason: Learn Kubernetes  
 Alternatives: Docker, VM, container, no lab environment  
 Date: 2026-04-17  
