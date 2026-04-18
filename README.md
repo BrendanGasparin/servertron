@@ -51,7 +51,7 @@ A Kubernetes environment (K3s) is maintained within the lab environment, separat
 
 This architecture is designed to simulate real-world infrastructure within the constraints of a single-node system. It focuses on separation of concerns, scalability of design, and alignment with modern DevOps practices.  
 
-For detailed architecture diagrams and specifications, see the documentation in the `/docs` directory.  
+For detailed architecture diagrams and specifications, see [architecture.md](./docs/architecture.md) in the `/docs` directory.  
 
 ## 5. DevOps Lifecycle
 
