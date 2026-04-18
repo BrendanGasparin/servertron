@@ -55,7 +55,24 @@ For detailed architecture diagrams and specifications, see the documentation in 
 
 ## 5. DevOps Lifecycle
 
+Project: SERVERTRON follows a structured DevOps lifecycle to guide the design, implementation, and operation of its infrastructure. Each stage represents a distinct phase in the continuous delivery of systems and services.  
+
+The lifecycle consists of the following stages:  
+
+1. **PLAN:** Define objectives, architecture, and constraints. Establish documentation, system design, and project scope.  
+2. **CODE:** Develop configuration files, scripts, and infrastructure definitions. This includes version controlled assets and Infrastructure as Code where applicable.  
+3. **BUILD:** Provision infrastructure and construct system components, including virtual machines, containers, and supporting services.  
+4. **TEST:** Validate system functionality, networking, and service behaviour within controlled environments prior to release.  
+5. **RELEASE:** Approve stable builds and define versioned milestones for deployment.
+6. **DEPLOY:** Deploy approved configurations and services into the target environment.
+7. **OPERATE:** Run an maintain live systems, ensuring availability, reliability, and performance of deployed services.
+8. **MONITOR:** Observe system health and performance using monitoring and logging tools, providing feedback for continuous improvement.
+
+This is an iterative cycle, with the feedback from the monitoring phase informing the planning of the next iteration. This enables continuous refinement of the system while maintaining alignment with DevOps principles and real-world operational practices.  
+
 ## 6. Repository Structure
+
+Decisions made during the project are logged in the [decisions.md](./docs/decisions.md) file.
 
 ## 7. Technology Stack
 
