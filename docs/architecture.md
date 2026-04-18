@@ -41,10 +41,59 @@ The architecture balances realism with practicality. It aims to reflect modern D
 
 ### 2.8. Single-Node Constraint
 
-All design decisions are made within the constraint of a single-node system. The architecture must maximise the capability of the available hardware while maintaining separation between services and environments.
+All design decisions are made within the constraint of a single-node system. The architecture must maximise the capability of the available hardware while maintaining separation between services and environments.  
 
 ## 3. Architectural Principles
 
+The architecture of Project: SERVERTRON is governed by a set of principles that guide system design, implementation, and evolution.
+
+### 3.1 Separation of Environments
+
+Production and lab environments are logically separated. Production hosts stable services, while the lab is used for experimentation and testing. Changes are validated in the lab before being introduced to production.  
+
+### 3.2 Workload-Appropriate Isolation
+
+Workloads are deployed using virtual machines or Linux containers based on their requirements. Virtual machines are used for externally exposed or complex services, while containers are used for lightweight internal services.  
+
+### 3.3 Single Responsibility per Component
+
+Each system component is designed to perform a single primary function. This reduces complexity, improves maintainability, and simplifies troubleshooting.  
+
+### 3.4 Real-World Architectural Alignment
+
+The system is designed to reflect real-world infrastructure patterns, including service separation, layered architecture, and network segmentation, even within a single-node deployment.  
+
+### 3.5 Modularity and Loose Coupling
+
+System components are designed to be modular. This allows individual services to be modified, replaced, or extended without requiring changes to unrelated components.  
+
+### 3.6 Lab as a Controlled Experimentation Environment
+
+The lab environment is treated as a safe space for experimentation, failure, and learning. It is intentionally isolated from production workloads.  
+
+### 3.7 Production Stability
+
+The production environment prioritises stability and reliability. Changes are introduced in a controlled manner and only after validation.  
+
+### 3.8 Observability
+
+The system is designed to support monitoring and visibility into system behaviour, enabling informed decision-making and troubleshooting.  
+
+### 3.9 Documentation-Driven Development
+
+Architecture, decisions, and system behaviour are documented as part of the development process and maintained alongside the system.  
+
+### 3.10 Simplicity and Maintainability
+
+Design decisions prioritise clarity and maintainability over unnecessary complexity, especially within the constraints of a single-node system.  
+
+### 3.11 Conceptual Scalability
+
+The architecture is designed to scale conceptually beyond a single node, allowing future expansion without fundamental redesign.  
+
+### 3.12 Explicit Decision Tracking
+
+All significant architectural decisions are recorded and justified, ensuring traceability and consistency across the system.  
 
 ## 4. System Context
 
