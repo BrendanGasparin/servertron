@@ -2,7 +2,37 @@
 
 ## 1. Purpose
 
+This document defines the architecture of Project: SERVERTRON, providing the structure, components, and design principles of the system, along with the relationships between environments, services, and supporting infrastructure.  
+
+The purpose of this document is to provide a reference for how the system is designed and intended to operate. It also provides benchmarks to ensure that architectural decisions remain aligned with project goals and constraints.  
+
 ## 2. Design Goals
+
+**Core design goals** include:
+
+- Building a DevOps-focused homelab that mirrors real-world infrastructure
+- Supporting practical workloads (web, media, and game servers)
+- Learning to implement DevOps principles, tools, and the DevOps lifecycle
+
+**Architectural goals** are:  
+
+- Maintaining clear separation between production and lab environments
+- Using appropriate isolation (e.g. VMs vs LXCs) based on the requirements of different workloads
+- Keeping the system modular and scalable in design (even if it is single-node)
+- Simulating multi-system architecture on one machine
+
+**Operational goals** include:  
+
+- Ensuring reliability for production workloads
+- Allowing safe experimentation without impacting production
+- Supporting monitoring and observability
+- Keeping the system maintainable and reproducible
+
+**Practical constraints** are:
+
+- Operation on a single-node mini-PC
+- Balancing learning value with complexity
+- Avoiding unnecessary costs
 
 ## 3. Architectural Principles
 
