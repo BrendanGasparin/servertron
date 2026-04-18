@@ -8,33 +8,43 @@ The purpose of this document is to provide a reference for how the system is des
 
 ## 2. Design Goals
 
-**Core design goals** include:
+The architecture of Project: SERVERTRON is guided by a set of design goals that reflect its purpose as a DevOps-focused homelab running real services, as well as a learning platform for new technologies.  
 
-- Building a DevOps-focused homelab that mirrors real-world infrastructure
-- Supporting practical workloads (web, media, and game servers)
-- Learning to implement DevOps principles, tools, and the DevOps lifecycle
+### 2.1. Real-World Alignment
 
-**Architectural goals** are:  
+The system is designed to reflect real-world infrastructure patterns and practices. These include workload isolation, service separation, and environment-based deployment models.  
+The goal is to simulate production-like systems within a single-node mini-PC.  
 
-- Maintaining clear separation between production and lab environments
-- Using appropriate isolation (e.g. VMs vs LXCs) based on the requirements of different workloads
-- Keeping the system modular and scalable in design (even if it is single-node)
-- Simulating multi-system architecture on one machine
+### 2.2. Environment Separation
 
-**Operational goals** include:  
+A separation is maintained between Production and Lab environments. Production is intended for stable, continuously-running services. The lab environment is for development, testing, learning, and experimentation. This ensures that experimental changes do not impact operational workloads.  
 
-- Ensuring reliability for production workloads
-- Allowing safe experimentation without impacting production
-- Supporting monitoring and observability
-- Keeping the system maintainable and reproducible
+### 2.3. Appropriate Workload Isolation
 
-**Practical constraints** are:
+Workloads are deployed using a combination of virtual machines and Linux containers based on their requirements. Virtual machines are used for externally exposed or complex services. Containers are used for lightweight internal services. This balances isolation, performance, and flexibility.  
 
-- Operation on a single-node mini-PC
-- Balancing learning value with complexity
-- Avoiding unnecessary costs
+### 2.4. Modularity and Scalability of Design
+
+Although the system operates on a single physical host, the architecture is designed to modular and scalable. Components are structured in a way that allows expansion to multi-node or distributed systems at a later date without requiring a total redesign.  
+
+### 2.5. Support for Practical Workloads
+
+The platform is intended to run real services, including web hosting, application hosting, media services, and game servers. The architecture prioritises usability and stability for these workloads and the lab environment, while supporting the possibility for future expansions.  
+
+### 2.6. Observability and Operational Awareness
+
+The system is designed to support monitoring and observability through standard tools. Visibility into system performance and health is a core requirement of the project for both operational effectiveness and self-education purposes.  
+
+### 2.7. Controlled Complexity
+
+The architecture balances realism with practicality. It aims to reflect modern DevOps practices but avoids unnecessary complexity that would hamper progress. Design decisions prioritise clarity, learning value, and incremental growth.  
+
+### 2.8. Single-Node Constraint
+
+All design decisions are made within the constraint of a single-node system. The architecture must maximise the capability of the available hardware while maintaining separation between services and environments.
 
 ## 3. Architectural Principles
+
 
 ## 4. System Context
 
