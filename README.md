@@ -45,11 +45,11 @@ Workloads are distributed according to the following principles:
 - **Linux Containers (LXCs)** are used for lightweight internal utilities and supporting services.
 - **Containerised Applications** are deployed within dedicated VMs using Docker and Docker Compose.
 
-The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented using industry-standard tooling to provide visibility into system performance and health.  
+The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to monitor system performance and health.  
 
-A separate Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for experimentation and learning purposes.
+A Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for experimentation and learning purposes.
 
-This architecture is designed to simulate real-world infrastructure within the constraints of a single-node system. It maintains clear separation of concerns, scalability of design, and alignment with modern DevOps practices.  
+This architecture is designed to simulate real-world infrastructure within the constraints of a single-node system. It focuses on separation of concerns, scalability of design, and alignment with modern DevOps practices.  
 
 For detailed architecture diagrams and specifications, see the documentation in the `/docs` directory.  
 
@@ -76,7 +76,22 @@ Decisions made during the project are logged in the [decisions.md](./docs/decisi
 
 ## 7. Technology Stack
 
+- **Infrastructure:** A single-node homelab running on an Intel NUC 13 Pro mini-PC.
+- **Virtualisation:** Proxmox will be used as a hypervisor.
+- **Operating systems:** 
+- **Containerisation:** Docker will be used to run containers.
+- **Orchestration:** Kubernetes/K3s is used in the lab environment for learning and experimentation, but not in the production environment.
+- **Networking:** (Reverse proxy. DNS handled by ???. Networking model.)
+- **Data & Storage:** Database systems have yet to be defined. MariaDB will be used for WordPress sites. SERVERTRON-1 has a 2 TB NVMe drive for Proxmox, virtual machines, and containers. A 5 TB external drive is used for storing the media library.
+- **Monitoring & Observability:** Prometheus, Grafana, and logging tools will be used for monitoring and observability.
+- **Version Control & DevOps:** GitHub will be used to store the project repository. (CI/CD tools? GitOps tools (e.g. ArgoCD)?)
+
 ## 8. Environments
+
+The scope of the project involves two environments: a production environment and a lab environment.  
+
+- The **production environment** is for hosting services such as web, media, and game servers.  
+- The **lab environment** is used for learning, development, and experimentation.
 
 ## 9. Getting Started
 
