@@ -1,6 +1,6 @@
 # Project: SERVERTRON Initial Goals
 
-The following are the goals of Project: SERVERTRON:
+The following are the goals of Project: SERVERTRON:  
 
 - Install a type 1 hypervisor on a single-node host system (SERVERTRON-1).
 - Configure ZFS storage for SERVERTRON-1.
