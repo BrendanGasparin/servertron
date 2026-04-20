@@ -172,11 +172,11 @@ SERVERTRON-1 requires a workload layout for virtual machines and Linux container
 
 ### Decision
 
-VMs for an edge gateway, an apps platform, data services, a Minecraft server, and a media server. Linux containers for monitoring and utility applications.  
+VMs for an edge gateway, an apps platform, data services, a Minecraft server, and a media server. Linux containers for monitoring and utility applications. An isolated virtual machine running Kubernetes.  
 
 ### Rationale
 
-The edge gateway provides a single control point for traffic coming in and out of the Internet. The web server, game server, and media server must be isolated from each other to enhance security and prevent failures in one from affecting the others. Lightweight tools like monitoring and utility applications can be run in Linux containers to reduce operational workloads.  
+The edge gateway provides a single control point for traffic coming in and out of the Internet. The web server, game server, and media server must be isolated from each other to enhance security and prevent failures in one from affecting the others. Lightweight tools like monitoring and utility applications can be run in Linux containers to reduce operational workloads. Kubernetes (K3s) will be implemented in a separate lab environment from production workloads.  
 
 ### Alternatives Considered
 
