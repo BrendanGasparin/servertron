@@ -73,7 +73,7 @@ This also maintains flexibility for the introduction of other environments (e.g.
 ## DEC-003: Virtual Machines for Persistent Services, LXC for Lightweight Utilities
 
 - Status: Accepted
-- Date: 2026-04-17
+- Date: 2026-04-20
 
 ### Context
 
@@ -97,10 +97,10 @@ This approach balances realism and practicality on a single-node system, providi
 
 ### Consequences
 
-## DEC-004: Use Docker for Containers in the Production Environment
+## DEC-004: Docker for Containers in the Production Environment
 
 - Status: Accepted
-- Date: 2026-04-17
+- Date: 2026-04-20
 
 ### Context
 
@@ -136,7 +136,7 @@ Kubernetes is powerful technology and should eventually be adopted. But to reduc
 ## DEC-005: Run Kubernetes in the Lab Environment Only
 
 - Status: Accepted
-- Date: 2026-04-17
+- Date: 2026-04-20
 
 ### Context
 
