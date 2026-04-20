@@ -15,6 +15,12 @@ SERVERTRON-1 is an Intel NUC 13 Pro Arena Canyon mini-PC with 13th Gen Core 17-1
 ZFS will be used for the file system as it provides data integrity, snapshots, and production-like storage behaviour aligned with the goal of mirroring real-world DevOps systems.  
 
 ## Proxmov VE Host Layer
+**CPU:** Leave at least 2 threads uncommitted for host.  
+**RAM:** Reserve 8 GB for host before planning guests.  
+**Storage:** 400 GB. 100 for Proxmox, packages, and logs. 100 for ISOs, templates, backups/snippets/misc. 200 GB for ZFS/snapshot/free-space for operations.  
+
+### ZFS ARC
+**RAM:** Allow 8-12 GB for ZFS ARC and cap later if necessary.  
 
 ## Virtual Machines / LXC Containers
 
@@ -22,35 +28,88 @@ A layer of virtual machines and Linux containers each containing isolated worklo
 
 ### Production Lane
 
-The production lane is for hosting complex services and Internet-facing servers.
+The production lane hosts stable, persisent services intended for operational use, including externally exposed services and internal supporting systems.  
 
-#### VM 100 - Edge Gateway
+#### VM 100 edge-gateway (Edge Gateway)
+
+**vCPU:** 2  
+**RAM:** 2 GB  
+**Storage:** 32 GB  
+
 - Reverse proxy
 - TLS termination
 - Entry point for external traffic
 
-#### VM 110 - Apps Platform
+#### VM 110 apps-platform (Apps Platform)
+
+**vCPU:** 4  
+**RAM:** 6 GB  
+**Storage:** 120 GB  
+
 - Runs Docker / Docker Compose
 - Hosts application services (web, APIs, etc.)
 
-#### VM 120 - Data Services
-- Databases (PostgreSQL and MariaDB?)
+#### VM 120 data-services (Data Services)
+
+**vCPU:** 4  
+**RAM:** 6 GB  
+**Storage:** 150 GB
+
+- Databases
 - Persistent data layer
 
-#### VM 130 - Media Server (Plex? Jellyfin?)
+#### VM 130 media-server (Media Server)
 
-#### VM 140 - Game Server (Minecraft)
+**vCPU:** 2  
+**RAM:** 6 GB  
+**Storage:** 100 GB  
 
-#### LXC 200 - Monitoring
-- Prometheus?
-- Grafana?
+- Media server platform (Plex or Jellyfin)
+- Metadata management and indexing
+- External media storage integration
+- Media content stored on external drive
 
-#### LXC 210 - Utility Services
+#### VM 140 games-minecraft (Minecraft Game Server)
+
+**vCPU:** 4  
+**RAM:** 12 GB  
+**Storage:** 120 GB
+
+- Dedicated Minecraft server
+- Persisten game world and server data
+- Multiplayer game hosting
+
+#### LXC 200 monitoring (Monitoring)
+
+**vCPU:** 2  
+**RAM:** 3 GB  
+**Storage:** 40 GB
+
+- Prometheus
+- Grafana
+
+#### LXC 210 utility (Utility Services)
+
+**vCPU:** 1  
+**RAM:** 2 GB  
+**Storage:** 20 GB  
+
 - Supporting tools
 - Internal helpers
 
 ### Lab Lane
 
-#### VM 300 - K3s Lab
+#### VM 300 k3s-lab (Kubernetes Lab)
+
+**vCPU:** 4  
+**RAM:** 8 GB  
+**Storage:** 100 GB
+
 - Kubernetes (K3s)
 - Development and experimentation environment only
+
+### Total
+
+**vCPUs assigned:** 25  
+**RAM assigned:** 45 GB  
+**Storage assigned:** 682 GB  
