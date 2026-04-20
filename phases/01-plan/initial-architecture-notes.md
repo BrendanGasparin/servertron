@@ -108,7 +108,7 @@ The production lane hosts stable, persisent services intended for operational us
 - Kubernetes (K3s)
 - Development and experimentation environment only
 
-### Total
+### Total Resources Assigned
 
 **vCPUs assigned:** 25  
 **RAM assigned:** 45 GB  
