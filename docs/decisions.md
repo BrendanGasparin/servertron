@@ -187,3 +187,35 @@ The edge gateway provides a single control point for traffic coming in and out o
 - Isolation and separation between all major services, data services, and the gateway to the Internet
 - Monitoring and utility tools each isolated in lightweight containers, reducing system resource consumption
 - Plenty of learning experiences managing a relatively complex set of virtual machines and containers in Proxmox
+
+# DEC-007: Use ZFS for File System
+
+Status: Accepted  
+Date: 2026-04-20  
+
+## Context
+
+A file system must be chosen for SERVERTRON-1.  
+
+## Decision
+
+Use ZFS for SERVERTRON-1's file system.  
+
+## Rationale
+
+Although RAID capability will not be implemented, ZFS provides data integrity with checksums, corruption detection, and corruption repair (if redundancy existed).  
+
+ZFS snapshots are instant, lightweight, and easier to roll back. Proxmox supports VM disks, snapshotting, and easy backup workflows.  
+
+ZFS is used in enterprise storage, production systems, and serious homelabs. This aligns with the goal of mirroring real-world DevOps infrastructure, even if only on a single node (and storage drive).  
+
+### Alternatives Considered
+
+- **ext4:** ext4 is simpler and uses less RAM than ZFS, but the primary goals of Project: SERVERTRON is to provide a learning environment for new technologies, 
+
+### Consequences
+
+- Excellent recoverability with snapshots and backups
+- Increased RAM usage (for the ARC cache)
+- Observability into health and other metrics
+- ZFS pools are not as flexible to expand as some other systems

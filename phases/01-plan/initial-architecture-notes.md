@@ -12,6 +12,8 @@ Project: SERVERTRON will be implemented on a single-node mini-PC system (SERVERT
 
 SERVERTRON-1 is an Intel NUC 13 Pro Arena Canyon mini-PC with 13th Gen Core 17-1360P (12 cores/16 threads and up to 5.0GHz), 64 GB DDR4 RAM, 2 TB NVMe drive, WiFi6E, BT5.3, 2 x  
 
+ZFS will be used for the file system as it provides data integrity, snapshots, and production-like storage behaviour aligned with the goal of mirroring real-world DevOps systems.  
+
 ## Proxmov VE Host Layer
 
 ## Virtual Machines / LXC Containers
