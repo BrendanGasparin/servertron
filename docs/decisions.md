@@ -186,4 +186,4 @@ The edge gateway provides a single control point for traffic coming in and out o
 ### Consequences
 - Isolation and separation between all major services, data services, and the gateway to the Internet
 - Monitoring and utility tools each isolated in lightweight containers, reducing system resource consumption
-- Plenty of learning experiences managing a relatively complex set of machines and containers in Proxmox
+- Plenty of learning experiences managing a relatively complex set of virtual machines and containers in Proxmox
