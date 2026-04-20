@@ -160,3 +160,30 @@ Learning to use Kubernetes in the lab environment will enable later integration 
 ### Consequences
 - Kubernetes will be available for learning and experimentation (despite the single-node host system)
 - Kubernetes will not be available in the production environment (within the scope of the initial project)
+
+## DEC-006: Define Initial VM and LXC Workload Layout
+
+- Status: Proposed
+- Date: 2026-04-20
+
+### Context
+
+SERVERTRON-1 requires a workload layout for virtual machines and Linux containers. These must support Internet-facing servers, apps, utilities, monitoring, and a lab environment running Kubernetes.  
+
+### Decision
+
+VMs for an edge gateway, an apps platform, data services, a Minecraft server, and a media server. Linux containers for monitoring and utility applications.  
+
+### Rationale
+
+The edge gateway provides a single control point for traffic coming in and out of the Internet. The web server, game server, and media server must be isolated from each other to enhance security and prevent failures in one from affecting the others. Lightweight tools like monitoring and utility applications can be run in Linux containers to reduce operational workloads.  
+
+### Alternatives Considered
+
+- **Simpler configurations** were considered, such as running all major persistent services from the same virtual machines, but were rejected in favour of best practices of isolation and containerisation.
+- **More complex configurations** were considered (e.g. an ARK: Survival Evolved server) but rejected in favour of reducing project scope. Additional virtual machines, containers, and services can be added after the minimum goals of the project have been achieved.
+
+### Consequences
+- Isolation and separation between all major services, data services, and the gateway to the Internet
+- Monitoring and utility tools each isolated in lightweight containers, reducing system resource consumption
+- Plenty of learning experiences managing a relatively complex set of machines and containers in Proxmox
