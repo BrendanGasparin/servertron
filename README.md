@@ -59,7 +59,7 @@ Project: SERVERTRON follows a structured DevOps lifecycle to guide the design, i
 
 The lifecycle consists of the following stages:  
 
-1. **PLAN:** Define objectives, architecture, and constraints. Establish documentation, system design, and project scope.  
+1. [PLAN:](./phases/01-plan/README.md) Define objectives, architecture, and constraints. Establish documentation, system design, and project scope.  
 2. **CODE:** Develop configuration files, scripts, and infrastructure definitions. This includes version controlled assets and Infrastructure as Code where applicable.  
 3. **BUILD:** Provision infrastructure and construct system components, including virtual machines, containers, and supporting services.  
 4. **TEST:** Validate system functionality, networking, and service behaviour within controlled environments prior to release.  
