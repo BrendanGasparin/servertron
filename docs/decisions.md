@@ -219,3 +219,89 @@ ZFS is used in enterprise storage, production systems, and serious homelabs. Thi
 - Increased RAM usage (for the ARC cache)
 - Observability into health and other metrics
 - ZFS pools are not as flexible to expand as some other systems
+
+## DEC-008: Allocate Initial System Resources to VMs and LXCs
+
+- Status: Accepted
+- Date: 2026-04-20
+
+### Context
+
+Virtual machines and Linux containers require resource allocations for CPU, RAM, and storage.  
+
+### Decision
+
+Initial resource allocation is outlined in [Initial Architecture Notes](../phases/01-plan/initial-architecture-notes.md#virtual-machines--lxc-containers).  
+
+### Rationale
+
+CPU and RAM have been allocated conservatively, as they may be modified later. Storage space has been allocated generously, as this is more difficult to change once configured.  
+
+Current resource allocations still allow for the addition of new VMs, LXCs, and services at a later date.  
+
+### Alternatives Considered
+
+**Different resource allocatons:** Different resource allocations were considered. This includes both less and more of CPU cores, RAM, and storage space. The current configuration was settled on as a good initial configuration, and alternatives were discarded until the current configuration is tested.  
+
+### Consequences
+
+- Adequate CPU and RAM allocation for each VM and container according to purpose and workload
+- Plenty of storage for Minecraft and media server metadata
+- Surplus resources for allocation to future endeavours
+
+## DEC-009: Use Jellyfin for Media Server
+
+### Context
+
+Project: SERVERTRON requires a media server application. The most popular options are Plex and Jellyfin. Plex was used on SERVERTRON-1 previous to Project: SERVERTRON.  
+
+### Decision
+
+Use Jellyfin as the media server platform and store media on a dedicated external USB 3.2 drive.  
+
+### Alternatives Considered
+
+- **Plex:** Plex was considered (and used on SERVERTRON-1 prior to this project). But the Plex Pass is prohibitively expensive and is required for hardware transcoding and remote streaming. These features are free with Jellyfin.
+- **No media server platform:** The media server platform could be hosted on a different dedicated system like a NAS, but it is included in the scope of this project to get as much functionality out of SERVERTRON-1 as possible, and because SERVERTRON-1's iGPU is capable of hardware transcoding.
+
+### Consequences
+
+- Allows for free hardware transcoding and rmeote streaming of media.
+- Free, open source, and entirely
+- Will require hardware passthrough of iGPU for hardware transcoding
+- No client app for PlayStation 5 and perhaps some smart TVs. Fairly good support on all other platforms.  
+
+## DEC-010: Use External USB Storage in ext4 Format
+
+## Context
+
+The media server requires a lot of storage for the current catalogue of media. The media collection already exceeds 2 TB, which is the size of SERVERTRON-1's internal NVMe drive.  
+
+### Decision
+
+Media for the media server will be stored on a 5 TB USB drive formatted in ext4 format.  
+
+### Rationale
+
+An external media drive (or NAS) is necessary as there is not enough room on SERVERTRON-1's internal NVMe drive to store exisiting media.  
+
+ext4 was selected for the filesystem because it is stable, low-overhead, and well-suited to large, mostly read-heavy files such as video content.
+
+Because the drive will be connected through USB, the filesystem must tolerate occasional disconnects or instability. ext4's simplicity and makturity makes it more resilient for this context than more complex filesystems that assume stable, persistently connected disks.  
+
+External storage will be kept simple and separated from the more robust ZFS internal storage used for critical data.  
+
+## Alternatives Considered
+
+- **Internal storage:** Internal storage for media files was briefly considered but rejected because there is not enough space on existing storage, and adequate internal storage would be prohibitively expensive.
+- **ZFS:** Provides data integrity, snapshots, advanced features, and is already used for the internal storage. Rejected as a solution for media because it introduces significant overhead, depends on stable disk connections, and is not suitable for USB-attached storage.
+- **Btrfs:** Offers modern features such as snapshots and checksumming with lower overhead than ZFS. Rejected due to increased complexity and unpredictable behaviour under failure conditions, particularly on unstable storage (such as USB). The additional features do not provide meaningful value for the media workload.
+- **NTFS/exFAT:** Provides cross-platform compatibility with Windows and other operating systems. Rejected because these filesystems have weaker integration with Linux, including less reliable permissions and lower performance in Linux-based environments. Cross-platform compatibility is not required from this drive.
+
+## Consequences
+
+- 5 TB of external storage, allowing for storage of current media and addition of more at a later date
+- The media drive is simple, reliable, and easy to recover or remount
+- No advanced features such as snapshots or checksumming will be available on this storage layer
+- The drive is treated as non-critical storage with reliability handled through external backups instead of filesystem-level redundancy
+- Operational complexity is reduced using a filesystem that requires minimal tuning and maintenance
