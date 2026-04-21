@@ -24,7 +24,7 @@ ZFS will be used for the file system as it provides data integrity, snapshots, a
 
 ## Virtual Machines / LXC Containers
 
-A layer of virtual machines and Linux containers each containing isolated workloads.
+A layer of virtual machines and Linux containers running on Proxmox. Each contains isolated workloads.  
 
 ### Production Lane
 
@@ -64,7 +64,7 @@ The production lane hosts stable, persisent services intended for operational us
 **RAM:** 6 GB  
 **Storage:** 100 GB  
 
-- Media server platform (Plex or Jellyfin)
+- Media server platform (Jellyfin)
 - Metadata management and indexing
 - External media storage integration
 - Media content stored on external drive
