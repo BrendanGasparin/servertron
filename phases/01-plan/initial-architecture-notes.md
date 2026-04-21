@@ -1,5 +1,7 @@
 # Project: SERVERTRON Initial Architecture Notes
 
+Initial notes on architecture during the planning phase of the first iteration of Project: SERVERTRON.  
+
 ## Internet/Users
 
 The Internet and users of the web server, media server, game server, and other Internet-facing apps.  
