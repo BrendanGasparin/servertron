@@ -273,6 +273,9 @@ Use Jellyfin as the media server platform and store media on a dedicated externa
 
 ## DEC-010: Use External USB Storage in ext4 Format
 
+- Status: Accepted
+- Date: 2026-04-22
+
 ## Context
 
 The media server requires a lot of storage for the current catalogue of media. The media collection already exceeds 2 TB, which is the size of SERVERTRON-1's internal NVMe drive.  
@@ -305,3 +308,31 @@ External storage will be kept simple and separated from the more robust ZFS inte
 - No advanced features such as snapshots or checksumming will be available on this storage layer
 - The drive is treated as non-critical storage with reliability handled through external backups instead of filesystem-level redundancy
 - Operational complexity is reduced using a filesystem that requires minimal tuning and maintenance
+
+## DEC-011: Use an Edge Gateway with Nginx Reverse Proxy
+
+Status: Accepted
+Date: 2026-04-22
+
+### Context
+
+A networking model is required for Project: SERVERTRON's VMs and LXCs.  
+
+### Decision
+
+Use a dedicated edge gateway VM as a reverse proxy server and TLS termination point.  
+
+### Rationale
+
+An edge gateway VM with a reverse proxy (Nginx) providing a single entry point into the system that will receive Internet traffic and route it to the correct internal service. Only one machine/container will be exposed to the Internet, and everything else will remain hidden inside the network. Routing and security can be managed on a single VM.  
+
+### Alternative Considered
+- **Port forwarding for all VMs and LXCs:** Individually configuring each VM and LXC to access the Internet would increase complexity and reduce security. An edge gateway is better practice, so this alternative was discarded.  
+
+### Consequences
+
+- Only one machine will be exposed to the Internet
+- Routing and security can be managed in one place
+- TLS termination allows all incoming requests to be handled with a single certificate
+- Steep learning curve to use Nginx for everything it is required for
+
