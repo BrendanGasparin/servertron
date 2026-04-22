@@ -336,3 +336,68 @@ An edge gateway VM with a reverse proxy (Nginx) providing a single entry point i
 - TLS termination allows all incoming requests to be handled with a single certificate
 - Steep learning curve to use Nginx for everything it is required for
 
+## DEC-012: Run Docker on Ubuntu Server for VM 110 apps-platform
+
+### Context
+
+One of the goals of Project: SERVERTRON is to learn modern DevOps technologies such as containerisation. Docker has been chosen for the primary production lane containerisation platform, and will be installed on Ubuntu server in VM 110 apps-platform to manage containers for applications and services.  
+
+### Decision
+
+Run Docker on Ubuntu Server in VM 100 apps-platform.  
+
+### Rationale
+
+Ubuntu Server provides a large ecosystem and extensive documentation. It behaves predictably, and has long term support (5+ years).  
+
+Ubuntu Server has excellent Docker support, and is often the standard guest operating system in DevOps environments.  
+
+### Alternatives Considered
+
+- **Red Hat Enterprise Linux (RHEL) as OS:** RHEL is more suited to data centers than modern DevOps platforms. Ubuntu Server aligns well with the use of Docker and DevOps practices.
+- **Docker on multiple VMs:** Other VMs (databases, media server, Minecraft server, etc.) are better suited to dedicated Virtual Machines than containerised environments. Databases require stability and predictable storage, and while Jellyfin and Minecraft could both run in Docker it will reduce complexity and support isolation for them to have their own virtual machines.
+- **No Docker:** It is one of the goals of Project: SERVERTRON to learn modern DevOps techniques and technology and this includes Docker. Project: SERVERTRON is centred around virtualisation and containerisation and these are indispensible to the purpose of the project.
+
+### Consequences
+
+- Containerisation through Docker on VM 110 apps-platform
+- Clean application layer with apps groups by purpose
+- Separation of concerns
+- VM 110 becomes a concentration point and single point of failure for multiple application services
+- Extra abstraction layer to manage, more moving parts
+- Data persistence must be handled more carefully (lest a VM or container with important data be deleted)
+
+
+## DEC-013: Use Ubuntu Server as the Standard Guest Operating System
+
+- Status: Accepted
+- Date: 2026-04-22
+
+### Context
+
+Project: SERVERTRON reqiures a guest operating system strategy for virtual machines and containers, including multiple workloads. This strategy must support the goals of reflecting real-world architecture, and enabling learning across Proxmox, Docker, Kubernetes, and other tooling. It must also avoid introducing unnecessary complexity to the platform and learning process.  
+
+### Decision
+
+Ubuntu Server will be used as the standard guest operating system across all VMs, with Debian-based lightweight templates used for containers where appropriate.  
+
+### Rationale
+
+Ubuntu service provides a balance of stability, ecosystem support, and alignment with modern infrastructure practices. It is widely used in cloud, DevOps, container, and self-hosted environments.  
+
+Using Ubuntu Server across the main VMs reduces unnecessary variation in package management, service administration, documentation, and troubleshooting. It also reduces the learning complexity required to administer and operate the system.  
+
+### Alternatives Considered
+
+- **Rocky Linux:** Used for traditional enterprise infrasttrucure, especially on-premises environments. Rejected for VM 120 data-services because it would introduce an additional operating system and related overhead and reduce consistency across the platform.
+- **AlmaLinux:** Similar to Rocky Linux. Rejected for the same reasons as Rocky Linux.
+- **Debian:** Stable, lightweight, and well-suited to infrastructure services. Not selected because Ubuntu offers stronger documentation, alignment with the rest of the infrastructure, and a common reference point for container and Kubernetes workflows. Debian is still a valid option for lightweight LXCs.
+**Mixed operating system strategy from the outset:** While this might more slosely reflect some real-world environments, it was rejected for adding complexity before establishing a baseline architecture and operations.
+
+### Consequences
+
+- Guest operating systems across SERVERTRON will remain consistent, reducing operational overhead and simplifying documentation and learning
+- Integration with Docker, Kubernetes, and other core tools will be more consistent
+- Ubuntu Server reflects modern cloud and DevOps infrasture patterns better than a RHEL-centric environment
+- The project will not initially model a heterogeneous enterprise operating system environment
+- Future introduction of other guest OSes remains possible if later design decisions or learning goals support the additional complexity

@@ -46,6 +46,8 @@ This separates the VM/LXC layer from outside traffic so that incoming traffic ca
 
 #### VM 110 apps-platform (Apps Platform)
 
+Applications and services running in Docker containers on an Ubuntu Server VM.  
+
 **vCPU:** 4  
 **RAM:** 6 GB  
 **Storage:** 120 GB  
@@ -57,7 +59,7 @@ This separates the VM/LXC layer from outside traffic so that incoming traffic ca
 
 **vCPU:** 4  
 **RAM:** 6 GB  
-**Storage:** 150 GB
+**Storage:** 150 GB  
 
 - Databases
 - Persistent data layer
