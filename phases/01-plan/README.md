@@ -8,7 +8,7 @@ The ultimate goal of Project: SERVERTRON is to establish a DevOps system that ha
 
 A lab environment will also be created for software development, learning, and experimentation.  
 
-These goals are futher documented in the [Goals document](./goals.md).  
+These goals are further documented in the [Goals document](./goals.md).  
 
 ## Documents
 
