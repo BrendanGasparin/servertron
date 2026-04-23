@@ -24,17 +24,52 @@ Tools are evaluated according to the following criteria:
 
 ## 3. Constraints & Assumptions
 
+The following are the constraints and assumptions for Project: SERVERTRON:
+
+- The host machine, SERVERTRON-1, is pre-existing infrastructure. Further expenditure on the project will be minimal unless necessary hardware fails.
+- SERVERTRON-1 is limited by its specifications: 16 logical cores, 64 GB RAM, and a 2 TB NVMe for internal storage.
+- Production workloads must be isolated from development, learning, and experimental environments.
+- Internet-facing services (and internal ones) must be kept secure and available.
+- Kubernetes will not be used in the production environment as it is designed for multi-node systems and adds unnecessary complexity to the project.
+
 ## 4. Tooling Categories Overview
+
+The following domains were evaluated for tooling:
+
+- Hypervisor
+- Operating system(s)
+- Containerisation
+- Orchestration
+- Reverse proxy / edge gateway
+- Databases
+- Monitoring and observability
+- Networking
+- CI/CD and GitOps (in a future iteration)
 
 ## 5. Hypervisor Evaluation
 
 ### Options Considered
 
+- **VMware ESXi:** An industry-standard hypervisor with strong performance and features. Limited functionality on the free tier and less flexibility for container-based workloads.
+- **Microsoft Hyper-V:** Integrates well with Windows environment, but less suitable for the Linux-based stack and tooling planned for Project: SERVERTRON.  
+- **Bare-metal Linux (no hypervisor):** This is a simpler setup but lacks isolation, flexibility, and the ability to model multi-system architectures. It should be noted that SERVERTRON-1 was running bare-metal Linux previously to being rebuilt as a Proxmox hypervisor in Project: SERVERTRON.  
+
 ### Comparison Criteria
+
+- Enterprise usage
+- Cost
+- Feature set
+- Suitability for project
 
 ### Decision
 
+Proxmox VE.
+
 ### Rationale
+
+- Features a strong balance of enterprise concept and accessibility
+- Built-in clustering, storage, and networking
+- Open-source and widely used in homelabs
 
 ## 6. Operating System Strategy
 
