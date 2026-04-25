@@ -25,7 +25,7 @@ ZFS will be used for the file system as it provides data integrity, snapshots, a
 **Storage:** 400 GB. 100 for Proxmox, packages, and logs. 100 for ISOs, templates, backups/snippets/misc. 200 GB for ZFS/snapshot/free-space for operations.  
 
 ### ZFS ARC
-**RAM:** Allow 8-12 GB for ZFS ARC and cap later if necessary.  
+**RAM:** Allow 8 GB for ZFS ARC and cap later if necessary.  
 
 ## Virtual Machines / LXC Containers
 
@@ -53,7 +53,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 
 **vCPU:** 4  
 **RAM:** 6 GB  
-**Storage:** 120 GB  
+**Storage:** 200 GB  
 
 - Runs Docker / Docker Compose
 - Hosts application services (web, APIs, etc.)
@@ -119,6 +119,6 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 
 ### Total Resources Assigned
 
-**vCPUs assigned:** 25  
-**RAM assigned:** 45 GB  
-**Storage assigned:** 832 GB  
+**vCPUs assigned:** 23  
+**RAM assigned:** 61 GB  
+**Storage assigned:** 1412 GB  
