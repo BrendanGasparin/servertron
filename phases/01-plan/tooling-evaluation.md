@@ -94,7 +94,7 @@ Use Ubuntu Server as the standard guest operating system.
 
 Ubuntu Server offers an extensive ecosystem, community, and documentation. I am already familiar with Debian-based Linux, reducing the learning curve to master the system. Ubunto Server is compatile with Docker and Kubernetes/K3s.  
 
-Rocky Linus was considered to host the data layer for enterprise realism (as it is compatible with Red Hat Enterprise Linux). This was rejected in favour of using Ubuntu Server uniformly across all virtual machines, reducing unnecessary complexity and the learning curve for the system.  
+Rocky Linux was considered to host the data layer for enterprise realism (as it is compatible with Red Hat Enterprise Linux). This was rejected in favour of using Ubuntu Server uniformly across all virtual machines, reducing unnecessary complexity and the learning curve for the system.  
 
 ## 7. Containerisation Strategy
 
@@ -132,11 +132,11 @@ Kubernetes orchestrates containers at scale, while Docker runs containers locall
 
 ### Decision
 
-NGINX will be used on VM 100 edge-gateway to serve as a reverse proxy and edge entry point for apps-platform and k3s-lab.  
+NGINX will be used on VM 100 edge-gateway to serve as a reverse proxy and edge entry point for VM 110 apps-platform and VM 300 k3s-lab.  
 
 ### Rationale
 
-NGINX was chosen because it is industry-standard tooling for reverse proxies. It provides full control over traffic routing, is compatible with both Docker and any future Kubernetes-based architecture, and has a good balance of performance, flexibility, documentation, and long-term compatibility with the rest of the technoogy stack.  
+NGINX was chosen because it is industry-standard tooling for reverse proxies. It provides full control over traffic routing, is compatible with both Docker and any future Kubernetes-based architecture, and has a good balance of performance, flexibility, documentation, and long-term compatibility with the rest of the technology stack.  
 
 ## 10. Database Strategy
 

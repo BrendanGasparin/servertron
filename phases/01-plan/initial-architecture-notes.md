@@ -38,7 +38,7 @@ The production lane hosts stable, persisent services intended for operational us
 **RAM:** 2 GB  
 **Storage:** 32 GB  
 
-This separates the VM/LXC layer from outside traffic so that incoming traffic can be handled at the source.  
+This separates the VM 110 and VM 300 from outside traffic so that incoming traffic can be handled at the source.  
 
 - Reverse proxy
 - TLS termination
