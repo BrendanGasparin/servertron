@@ -2,9 +2,19 @@
 
 ## 1. Executive Summary
 
+SERVERTRON is a DevOps homelab and production-style infrastructure for hosting websites, media, game services, and other future services. The goal is to learn DevOps and production practices, and host a production environment for websites and ecommerce, by mirroring real-world enterprise infrastructure as closely as possible (without unnecessary costs or drawbacks).  
+
 This roadmap outlines the phased development of the SERVERTRON infrastructure from planning through to coding, testing, deployment, operations, and monitoring.  
 
 ## 2. Guiding Principles
+
+The guiding principles of Project: SERVERTRON are as follows:  
+
+- To build production-style architecture
+- To prioritise learning and real-world relevance
+- Keep services isolated with a VM-first approach
+- Prefer open source tools due to transparency and quality
+- Document everything publicly
 
 ## 3. Current State
 
