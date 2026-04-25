@@ -454,7 +454,7 @@ Use Redis for fast, temporary storage.
 
 Redis is an in-memory data store used for caching, session management, and real-time data, complementing PostgreSQL by handling high-speed, temporary workloads that do not require persistence.  
 
-## DEC-017: Expose Jellyfin via an NGINX Reverse Proxy
+## DEC-018: Expose Jellyfin via an NGINX Reverse Proxy
 
 ### Decision
 
@@ -463,3 +463,23 @@ Expose Jellyfind via an NGINX reverse proxy with TLS termination using Let's Enc
 ### Consequences
 
 - Provide encrypted HTTPS access to media while avoiding Cloudflare proxy limitations by using DNS-only routing  
+
+## DEC-019: Use Prometheus, Grafana, and Loki for Monitoring and Observability
+
+### Context
+
+Tooling is required for LXC 200 monitoring to perform its function of monitoring and reporting on the rest of the system.  
+
+### Decision
+
+Prometheus will be used to collect metrics, Loki will be used to collect logs, and Grafana will provide dashboards and visualisation.  
+
+### Rationale
+
+Prometheus collects system metrics such as CPU, RAM, and disk usage, network traffic, container stats, and service health. This data can be queried using PromQL or viewed through Grafana.  
+
+Loki collects and stores logs such as NGINX access logs, Jellyfin logs, Docker container logs, and system logs.  
+
+Grafana connects to Promethus and Loki and displays their relevant data in visual dashboards (graphs, charts, alerts, and overview panels).  
+
+These tools are industry standard and well-suited to working with Docker, Kubernetes, NGINX, and Linux VM. They are scaleable and separate concerns into three neat tools for metrics, logs, and visualisation.  
