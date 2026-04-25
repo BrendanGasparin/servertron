@@ -418,7 +418,11 @@ Cloudflare will be used as a proxy for VM 100 edge-gateway, and for SSL, a web a
 
 ### Context
 
+Databases are required for a persistent data layer in the SERVERTRON system. Compatibility with WordPress is also required.    
+
 ### Decision
+
+PostgreSQL will be used as a primary database. MariaDB will be used a secondary database for WordPress compatibility.  
 
 ### Rationale
 
@@ -428,5 +432,10 @@ MariaDB will be as a secondary database for WordPress compatibility.
 
 ### Alternatives Considered
 
+- PostgreSQL
+- MariaDB
+- MySQL
+
 ### Consequences
 
+- 
