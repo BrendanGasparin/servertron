@@ -448,8 +448,18 @@ Redis can be used on VM 120 data-services as fast, temporary storage for working
 
 ### Decision
 
-Use Reds for fast, temporary storage.  
+Use Redis for fast, temporary storage.  
 
 ### Rationale
 
 Redis is an in-memory data store used for caching, session management, and real-time data, complementing PostgreSQL by handling high-speed, temporary workloads that do not require persistence.  
+
+## DEC-017: Expose Jellyfin via an NGINX Reverse Proxy
+
+### Decision
+
+Expose Jellyfind via an NGINX reverse proxy with TLS termination using Let's Encrypt certificates.  
+
+### Consequences
+
+- Provide encrypted HTTPS access to media while avoiding Cloudflare proxy limitations by using DNS-only routing  
