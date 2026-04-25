@@ -412,13 +412,13 @@ Cloudflare provides a proxy, DNS services, SSL, DDoS protection, a web applicati
 
 ### Decision
 
-Cloudflare will be used as a proxy for VM 100 edge-gateway, and for SSL, a web application firewall, and DDoS protection on related services. It will also be used as a DNS server for all components of the architecture.  
+Cloudflare will be used as a proxy for VM 100 edge-gateway, and for SSL, a web application firewall, and DDoS protection on related services. It will also be used as a DNS server for all components of the architecture. High bandwidth applications such as Jellyfin and Plex are against Cloudflare's Terms of Service and will be port-forwarded through the router directly to the client.  
 
 ## DEC-016: Use PostgreSQL as Primary Database and MariaDB for WordPress
 
 ### Context
 
-Databases are required for a persistent data layer in the SERVERTRON system. Compatibility with WordPress is also required.    
+Databases are required for VM 120 data-services to run as a persistent data layer in the SERVERTRON system. Compatibility with WordPress is also required.  
 
 ### Decision
 
@@ -439,3 +439,17 @@ MariaDB will be as a secondary database for WordPress compatibility.
 ### Consequences
 
 - 
+
+## DEC-017: Use Redis for Fast, Temporary Data
+
+### Context
+
+Redis can be used on VM 120 data-services as fast, temporary storage for working values.  
+
+### Decision
+
+Use Reds for fast, temporary storage.  
+
+### Rationale
+
+Redis is an in-memory data store used for caching, session management, and real-time data, complementing PostgreSQL by handling high-speed, temporary workloads that do not require persistence.  
