@@ -2,7 +2,9 @@
 
 ## 1. Executive Summary
 
-SERVERTRON is a DevOps homelab and production-style infrastructure for hosting websites, media, game services, and other future services. The goal is to learn DevOps and production practices, and host a production environment for websites and ecommerce, by mirroring real-world enterprise infrastructure as closely as possible (without unnecessary costs or drawbacks).  
+SERVERTRON is a DevOps homelab and production-style infrastructure for hosting websites, media, game services, and other future services.
+
+The goal is to mirror real-world enterprise infrastructure as closely as possible (without unnecessary costs or drawbacks) for learning purposes.  
 
 This roadmap outlines the phased development of the SERVERTRON infrastructure from planning through to coding, testing, deployment, operations, and monitoring.  
 
@@ -32,13 +34,15 @@ The DevOps lifecycle is an iterative loop, divided into both (software) developm
 
 **Deliverables:**  
 
-- Architecture document and diangram
+- Architecture document and diagram
 - VM allocation plan
 - Tooling evaluation document
 - Network design
 - Security model (Cloudflare, exposure strategy)
 
 ### Phase 2: CODE
+
+**Goal:** 
 
 ### Phase 3: BUILD
 
