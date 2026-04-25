@@ -402,4 +402,31 @@ Using Ubuntu Server across the main VMs reduces unnecessary variation in package
 - The project will not initially model a heterogeneous enterprise operating system environment
 - Future introduction of other guest OSes remains possible if later design decisions or learning goals support the additional complexity
 
+## DEC-014: Use NGINX for Networking and Reverse Proxy on VM 110
+
+## DEC-015: Use Cloudflare for DNS, Proxy, SSL, and Zero-Trust Tunnels
+
+### Context
+
+Cloudflare provides a proxy, DNS services, SSL, DDoS protection, a web application firewall, and zero-trust tunnels to protect the system from unauthorised access and use.  
+
+### Decision
+
+Cloudflare will be used as a proxy for VM 100 edge-gateway, and for SSL, a web application firewall, and DDoS protection on related services. It will also be used as a DNS server for all components of the architecture.  
+
+## DEC-016: Use PostgreSQL as Primary Database and MariaDB for WordPress
+
+### Context
+
+### Decision
+
+### Rationale
+
+PostgreSQL is open-source and commonly used in enterprise and production environments.  
+
+MariaDB will be as a secondary database for WordPress compatibility.  
+
+### Alternatives Considered
+
+### Consequences
 
