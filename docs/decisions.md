@@ -309,7 +309,7 @@ External storage will be kept simple and separated from the more robust ZFS inte
 - The drive is treated as non-critical storage with reliability handled through external backups instead of filesystem-level redundancy
 - Operational complexity is reduced using a filesystem that requires minimal tuning and maintenance
 
-## DEC-011: Use an Edge Gateway with Nginx Reverse Proxy
+## DEC-011: Use an Edge Gateway with NGINX Reverse Proxy
 
 Status: Accepted
 Date: 2026-04-22
@@ -324,7 +324,7 @@ Use a dedicated edge gateway VM as a reverse proxy server and TLS termination po
 
 ### Rationale
 
-An edge gateway VM with a reverse proxy (Nginx) providing a single entry point into the system that will receive Internet traffic and route it to the correct internal service. Only one machine/container will be exposed to the Internet, and everything else will remain hidden inside the network. Routing and security can be managed on a single VM.  
+An edge gateway VM with a reverse proxy (NGINX) providing a single entry point into the system that will receive Internet traffic and route it to the correct internal service. Routing and security can be largely managed on a single VM.  
 
 ### Alternative Considered
 - **Port forwarding for all VMs and LXCs:** Individually configuring each VM and LXC to access the Internet would increase complexity and reduce security. An edge gateway is better practice, so this alternative was discarded.  
@@ -401,3 +401,5 @@ Using Ubuntu Server across the main VMs reduces unnecessary variation in package
 - Ubuntu Server reflects modern cloud and DevOps infrasture patterns better than a RHEL-centric environment
 - The project will not initially model a heterogeneous enterprise operating system environment
 - Future introduction of other guest OSes remains possible if later design decisions or learning goals support the additional complexity
+
+
