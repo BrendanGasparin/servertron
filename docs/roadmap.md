@@ -18,9 +18,25 @@ The guiding principles of Project: SERVERTRON are as follows:
 
 ## 3. Current State
 
+[Planning stage](../phases/01-plan/README.md).  
+
 ## 4. DevOps Lifecycle Roadmap
 
+The DevOps lifecycle is an iterative loop, divided into both (software) development and operations, and consists of four phases.  
+
+![Diagram of the DevOps lifecycle.](./images/devops-lifecycle.png)
+
 ### Phase 1: PLAN
+
+**Goal:** Define all major architecture and tooling decisions.  
+
+**Deliverables:**  
+
+- Architecture document and diangram
+- VM allocation plan
+- Tooling evaluation document
+- Network design
+- Security model (Cloudflare, exposure strategy)
 
 ### Phase 2: CODE
 
@@ -48,6 +64,7 @@ The guiding principles of Project: SERVERTRON are as follows:
 
 | Milestone | Decription                | Status ✅/⏳  |
 |-----------|---------------------------|----------------|
+| M1        | Architecture defined      | ⏳            |
 | M2        | Core VMs deployed         | ⏳            |
 | M3        | First public service live | ⏳            | 
 | M4        | Monitoring operational    | ⏳            |
@@ -55,3 +72,9 @@ The guiding principles of Project: SERVERTRON are as follows:
 
 
 ## 7. Notes
+
+This roadmap is iterative and will evolve in the future.
+
+The focus of this project is on both learning and real world applicability, while also self-hosting services I want.  
+
+Not all features may be implemented immediately.  
