@@ -62,7 +62,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 
 **vCPU:** 4  
 **RAM:** 6 GB  
-**Storage:** 150 GB  
+**Storage:** 400 GB  
 
 - Databases
 - Persistent data layer
@@ -121,4 +121,4 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 
 **vCPUs assigned:** 25  
 **RAM assigned:** 45 GB  
-**Storage assigned:** 682 GB  
+**Storage assigned:** 832 GB  
