@@ -63,53 +63,92 @@ The following domains were evaluated for tooling:
 
 ### Decision
 
-Proxmox VE.
+Proxmox VE will be used as a hypervisor.  
 
 ### Rationale
 
-- Features a strong balance of enterprise concept and accessibility
+- Balances enterprise concepts and ease of use
 - Built-in clustering, storage, and networking
-- Open-source and widely used in homelabs
+- Open-source and used frequently in homelabs and containerisation
 
 ## 6. Operating System Strategy
 
 ### Options Considered
 
+- Ubuntu Server
+- Rocky Linux
+- AlmaLinux
+
 ### Evaluation
+
+- Enterprise alignment
+- Package ecosystem
+- Learning curve
+- Compatibility with Docker/Kubernetes
 
 ### Decision
 
+Use Ubuntu Server as the standard guest operating system.  
+
 ### Rationale
+
+Ubuntu Server offers an extensive ecosystem, community, and documentation. I am already familiar with Debian-based Linux, reducing the learning curve to master the system. Ubunto Server is compatile with Docker and Kubernetes/K3s.  
+
+Rocky Linus was considered to host the data layer for enterprise realism (as it is compatible with Red Hat Enterprise Linux). This was rejected in favour of using Ubuntu Server uniformly across all virtual machines, reducing unnecessary complexity and the learning curve for the system.  
 
 ## 7. Containerisation Strategy
 
 ### Options Considered
 
+- Docker
+- No containerisation
+
 ### Decision
+Docker as the primary containerisation technology.  
 
 ### Rationale
+Docker is industry standard in most environments and has simple integration for the early phases of the project. Docker is required knowledge for Kubernetes.  
 
 ## 8. Orchestration Strategy
 
 ### Options Considered
+- Kubernetes
+- K3s
 
 ### Decision
+K3s, but in the lab environment only.  
 
 ### Rationale
+
+Kubernetes orchestrates containers at scale, while Docker runs containers locally. K3s is a lightweight Kubrnetes distribution that allows me to learn real orchestration concepts in a resource-constrained environment. These skill may later be transferred to a more distributed architecture (e.g. a cluster).  
 
 ## 9. Reverse Proxy / Edge Layer
 
 ### Options Considered
 
+- NGINX
+- Traefik
+- **No edge gateway:** No edge gateway whatsoever would require multiple guest machines to be connected to the Internet and configured for security. This option was discarded as too complex, with too much redundant configuration.  
+
 ### Decision
 
+NGINX will be used on VM 100 edge-gateway to serve as a reverse proxy and edge entry point for apps-platform and k3s-lab.  
+
 ### Rationale
+
+NGINX was chosen because it is industry-standard tooling for reverse proxies. It provides full control over traffic routing, is compatible with both Docker and any future Kubernetes-based architecture, and has a good balance of performance, flexibility, documentation, and long-term compatibility with the rest of the technoogy stack.  
 
 ## 10. Database Strategy
 
 ### Options Considered
 
+- PostgreSQL
+- MariaDB
+- MySQL
+
 ### Decision
+
+
 
 ### Rationale
 
@@ -119,18 +158,44 @@ Proxmox VE.
 
 ### Decision
 
+Prometheus and Grafana.  
+
 ### Rationale
 
 ## 12. Networking Approach
 
 ### Design Choices
 
+- Reverse proxy as an entry point for apps-plaform and k3s-lab VMs
+- 
+- Direct connection for game servers
+
+![SERVERTRON Network Flow Diagram](./images/servertron-network-flow.png)
+*SERVERTRON Network Flow Diagram.*
+
 ### Future Considerations
 
+- VLAN segmentation
+
 ## 13. Final Tooling Stack Summary
+
+- **Hypervisor:** Proxmox
+- **Operating systems:** Ubuntu Server
+- **Containers:** Docker
+- **Orchestration:** K3s (lab only)
+- **Reverse proxy:** NGINX
+- **Database:**
+- **Monitoring:** Prometheus and Grafana
 
 ## 14. Risks & Trade-Offs
 
 ## 15. Future Evolution
+
+Options for future evolution include:
+
+- Moving toward full Kubernetes
+- Introducing high availability (clustering)
+- Adding GitOps (ArgoCD)
+- Adding NextCloud for cloud storage and other services
 
 ## 16. Appendix
