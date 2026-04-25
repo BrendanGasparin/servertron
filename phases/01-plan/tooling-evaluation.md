@@ -166,9 +166,10 @@ Prometheus and Grafana.
 
 ### Design Choices
 
-- Reverse proxy as an entry point for apps-plaform and k3s-lab VMs
-- 
-- Direct connection for game servers
+- Reverse proxy as an entry point for apps-plaform and k3s-lab VMs (with TLS and WAF)
+- Direction connection for game servers and Jellyfin
+- Cloudflare handles DNS for all services and provides TLS termination, WAF, and DDoS protection for proxied web applications
+- High bandwidth and non-HTTP services bypass the proxy and connect directly to their clients
 
 ![SERVERTRON Network Flow Diagram](./images/servertron-network-flow.png)
 *SERVERTRON Network Flow Diagram.*
