@@ -25,6 +25,19 @@ The following are the goals of Project: SERVERTRON:
     - Minecraft server
 - Expose services securely using Cloudflare where appropriate, using it as a proxy for web services (but as DNS only for high bandwidth services such as Jellyfin and Minecraft).
 
+## 3. Lab Environment
+
+- Implement a dedicated lab environment for development, testing, and experimentation.
+- Deploy K3s in the lab environment for learning container orchestration concepts.
+
+## 4. Data Protection
+
+- Implement a backup strategy that includes:
+    - regular automated backups
+    - local redundancy where appropriate
+    - at least one off-site backup
+- Validate backups by performing at least one successful restore for each type of media
+
 ---
 
 - Learn to competently use Proxmox, Docker, and DevOps tools
