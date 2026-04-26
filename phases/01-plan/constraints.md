@@ -70,3 +70,5 @@ The following are explicitly **out of scope** for the initial phase of Project: 
 - Eliminating all single point of failure within the system
 - Implementing advanced network segmentation (e.g. VLANs, complex firewall topologies) beyond basic security requirements
 - Using paid enterprise tooling where suitable open-source alternatives exist
+
+These non-goals may be revisited at a later date.  
