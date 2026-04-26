@@ -27,6 +27,14 @@ The following constraints and assumptions define the operating boundaries of Pro
 - Cloudflare is used for DNS and selective proxying
 - High-bandwidth and non-HTTP services (e.g. Minecraft server and Jellyfin server) bypass Cloudflare proxying and connect directly to the client
 
+## 4. Platform Assumptions
+
+- The system is built using Proxmox as the primary hypervisor
+- Ubuntu Server is used as the standard operating system for all virtual machines
+- Docker is used for application deployment within the applications platform VM
+- Kubernetes is not used in the production environment due to its complexity and typical multi-mode design
+- Kubernetes is used only within the lab environment for learning and experimentation
+
 ---
 
 - Production workloads must be isolated from development, learning, and experimental environments.
