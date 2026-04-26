@@ -49,6 +49,14 @@ Develop practical competency with:
 - monitoring and obervability
 - infrastructure as code
 
+## 6. Documentation
+
+- Document all stages of the project in a public GitHub repository
+- Produce supporting content covering:
+    - Architectural decisions
+    - Setup process
+    - Lessons learned
+
 ---
 
 - Learn to competently use Proxmox, Docker, and DevOps tools
