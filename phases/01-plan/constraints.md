@@ -35,8 +35,12 @@ The following constraints and assumptions define the operating boundaries of Pro
 - Kubernetes is not used in the production environment due to its complexity and typical multi-mode design
 - Kubernetes is used only within the lab environment for learning and experimentation
 
----
+## 5. Operational Assumptions
 
-- Production workloads must be isolated from development, learning, and experimental environments.
-- Internet-facing services (and internal ones) must be kept secure and available.
-- Kubernetes will not be used in the production environment as it is designed for multi-node systems and adds unnecessary complexity to the project.
+- The system operates in a homelab environment, not a data centre
+- Power redundancy (e.g. UPS) is not currently implemented
+- Availability is **best effort**, not an enterprise-grade SLA
+- Backups are configured to mitigate risk from:
+    - hardware failure
+    - data corruption
+    - configuration errors
