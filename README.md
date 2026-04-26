@@ -35,7 +35,7 @@ The following are **out of scope** of the first iteration of the project lifecyc
 
 ## 4. Architecture Summary
 
-Project: SERVERTRON is built on a single-node virtualised infrastructure running on a single mini-PC (SERVERTRON-1), using Proxmox as a hypervisor.  
+Project: SERVERTRON is built on a single-node virtualised infrastructure running on a single mini-PC (SERVERTRON-1), using Proxmox VE as the hypervisor.  
 
 The system is structured into two environments:  
 
@@ -48,7 +48,7 @@ Workloads are distributed according to the following principles:
 - **Linux Containers (LXCs)** are used for lightweight internal utilities and supporting services.
 - **Containerised Applications** are deployed within dedicated VMs using Docker and Docker Compose.
 
-The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to monitor system performance and health.  
+The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to provide observability across system performance and health.  
 
 A Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for experimentation and learning purposes.
 
@@ -68,7 +68,7 @@ The lifecycle consists of the following stages:
 4. **TEST:** Validate system functionality, networking, and service behaviour within controlled environments prior to release.  
 5. **RELEASE:** Approve stable builds and define versioned milestones for deployment.
 6. **DEPLOY:** Deploy approved configurations and services into the target environment.
-7. **OPERATE:** Run an maintain live systems, ensuring availability, reliability, and performance of deployed services.
+7. **OPERATE:** Run and maintain live systems, ensuring availability, reliability, and performance of deployed services.
 8. **MONITOR:** Observe system health and performance using monitoring and logging tools, providing feedback for continuous improvement.
 
 This is an iterative cycle, with the feedback from the monitoring phase informing the planning of the next iteration. This enables continuous refinement of the system while maintaining alignment with DevOps principles and real-world operational practices.  
