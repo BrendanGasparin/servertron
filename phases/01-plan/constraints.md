@@ -11,6 +11,14 @@ The following constraints and assumptions define the operating boundaries of Pro
     - 64 GB RAM
     - 2 TB NVMe internal storage.
 
+## 2. Architecture Constraints
+
+- The environment is limited to a **single-node deployment** with no high availability or clustering
+- Workloads must be isolated by function, including:
+    - production services
+    - developmental, experimental, and testing environments
+- Virtual machines are preferred for service isolation; containers are used for dedicated application environments
+
 ---
 
 - Production workloads must be isolated from development, learning, and experimental environments.
