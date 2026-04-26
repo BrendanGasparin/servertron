@@ -27,8 +27,8 @@ The following are the goals of Project: SERVERTRON:
 
 ## 3. Lab Environment
 
-- Implement a dedicated lab environment for development, testing, learning, and experimentation.
-- Deploy K3s in the lab environment for learning container orchestration concepts.
+- Implement a dedicated lab environment for development, testing, learning, and experimentation
+- Deploy K3s in the lab environment for learning container orchestration concepts
 
 ## 4. Data Protection
 
@@ -57,7 +57,14 @@ Develop practical competency with:
     - Setup process
     - Lessons learned
 
----
+## 7. Completion Criteria
 
-- Learn to competently use Proxmox, Docker, and DevOps tools
-- Document every stage of the project through GitHub and YouTube.
+The initial phase of Project: SERVERTRON is complete when:
+
+- The hypervisor and storage are fully configured
+- Core services are deployed and operational
+- At least one web service is accessible over HTTPS
+- Jellyfin and Minecraft are accessible externally
+- Backups are functioning and verified
+- Documentation is complete and up to date
+
