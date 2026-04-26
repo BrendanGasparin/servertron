@@ -17,6 +17,14 @@ The following are the goals of Project: SERVERTRON:
     - monitoring (Prometheus, Loki, Grafana)
     - utilities
 
+## 2. Production Environment
+
+- Implement a production-style environment capable of running:
+    - web services (HTTPS via NGINX)
+    - media server (Jellyfin)
+    - Minecraft server
+- Expose services securely using Cloudflare where appropriate, using it as a proxy for web services (but as DNS only for high bandwidth services such as Jellyfin and Minecraft).
+
 ---
 
 - Learn to competently use Proxmox, Docker, and DevOps tools
