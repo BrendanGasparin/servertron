@@ -44,3 +44,29 @@ The following constraints and assumptions define the operating boundaries of Pro
     - hardware failure
     - data corruption
     - configuration errors
+
+## 6. Security Assumptions
+
+- External exposure is minimised and controlled through:
+    - reverse proxy (NGINX)
+    - firewall rules
+    - Cloudflare (for proxied services)
+- Services that bypass the proxy are secured through:
+    - authentication
+    - limited port exposure
+    - system hardening practices
+
+## 7. Non-Goals
+
+The following are explicitly **out of scope** for the initial phase of Project: SERVERTRON:
+
+- Achieving enterprise-grade high availability (HA), clustering, or zero-downtime failover
+- Building a multi-node infrastructure or distributed system
+- Providing enterprise-grade SLAs or guaranteed uptime
+- Using Kubernetes in the production environment
+- Maximising performance at the expense of simplicity, learning value, or maintainability
+- Fully automating infrastructure (e.g. complete Infrastructure as Code or GitOps) in the initial phase
+- Supporting large-scale public traffic or operating as a commercial hosting platform
+- Eliminating all single point of failure within the system
+- Implementing advanced network segmentation (e.g. VLANs, complex firewall topologies) beyond basic security requirements
+- Using paid enterprise tooling where suitable open-source alternatives exist
