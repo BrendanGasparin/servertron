@@ -140,18 +140,7 @@ The DevOps lifecycle is an iterative loop, divided into both (software) developm
 - Configure alerting
 - Centralise logs
 
-## 5. Future Enhancements
-
-- Multinode cluster (Proxmox or Kubernetes) with high availability setup
-- VLAN segementation
-- VPN access (e.g. Wireguard, Tailscale)
-- NextCloud integration (for cloud storage and apps)
-- CDN/edge optimisation
-- CI/CD pipelines
-- GitOps (ArgoCD)
-- Advanced security hardening
-
-## 6. Milestones
+## 5. Milestones
 
 | Milestone | Decription                | Status ✅/⏳  |
 |-----------|---------------------------|----------------|
@@ -161,6 +150,16 @@ The DevOps lifecycle is an iterative loop, divided into both (software) developm
 | M4        | Monitoring operational    | ⏳            |
 | M5        | Kubernetes lab active     | ⏳            |
 
+## 6. Future Enhancements
+
+- Multinode cluster (Proxmox or Kubernetes) with high availability setup
+- VLAN segementation
+- VPN access (e.g. Wireguard, Tailscale)
+- NextCloud integration (for cloud storage and apps)
+- CDN/edge optimisation
+- CI/CD pipelines
+- GitOps (ArgoCD)
+- Advanced security hardening
 
 ## 7. Notes
 
