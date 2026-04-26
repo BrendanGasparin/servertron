@@ -27,7 +27,7 @@ The following are the goals of Project: SERVERTRON:
 
 ## 3. Lab Environment
 
-- Implement a dedicated lab environment for development, testing, and experimentation.
+- Implement a dedicated lab environment for development, testing, learning, and experimentation.
 - Deploy K3s in the lab environment for learning container orchestration concepts.
 
 ## 4. Data Protection
@@ -60,6 +60,4 @@ Develop practical competency with:
 ---
 
 - Learn to competently use Proxmox, Docker, and DevOps tools
-- Implement a lab environment for software development, testing, learning, and experimentation. Implement Kubernetes (K3s) in the lab environment for learning purposes.
-- Implement a backup strategy that preserves important data regularly, with appropriate levels of redundancy and one off-site backup.
 - Document every stage of the project through GitHub and YouTube.
