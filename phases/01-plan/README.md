@@ -16,7 +16,7 @@ General documents related to the project that may have been modified after phase
 
 - A roadmap of the project and its phases is laid out in [roadmap.md](../../docs/roadmap.md)
 - All decisions made during the project have been documented in [decisions.md](../../docs/decisions.md)  
-- Architectural choices are captured in the [architecture.md](../../docs/architecture.md)  
+- The planned system architecture is defined in [architecture.md](../../docs/architecture.md)  
 
 ## Phase 1 Documentation
 
