@@ -38,6 +38,17 @@ The following are the goals of Project: SERVERTRON:
     - at least one off-site backup
 - Validate backups by performing at least one successful restore for each type of media
 
+## 5. Learning Objectives
+
+Develop practical competency with:
+
+- Proxmox (virtualisation, networking, storage)
+- Docker and Docker Compose
+- reverse proxy configuration (NGINX)
+- basic networking and service exposure
+- monitoring and obervability
+- infrastructure as code
+
 ---
 
 - Learn to competently use Proxmox, Docker, and DevOps tools
