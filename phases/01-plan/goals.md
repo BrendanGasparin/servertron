@@ -67,4 +67,4 @@ The initial phase of Project: SERVERTRON is complete when:
 - Jellyfin and Minecraft are accessible externally
 - Backups are functioning and verified
 - Documentation is complete and up to date
-
+- As much infrastructure as possible (without compromising security) is published as infrastructure as code on GitHub
