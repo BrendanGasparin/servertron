@@ -19,6 +19,14 @@ The following constraints and assumptions define the operating boundaries of Pro
     - developmental, experimental, and testing environments
 - Virtual machines are preferred for service isolation; containers are used for dedicated application environments
 
+## 3. Networking and Exposure Constraints
+
+- Internet-facing services must be:
+    - secured (TLS, firewalling, access control)
+    - reliably accessible within the limits of a residential connection
+- Cloudflare is used for DNS and selective proxying
+- High-bandwidth and non-HTTP services (e.g. Minecraft server and Jellyfin server) bypass Cloudflare proxying and connect directly to the client
+
 ---
 
 - Production workloads must be isolated from development, learning, and experimental environments.
