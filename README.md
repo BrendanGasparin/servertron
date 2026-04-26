@@ -4,16 +4,19 @@
 
 ## 1. Overview
 
-Project: SERVERTRON is an effort to implement a Proxmox-based server infrastructure using modern DevOps principles.  
+Project: SERVERTRON is a single-node Proxmox-based server infrastructure project designed to replicate production-style systems within a home environment.  
 
-SERVERTRON's purpose is to use real world infrastructure to host practical workloads, and to document the learning process as I go.  
+The project focuses on:
+- running real workloads (web, media, and game services)
+- applying modern DevOps practices
+- documenting the full lifecycle of design, deployment, and operation
 
-## 2. Objectives
+## 2. Goals
 
-- To learn and demonstrate DevOps practices
-- Web hosting for personal and business websites
-- Entertainment services (a media server and a Minecraft server)
-- Thorough documentation
+- Demonstrate practical DevOps workflows across a full system lifecycle
+- Host real-world workloads (web, media, and game services)
+- Built a production-style infrastructure within a single-node constraint
+- Maintain comprehensive public documentation of all decisions and implementation
 
 ## 3. Scope
 
@@ -25,10 +28,10 @@ The following is **in scope** for the project:
 - Deliverables for each phase (code-as-infrastructure, documentation)
 - Cloudflare configuration
 
-The following is **not in the scope** of the project:
+The following are **out of scope** of the first iteration of the project lifecycle:
 
 - Game servers beyond the initial Minecraft server
-- Cloud infrastructure (beyond Cloudflare configuration)
+- Full cloud infrastructure (beyond DNS and edge services)
 
 ## 4. Architecture Summary
 
