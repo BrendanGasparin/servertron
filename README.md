@@ -63,7 +63,7 @@ Workloads are distributed according to the following principles:
 
 The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to provide observability across system performance and health.  
 
-A Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for experimentation and learning purposes.
+A Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for testing, experimentation, and learning purposes.
 
 This architecture is designed to simulate real-world infrastructure within the constraints of a single-node system. It focuses on separation of concerns, scalability of design, and alignment with modern DevOps practices.  
 
@@ -73,7 +73,7 @@ For detailed architecture diagrams and specifications, see [architecture.md](./d
 
 Project: SERVERTRON follows a structured DevOps lifecycle to guide the design, implementation, and operation of its infrastructure. Each stage represents a distinct phase in the continuous delivery of systems and services.  
 
-The lifecycle consists of the following stages:  
+The lifecycle consists of the following stages, linked to their respective documentation (if that phase has been executed):  
 
 1. [PLAN:](./phases/01-plan/README.md) Define objectives, architecture, and constraints. Establish documentation, system design, and project scope.  
 2. **CODE:** Develop configuration files, scripts, and infrastructure definitions. This includes version controlled assets and Infrastructure as Code where applicable.  
