@@ -163,4 +163,9 @@ However, feedback, suggestions, and discussion are welcome via issues or comment
 Future collaboration may be considered as the project evolves.  
 
 ## 14. License
-[MIT License](./LICENSE).  
+
+This project is licensed under the [MIT License](./LICENSE).  
+
+You are free to use, modify, and distribute this project, provided that the original copyright notice and license are included in all copies or substantial portions of the software.  
+
+See the [MIT License](./LICENSE) for full details.  
