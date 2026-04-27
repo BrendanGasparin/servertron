@@ -13,7 +13,8 @@ A production-style DevOps homelab built on a single-node Proxmox infrastructure,
 
 Project: SERVERTRON is a single-node Proxmox-based server infrastructure project designed to replicate production-style systems within a home environment.  
 
-The project focuses on:
+The project focuses on:  
+
 - running real workloads (web, media, and game services)
 - applying modern DevOps practices
 - documenting the full lifecycle of design, deployment, and operation
@@ -46,7 +47,7 @@ A more complete list of project goals is documented in [./phases/01-plan.md].
 
 ## 4. Scope
 
-The following is **in scope** for the project:
+The following is **in scope** for the project:  
 
 - Functional and responsive web hosting
 - Internet-facing game server (initially Minecraft)
@@ -54,7 +55,7 @@ The following is **in scope** for the project:
 - Deliverables for each phase (code-as-infrastructure, documentation)
 - Cloudflare configuration
 
-The following are **out of scope** for the first iteration of the project lifecycle:
+The following are **out of scope** for the first iteration of the project lifecycle:  
 
 - Game servers beyond the initial Minecraft server
 - Full cloud infrastructure (beyond DNS and edge services)
@@ -78,7 +79,7 @@ Workloads are distributed according to the following principles:
 
 The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to provide observability across system performance and health.  
 
-A Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for testing, experimentation, and learning purposes.
+A Kubernetes environment (K3s) is maintained within the lab environment, separated from the production environment. This is for testing, experimentation, and learning purposes.  
 
 This architecture is designed to simulate real-world infrastructure within the constraints of a single-node system. It focuses on separation of concerns, scalability of design, and alignment with modern DevOps practices.  
 
@@ -147,7 +148,7 @@ This project is being built incrementally. Not all components are fully implemen
 
 ## 11. Roadmap
 
-The development of SERVERTRON follows a structured DevOps lifecycle represented by eight consecutive steps repeating in an iterative loop.
+The development of SERVERTRON follows a structured DevOps lifecycle represented by eight consecutive steps repeating in an iterative loop.  
 
 ![DevOps lifecycle diagram](./images/devops-lifecycle.png)
 
@@ -160,7 +161,7 @@ The development of SERVERTRON follows a structured DevOps lifecycle represented 
 7. OPERATE: Run and maintain services.
 8. MONITOR: Observe system performance as feedback for improvement in the next iteration of the lifecycle.
 
-For a detailed breakdown of tasks and milestones, see [roadmap.md](./docs/roadmap.md).
+For a detailed breakdown of tasks and milestones, see [roadmap.md](./docs/roadmap.md).  
 
 ## 12. Documentation
 
