@@ -143,7 +143,7 @@ For a detailed breakdown of tasks and milestones, see [roadmap.md](./docs/roadma
 
 ## 12. Documentation
 
-Project documentation is organised as follows:
+Project documentation is organised as follows:  
 
 - [/docs/architecture.md](./docs/architecture.md) — System design and diagrams  
 - [/docs/decisions.md](./docs/decisions.md) — Architecture decisions and rationale  
@@ -152,15 +152,15 @@ Project documentation is organised as follows:
 - [constraints.md](./phases/01-plan/constraints.md) — Project constraints and assumptions  
 - [roadmap.md](./docs/roadmap.md) — Development roadmap  
 
-Additional documentation will be added as the project evolves.
+Additional documentation will be added as the project evolves.  
 
 ## 13. Contributing
 
-This is a personal project and is not currently open for external contributions.
+This is a personal project and is not currently open for external contributions.  
 
-However, feedback, suggestions, and discussion are welcome via issues or comments on associated content (e.g. GitHub or YouTube).
+However, feedback, suggestions, and discussion are welcome via issues or comments on associated content (e.g. GitHub or YouTube).  
 
-Future collaboration may be considered as the project evolves.
+Future collaboration may be considered as the project evolves.  
 
 ## 14. License
 [MIT License](./LICENSE).  
