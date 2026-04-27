@@ -1,24 +1,37 @@
 # Project: SERVERTRON
 
+A production-style DevOps homelab built on a single-node Proxmox infrastructure, designed to host real workloads and document the full system lifecycle.  
+
 ![Project SERVERTRON cover image](./images/servertron-github-cover.png)
+
+## Architecture Overview
+
+![Project SERVERTRON architecture diagram](./images/servertron-architecture.png)
+*Project: SERVERTRON architecture diagram.*  
 
 ## 1. Overview
 
 Project: SERVERTRON is a single-node Proxmox-based server infrastructure project designed to replicate production-style systems within a home environment.  
-
-![Project SERVERTRON architecture diagram](./images/servertron-architecture.png)
-*Project: SERVERTRON architecture diagram.*
 
 The project focuses on:
 - running real workloads (web, media, and game services)
 - applying modern DevOps practices
 - documenting the full lifecycle of design, deployment, and operation
 
-## 2. Current Status
+## 2. Project Status
 
 **Status:** Phase 1 - PLAN  
 
 Core planning documentation is in progress.  
+
+## Key Features
+
+- Single-node Proxmox infrastructure
+- Production and lab environment separation
+- Reverse proxy with HTTPS
+- Docker-based application platform
+- Kubernetes (K3s) lab environment
+- Monitoring and observability stack
 
 ## 3. Goals
 
@@ -46,20 +59,22 @@ The following are **out of scope** for the first iteration of the project lifecy
 - Game servers beyond the initial Minecraft server
 - Full cloud infrastructure (beyond DNS and edge services)
 
+---
+
 ## 5. Architecture Summary
 
 Project: SERVERTRON is built on a single-node virtualised infrastructure running on a single mini-PC (SERVERTRON-1), using Proxmox VE as the hypervisor.  
 
 The system is structured into two environments:  
 
-- **Production Environment:** Hosts stable, persistent, Internet-facing and complex services requiring strong isolation.  
-- **Lab Environment:** Used for development, experimentation, testing, and learning, with a focus on container orchestration and emerging technologies.  
+- Production Environment: Hosts stable, persistent, Internet-facing and complex services requiring strong isolation.  
+- Lab Environment: Used for development, experimentation, testing, and learning, with a focus on container orchestration and emerging technologies.  
 
 Workloads are distributed according to the following principles:  
 
-- **Virtual Machines (VMs)** are used for Internet-facing services, and complex services requiring strong isolation.  
-- **Linux Containers (LXCs)** are used for lightweight internal utilities and supporting services.
-- **Containerised Applications** are deployed within dedicated a VM using Docker and Docker Compose.
+- Virtual Machines (VMs) are used for Internet-facing services, and complex services requiring strong isolation.  
+- Linux Containers (LXCs) are used for lightweight internal utilities and supporting services.
+- Containerised applications are deployed within dedicated a VM using Docker and Docker Compose.
 
 The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to provide observability across system performance and health.  
 
@@ -86,18 +101,7 @@ The lifecycle consists of the following stages, linked to their respective docum
 
 This is an iterative cycle, with the feedback from the monitoring phase informing the planning of the next iteration. This enables continuous refinement of the system while maintaining alignment with DevOps principles and real-world operational practices.  
 
-## 7. Repository Structure
-
-- [/phases/](./phases/01-plan/README.md) - DevOps lifecycle phases and deliverables
-- [/docs/](./docs/) - architecture, decisions, and supporting documentation
-- [/images/](./images) - diagrams and visual assets
-- [roadmap.md](./docs/roadmap.md) - project roadmap
-- [goals.md](./phases/01-plan/goals.md) - project goals
-- [constraints.md](./phases/01-plan/constraints.md) - project constraints and assumptions
-- [decisions.md](./docs/decisions.md) - decision log
-- [architecture.md](./docs/architecture.md) - architecture document
-
-## 8. Technology Stack
+## 7. Technology Stack
 
 - **Infrastructure:** Single-node mini-PIC (Intel NUC 13 Pro).
 - **Virtualisation:** Proxmox VE
@@ -110,12 +114,25 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 - **Monitoring:** Prometheus, Loki, and Grafana
 - **Version Control & DevOps:** GitHub
 
+## 8. Repository Structure
+
+- [/phases/](./phases/01-plan/README.md) - DevOps lifecycle phases and deliverables
+- [/docs/](./docs/) - architecture, decisions, and supporting documentation
+- [/images/](./images) - diagrams and visual assets
+- [roadmap.md](./docs/roadmap.md) - project roadmap
+- [goals.md](./phases/01-plan/goals.md) - project goals
+- [constraints.md](./phases/01-plan/constraints.md) - project constraints and assumptions
+- [decisions.md](./docs/decisions.md) - decision log
+- [architecture.md](./docs/architecture.md) - architecture document
+
 ## 9. Environments
 
 The scope of the project involves two environments: a production environment and a lab environment.  
 
-- The **production environment** is for hosting services such as web, media, and game servers.  
+- The **production environment** is for hosting persistent services such as web, media, and game servers.  
 - The **lab environment** is used for learning, development, and experimentation.
+
+---
 
 ## 10. Getting Started
 
@@ -157,6 +174,8 @@ Project documentation is organised as follows:
 - [roadmap.md](./docs/roadmap.md) — Development roadmap  
 
 Additional documentation will be added as the project evolves.  
+
+---
 
 ## 13. Contributing
 
