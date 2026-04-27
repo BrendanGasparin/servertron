@@ -75,19 +75,27 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 
 ## 6. Repository Structure
 
-Decisions made during the project are logged in the [decisions.md](./docs/decisions.md) file.
+- [/phases/](./phases/01-plan/README.md) - DevOps lifecycle phases and deliverables
+- [/docs/](./docs/) - architecture, decisions, and supporting documentation
+- [/images/](./images) - diagrams and visual assets
+- [roadmap.md](./docs/roadmap.md) - project roadmap
+- [goals.md](./phases/01-plan/goals.md) - project goals
+- [constraints.md](./phases/01-plan/constraints.md) - project constraints and assumptions
+- [decisions.md](./docs/decisions.md) - decision log
+- [architecture.md](./docs/architecture.md) - architecture document
 
 ## 7. Technology Stack
 
-- **Infrastructure:** A single-node homelab running on an Intel NUC 13 Pro mini-PC.
-- **Virtualisation:** Proxmox will be used as a hypervisor.
-- **Operating systems:** 
-- **Containerisation:** Docker will be used to run containers.
-- **Orchestration:** Kubernetes/K3s is used in the lab environment for learning and experimentation, but not in the production environment.
-- **Networking:** (Reverse proxy. DNS handled by ???. Networking model.)
-- **Data & Storage:** Database systems have yet to be defined. MariaDB will be used for WordPress sites. SERVERTRON-1 has a 2 TB NVMe drive for Proxmox, virtual machines, and containers. A 5 TB external drive is used for storing the media library.
-- **Monitoring & Observability:** Prometheus, Grafana, and logging tools will be used for monitoring and observability.
-- **Version Control & DevOps:** GitHub will be used to store the project repository. (CI/CD tools? GitOps tools (e.g. ArgoCD)?)
+- **Infrastructure:** Single-node mini-PIC (Intel NUC 13 Pro).
+- **Virtualisation:** Proxmox VE
+- **Operating systems:** Ubuntu Server (all VMs)
+- **Containerisation:** Docker and Docker Compose
+- **Orchestration (lab):** K3s
+- **Reverse Proxy:** NGINX
+- **DNS and Edge:** Cloudflare
+- **Data Services:** PostgreSQL, MariaDB, Redis
+- **Monitoring:** Prometheus, Loki, and Grafana
+- **Version Control & DevOps:** GitHub
 
 ## 8. Environments
 
