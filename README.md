@@ -24,10 +24,10 @@ Core planning documentation is in progress.
 
 Project goals include:  
 
-- Demonstrate practical DevOps workflows across a full system lifecycle
-- Host real-world workloads (web, media, and game services)
-- Built a production-style infrastructure within a single-node constraint
-- Maintain comprehensive public documentation of all decisions and implementation
+- Demonstrating practical DevOps workflows across a full system lifecycle
+- Hosting real-world workloads (web, media, and game services)
+- Building a production-style infrastructure within a single-node constraint
+- Maintaining comprehensive public documentation of all decisions and implementation
 
 A more complete list of project goals is documented in [./phases/01-plan.md].  
 
