@@ -19,7 +19,7 @@ SERVERTRON-1 is an Intel NUC 13 Pro Arena Canyon mini-PC with 13th Gen Core 17-1
 
 ZFS will be used for the file system as it provides data integrity, snapshots, and production-like storage behaviour aligned with the goal of mirroring real-world DevOps systems.  
 
-## Proxmov VE Host Layer
+## Proxmox VE Host Layer
 **CPU:** Leave at least 2 threads uncommitted for host.  
 **RAM:** Reserve 8 GB for host before planning guests.  
 **Storage:** 400 GB. 100 for Proxmox, packages, and logs. 100 for ISOs, templates, backups/snippets/misc. 200 GB for ZFS/snapshot/free-space for operations.  
