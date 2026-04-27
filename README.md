@@ -147,7 +147,7 @@ Project documentation is organised as follows:
 
 - [/docs/architecture.md](./docs/architecture.md) — System design and diagrams  
 - [/docs/decisions.md](./docs/decisions.md) — Architecture decisions and rationale  
-- [/phases/](/phases/) — DevOps lifecycle phases and deliverables  
+- [/phases/](./phases/README.md) — DevOps lifecycle phases and deliverables  
 - [goals.md](./phases/01-plan/goals.md) — Project goals  
 - [constraints.md](./phases/01-plan/constraints.md) — Project constraints and assumptions  
 - [roadmap.md](./docs/roadmap.md) — Development roadmap  
