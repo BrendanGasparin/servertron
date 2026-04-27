@@ -26,7 +26,7 @@ The guiding principles of Project: SERVERTRON are as follows:
 
 The DevOps lifecycle is an iterative loop, divided into both (software) development and operations, and consists of four phases.  
 
-![Diagram of the DevOps lifecycle.](./images/devops-lifecycle.png)
+![Diagram of the DevOps lifecycle.](../images/devops-lifecycle.png)
 
 ### Phase 1: PLAN
 
