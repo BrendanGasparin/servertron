@@ -22,10 +22,14 @@ Core planning documentation is in progress.
 
 ## 3. Goals
 
+Project goals include:  
+
 - Demonstrate practical DevOps workflows across a full system lifecycle
 - Host real-world workloads (web, media, and game services)
 - Built a production-style infrastructure within a single-node constraint
 - Maintain comprehensive public documentation of all decisions and implementation
+
+A more complete list of project goals is documented in [./phases/01-plan.md].  
 
 ## 4. Scope
 
@@ -37,7 +41,7 @@ The following is **in scope** for the project:
 - Deliverables for each phase (code-as-infrastructure, documentation)
 - Cloudflare configuration
 
-The following are **out of scope** of the first iteration of the project lifecycle:
+The following are **out of scope** for the first iteration of the project lifecycle:
 
 - Game servers beyond the initial Minecraft server
 - Full cloud infrastructure (beyond DNS and edge services)
@@ -55,7 +59,7 @@ Workloads are distributed according to the following principles:
 
 - **Virtual Machines (VMs)** are used for Internet-facing services, and complex services requiring strong isolation.  
 - **Linux Containers (LXCs)** are used for lightweight internal utilities and supporting services.
-- **Containerised Applications** are deployed within dedicated VMs using Docker and Docker Compose.
+- **Containerised Applications** are deployed within dedicated a VM using Docker and Docker Compose.
 
 The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to provide observability across system performance and health.  
 
