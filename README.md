@@ -115,7 +115,31 @@ The scope of the project involves two environments: a production environment and
 
 ## 10. Getting Started
 
+This repository documents the design, implementation, and operation of the SERVERTRON infrastructure.  
+
+1. To get started, review the [Architecture Documentation](./docs/architecture.md) to understand the system design.  
+2. Read the [Goals](./phases/01-plan/goals.md) and [Constraints and Assumptions](./phases/01-plan/constraints.md) to understand the project scope.  
+3. Follow the DevOps lifecycle starting with [Phase 1: PLAN](./phases/01-plan/README.md).
+4. Explore configuration files and implementation details as they are added in subsequent phases.
+
+This project is being built incrementally. Not all components are fully implemented yet.  
+
 ## 11. Roadmap
+
+The development of SERVERTRON follows a structured DevOps lifecycle represented by eight consecutive steps repeating in an iterative loop.
+
+![DevOps lifecycle diagram](./images/devops-lifecycle.png)
+
+1. PLAN: Define architecture, goals, and constraints.
+2. CODE: Create configuration files and infrastructure definitions.
+3. BUILD: Provision infrastructure and services.
+4. TEST: Validate system functionality.
+5. RELEASE: Define stable configurations.
+6. DEPLOY: Expose services externally.
+7. OPERATE: Run and maintain services.
+8. MONITOR: Observe system performance as feedback for improvement in the next iteration of the lifecycle.
+
+For a detailed breakdown of tasks and milestones, see [roadmap.md](./docs/roadmap.md).
 
 ## 12. Documentation
 
