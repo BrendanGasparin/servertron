@@ -11,14 +11,20 @@ The project focuses on:
 - applying modern DevOps practices
 - documenting the full lifecycle of design, deployment, and operation
 
-## 2. Goals
+## 2. Current Status
+
+**Status:** Phase 1 - PLAN  
+
+Core planning documentation is in progress.  
+
+## 3. Goals
 
 - Demonstrate practical DevOps workflows across a full system lifecycle
 - Host real-world workloads (web, media, and game services)
 - Built a production-style infrastructure within a single-node constraint
 - Maintain comprehensive public documentation of all decisions and implementation
 
-## 3. Scope
+## 4. Scope
 
 The following is **in scope** for the project:
 
@@ -33,7 +39,7 @@ The following are **out of scope** of the first iteration of the project lifecyc
 - Game servers beyond the initial Minecraft server
 - Full cloud infrastructure (beyond DNS and edge services)
 
-## 4. Architecture Summary
+## 5. Architecture Summary
 
 Project: SERVERTRON is built on a single-node virtualised infrastructure running on a single mini-PC (SERVERTRON-1), using Proxmox VE as the hypervisor.  
 
@@ -56,7 +62,7 @@ This architecture is designed to simulate real-world infrastructure within the c
 
 For detailed architecture diagrams and specifications, see [architecture.md](./docs/architecture.md) in the `/docs` directory.  
 
-## 5. DevOps Lifecycle
+## 6. DevOps Lifecycle
 
 Project: SERVERTRON follows a structured DevOps lifecycle to guide the design, implementation, and operation of its infrastructure. Each stage represents a distinct phase in the continuous delivery of systems and services.  
 
@@ -73,7 +79,7 @@ The lifecycle consists of the following stages:
 
 This is an iterative cycle, with the feedback from the monitoring phase informing the planning of the next iteration. This enables continuous refinement of the system while maintaining alignment with DevOps principles and real-world operational practices.  
 
-## 6. Repository Structure
+## 7. Repository Structure
 
 - [/phases/](./phases/01-plan/README.md) - DevOps lifecycle phases and deliverables
 - [/docs/](./docs/) - architecture, decisions, and supporting documentation
@@ -84,7 +90,7 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 - [decisions.md](./docs/decisions.md) - decision log
 - [architecture.md](./docs/architecture.md) - architecture document
 
-## 7. Technology Stack
+## 8. Technology Stack
 
 - **Infrastructure:** Single-node mini-PIC (Intel NUC 13 Pro).
 - **Virtualisation:** Proxmox VE
@@ -97,19 +103,19 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 - **Monitoring:** Prometheus, Loki, and Grafana
 - **Version Control & DevOps:** GitHub
 
-## 8. Environments
+## 9. Environments
 
 The scope of the project involves two environments: a production environment and a lab environment.  
 
 - The **production environment** is for hosting services such as web, media, and game servers.  
 - The **lab environment** is used for learning, development, and experimentation.
 
-## 9. Getting Started
+## 10. Getting Started
 
-## 10. Roadmap
+## 11. Roadmap
 
-## 11. Documentation
+## 12. Documentation
 
-## 12. Contributing
+## 13. Contributing
 
-## 13. License
+## 14. License
