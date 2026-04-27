@@ -115,17 +115,6 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 - **Monitoring:** Prometheus, Loki, and Grafana
 - **Version Control & DevOps:** GitHub
 
-## 8. Repository Structure
-
-- [/phases/](./phases/01-plan/README.md) - DevOps lifecycle phases and deliverables
-- [/docs/](./docs/) - architecture, decisions, and supporting documentation
-- [/images/](./images) - diagrams and visual assets
-- [roadmap.md](./docs/roadmap.md) - project roadmap
-- [goals.md](./phases/01-plan/goals.md) - project goals
-- [constraints.md](./phases/01-plan/constraints.md) - project constraints and assumptions
-- [decisions.md](./docs/decisions.md) - decision log
-- [architecture.md](./docs/architecture.md) - architecture document
-
 ## 9. Environments
 
 The scope of the project involves two environments: a production environment and a lab environment.  
@@ -146,13 +135,24 @@ This repository documents the design, implementation, and operation of the SERVE
 
 This project is being built incrementally. Not all components are fully implemented yet.  
 
+## 8. Repository Structure
+
+- [/phases/](./phases/01-plan/README.md) - DevOps lifecycle phases and deliverables
+- [/docs/](./docs/) - architecture, decisions, and supporting documentation
+- [/images/](./images) - diagrams and visual assets
+- [roadmap.md](./docs/roadmap.md) - project roadmap
+- [goals.md](./phases/01-plan/goals.md) - project goals
+- [constraints.md](./phases/01-plan/constraints.md) - project constraints and assumptions
+- [decisions.md](./docs/decisions.md) - decision log
+- [architecture.md](./docs/architecture.md) - architecture document
+
 ## 11. Roadmap
 
 The development of SERVERTRON follows a structured DevOps lifecycle represented by eight consecutive steps repeating in an iterative loop.  
 
 ![DevOps lifecycle diagram](./images/devops-lifecycle.png)
 
-1. PLAN: Define architecture, goals, and constraints.
+1. [PLAN](./images/devops-lifecycle.png): Define architecture, goals, and constraints.
 2. CODE: Create configuration files and infrastructure definitions.
 3. BUILD: Provision infrastructure and services.
 4. TEST: Validate system functionality.
