@@ -6,6 +6,9 @@
 
 Project: SERVERTRON is a single-node Proxmox-based server infrastructure project designed to replicate production-style systems within a home environment.  
 
+![Project SERVERTRON architecture diagram](./images/servertron-architecture.png)
+*Project: SERVERTRON architecture diagram.*
+
 The project focuses on:
 - running real workloads (web, media, and game services)
 - applying modern DevOps practices
@@ -119,3 +122,4 @@ The scope of the project involves two environments: a production environment and
 ## 13. Contributing
 
 ## 14. License
+[MIT License](./LICENSE).  
