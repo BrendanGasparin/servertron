@@ -214,5 +214,3 @@ Options for future evolution include:
 - Introducing high availability (clustering)
 - Adding GitOps (ArgoCD)
 - Adding NextCloud for cloud storage and other services
-
-## 16. Appendix
