@@ -2,12 +2,12 @@
 
 ## 1. Purpose
 
-This document defines the architecture of Project: SERVERTRON, providing the structure, components, and design principles of the system, along with the relationships between environments, services, and supporting infrastructure.  
+This document defines the architecture of Project: SERVERTRON, providing the structure, components, and design principles of the system, as well as the relationships between environments, services, and supporting infrastructure.  
 
 ![Project: SERVERTRON architectural diagram](../images/servertron-architecture.png)
 *Project: SERVERTRON architectural diagram.*  
 
-The purpose of this document is to provide a reference for how the system is designed and intended to operate. It also provides standards to ensure that architectural decisions remain aligned with project goals and constraints.  
+It serves as a reference for how the system is designed and intended to operate, and provides a framework to ensure that future decisions remain aligned with project goals and constraints.  
 
 ## 2. Design Goals
 
@@ -28,7 +28,7 @@ Workloads are deployed using a combination of virtual machines and Linux contain
 
 ### 2.4. Modularity and Scalability of Design
 
-Although the system operates on a single physical host, the architecture is designed to modular and scalable. Components are structured in a way that allows expansion to multi-node or distributed systems at a later date without requiring a total redesign.  
+Although the system operates on a single physical host, the architecture is designed to be modular and scalable. Components are structured in a way that allows expansion to multi-node and distributed systems at a later date without requiring a total redesign.  
 
 ### 2.5. Support for Practical Workloads
 
