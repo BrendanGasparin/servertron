@@ -148,9 +148,11 @@ NGINX was chosen because it is industry-standard tooling for reverse proxies. It
 
 ### Decision
 
-
+PostgreSQL is selected as the primary database system. MariaDB will be used where required for compatibility (e.g. WordPress). Redis will be used for short-term memory.  
 
 ### Rationale
+
+PostgreSQL is a widely used, production-ready relational database with strong reliability, data integrity, and extensibility. It aligns well with modern application architectures.  
 
 ## 11. Monitoring & Observability
 
