@@ -1,16 +1,29 @@
 # Phase 1: PLAN
 
-Phase 1: PLAN of Project: SERVERTRON involves generating requirements, goals, and constraints of the project, defining the architecture of the platform, and choosing the best tools to use for DevOps practices.  
+Phase 1: PLAN of Project: SERVERTRON defines the foundations of the system. This includes establishing goals, constraints, architecture, and tooling decisions.  
 
-## Objectives
+## 1. Objectives
 
-The ultimate goal of Project: SERVERTRON is to establish a DevOps system that handles the duties of a web server, media server, games server, and supporting services. This will be the production environment.  
+The objective of this phase is to define a system capable of:  
+
+- Running a production environment for:
+    - web services
+    - media services
+    - game servers
+    - supporting infrastructure
+
+- Establishing a separate lab environment for:
+    - software development
+    - learning and experimentation
+    - container orchestration (K3s)
+
+a web server, media server, games server, and supporting services. This will be the production environment.  
 
 A lab environment will also be created for software development, learning, and experimentation.  
 
-These goals are further documented in the [Goals document](./goals.md).  
+These objectives are further documented in [goals.md](./goals.md).  
 
-## Documents
+## 2. Documents
 
 General documents related to the project that may have been modified after phase 1:  
 
@@ -18,7 +31,7 @@ General documents related to the project that may have been modified after phase
 - All decisions made during the project have been documented in [decisions.md](../../docs/decisions.md)  
 - The planned system architecture is defined in [architecture.md](../../docs/architecture.md)  
 
-## Phase 1 Documentation
+## 3. Phase 1 Documentation
 
 Phase 1 specific documents that will not change after the completion of phase 1:  
 
