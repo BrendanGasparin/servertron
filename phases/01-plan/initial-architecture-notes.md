@@ -1,15 +1,24 @@
 # Project: SERVERTRON Initial Architecture Notes
 
-Initial notes on architecture during the planning phase of the first iteration of Project: SERVERTRON.  
+Initial notes on architecture for the planning phase of the first iteration of Project: SERVERTRON.  
 
 ![Project: SERVERTRON Architecture Diagram](./images/servertron-architecture.png)
 *Project: SERVERTRON Architecture Diagram*
 
 ## Internet/Users
 
-The Internet and users of the web server, media server, game server, and other Internet-facing apps.  
+External users and systems accessing the web server, media server, game server, and other Internet-facing apps.  
 
 ## Cloudflare
+
+Cloudflare is used as the external edge layer for:
+
+- DNS management
+- TLS termination (for proxied services only)
+- Web Application Firewall (WAF)
+- DDoS protection
+
+High-bandiwdth and non-HTTP services (e.g. Jellyfin and Minecraft) bypass Cloudflare proxying and connect directly to Internet clients.  
 
 ## SERVERTRON-1
 
