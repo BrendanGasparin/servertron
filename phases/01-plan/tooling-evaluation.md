@@ -4,7 +4,7 @@
 
 This document is an evaluation of core infrastructure tooling for Project: SERVERTRON. It exists to justify stack choices before the build phase.  
 
-Proxmox was selected for the hypervisor. Ubuntu Server was selected as the operating system for guest VMs (with Debian-based LXCs). Docker will be used for containerisation in the production environment. Kubernetes will be used for containerisation in the laboratory environment. Nginx will be used on the edge gateway as a reverse proxy.  
+Proxmox was selected for the hypervisor. Ubuntu Server was selected as the operating system for guest VMs (with Debian-based LXCs). Docker will be used for containerisation in the production environment. Kubernetes will be used for container orchestration in the laboratory environment. Nginx will be used on the edge gateway as a reverse proxy.  
 
 The rest of this document contains justification and supporting information for these decisions.  
 
@@ -92,7 +92,7 @@ Use Ubuntu Server as the standard guest operating system.
 
 ### Rationale
 
-Ubuntu Server offers an extensive ecosystem, community, and documentation. I am already familiar with Debian-based Linux, reducing the learning curve to master the system. Ubunto Server is compatile with Docker and Kubernetes/K3s.  
+Ubuntu Server offers an extensive ecosystem, community, and documentation. I am already familiar with Debian-based Linux, reducing the learning curve to master the system. Ubuntu Server is compatible with Docker and Kubernetes/K3s.  
 
 Rocky Linux was considered to host the data layer for enterprise realism (as it is compatible with Red Hat Enterprise Linux). This was rejected in favour of using Ubuntu Server uniformly across all virtual machines, reducing unnecessary complexity and the learning curve for the system.  
 
@@ -120,7 +120,7 @@ K3s, but in the lab environment only.
 
 ### Rationale
 
-Kubernetes orchestrates containers at scale, while Docker runs containers locally. K3s is a lightweight Kubrnetes distribution that allows me to learn real orchestration concepts in a resource-constrained environment. These skill may later be transferred to a more distributed architecture (e.g. a cluster).  
+Kubernetes orchestrates containers at scale, while Docker runs containers locally. K3s is a lightweight Kubrnetes distribution that allows me to learn real orchestration concepts in a resource-constrained environment. These skill may be transferred later to aid in building a more more distributed architecture (e.g. a cluster).  
 
 ## 9. Reverse Proxy / Edge Layer
 
