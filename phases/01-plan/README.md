@@ -1,6 +1,6 @@
 # Phase 1: PLAN
 
-Phase 1: PLAN of Project: SERVERTRON defines the foundations of the system. This includes establishing goals, constraints, architecture, and tooling decisions.  
+Phase 1: PLAN of Project: SERVERTRON defines the foundations of the system, and the design decisions that guide all subsequent implementation. This includes establishing goals, constraints, architecture, and tooling decisions.  
 
 ## 1. Objectives
 
