@@ -157,12 +157,17 @@ PostgreSQL is a widely used, production-ready relational database with strong re
 ## 11. Monitoring & Observability
 
 ### Options Considered
+- Prometheus
+- Loki
+- Grafana
 
 ### Decision
 
-Prometheus and Grafana.  
+Prometheus and Loki will be used for aggregation, and Grafana will be used for visualisation.  
 
 ### Rationale
+
+Prometheus provides time-series metrics collection,Loki provides aggregation, and Grafana provides visualisation. Together they form a modern observability stack aligned with cloud-native and DevOps practices.  
 
 ## 12. Networking Approach
 
@@ -182,13 +187,14 @@ Prometheus and Grafana.
 
 ## 13. Final Tooling Stack Summary
 
-- **Hypervisor:** Proxmox
-- **Operating systems:** Ubuntu Server
-- **Containers:** Docker
-- **Orchestration:** K3s (lab only)
-- **Reverse proxy:** NGINX
-- **Database:**
-- **Monitoring:** Prometheus and Grafana
+- Hypervisor: Proxmox VE
+- Operating systems: Ubuntu Server
+- Containers: Docker
+- Orchestration: K3s (lab only)
+- Reverse proxy: NGINX
+- Database: PostgreSQL (primary), MariaDB (secondary), Redis (short-term)
+- Monitoring: Prometheus, Loki, Grafana
+- DNS & Edge: Cloudflare
 
 ## 14. Risks & Trade-Offs
 
