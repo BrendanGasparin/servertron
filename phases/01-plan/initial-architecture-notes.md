@@ -22,11 +22,25 @@ High-bandiwdth and non-HTTP services (e.g. Jellyfin and Minecraft) bypass Cloudf
 
 ## SERVERTRON-1
 
-Project: SERVERTRON will be implemented on a single-node mini-PC system (SERVERTRON-1). Proxmox will be installed on bare metal to provide a type 1 hypervisor for running virtual machines (VMs) and Linux containers (LXCs).  
+Project: SERVERTRON will be implemented on a single-node mini-PC system (SERVERTRON-1).  
 
-SERVERTRON-1 is an Intel NUC 13 Pro Arena Canyon mini-PC with 13th Gen Core 17-1360P (12 cores/16 threads and up to 5.0GHz), 64 GB DDR4 RAM, 2 TB NVMe drive, WiFi6E, BT5.3, 2 x  
+Proxmox will be installed on bare metal to provide a type 1 hypervisor for running virtual machines (VMs) and Linux containers (LXCs).  
 
-ZFS will be used for the file system as it provides data integrity, snapshots, and production-like storage behaviour aligned with the goal of mirroring real-world DevOps systems.  
+### Hardware Specifications
+
+- CPU: Intel Core i7-1360P (12 cores / 16 threads, up to 5.0 GHz)
+- RAM: 64 GB DDR4
+- Storage: 2 TB NVMe (internal)
+- External Storage: 5 TB drive (media storage)
+
+## Storage (ZFS)
+
+ZFS is used for the file system as it provides:
+
+- data integrity (checksumming)
+- snapshots
+- copy-on-write behaviour
+- alignment with production-style infrastructure
 
 ## Proxmox VE Host Layer
 **CPU:** Leave at least 2 threads uncommitted for host.  
