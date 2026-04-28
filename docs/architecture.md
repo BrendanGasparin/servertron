@@ -4,6 +4,9 @@
 
 This document defines the architecture of Project: SERVERTRON, providing the structure, components, and design principles of the system, along with the relationships between environments, services, and supporting infrastructure.  
 
+![Project: SERVERTRON architectural diagram](../images/servertron-architecture.png)
+*Project: SERVERTRON architectural diagram.*  
+
 The purpose of this document is to provide a reference for how the system is designed and intended to operate. It also provides standards to ensure that architectural decisions remain aligned with project goals and constraints.  
 
 ## 2. Design Goals
