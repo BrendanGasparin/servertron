@@ -198,6 +198,12 @@ Prometheus provides time-series metrics collection,Loki provides aggregation, an
 
 ## 14. Risks & Trade-Offs
 
+- Single-node architecture introduces a single point of failure
+- RAM allocation is high and may require tuning under load
+- Kubernetes is not used in production, reducing realism for large-scale system
+- Cloudflare proxy limitations require some services to be exposed directly
+- Increased complexity compared to simpler homelab setups
+
 ## 15. Future Evolution
 
 Options for future evolution include:
