@@ -4,7 +4,7 @@
 
 This document defines the architecture of Project: SERVERTRON, providing the structure, components, and design principles of the system, along with the relationships between environments, services, and supporting infrastructure.  
 
-The purpose of this document is to provide a reference for how the system is designed and intended to operate. It also provides benchmarks to ensure that architectural decisions remain aligned with project goals and constraints.  
+The purpose of this document is to provide a reference for how the system is designed and intended to operate. It also provides standards to ensure that architectural decisions remain aligned with project goals and constraints.  
 
 ## 2. Design Goals
 
@@ -17,7 +17,7 @@ The goal is to simulate production-like systems within a single-node mini-PC.
 
 ### 2.2. Environment Separation
 
-A separation is maintained between Production and Lab environments. Production is intended for stable, continuously-running services. The lab environment is for development, testing, learning, and experimentation. This ensures that experimental changes do not impact operational workloads.  
+A separation is maintained between production and laboratory environments. Production is intended for stable, continuously-running services. The lab environment is for development, testing, learning, and experimentation. This ensures that experimental changes do not impact operational workloads.  
 
 ### 2.3. Appropriate Workload Isolation
 
@@ -33,7 +33,7 @@ The platform is intended to run real services, including web hosting, applicatio
 
 ### 2.6. Observability and Operational Awareness
 
-The system is designed to support monitoring and observability through standard tools. Visibility into system performance and health is a core requirement of the project for both operational effectiveness and self-education purposes.  
+The system is designed to support monitoring and observability through standard tools. Visibility into system performance and health is a core requirement of the project for self-education purposes and increased operational awareness.  
 
 ### 2.7. Controlled Complexity
 
@@ -45,7 +45,7 @@ All design decisions are made within the constraint of a single-node system. The
 
 ## 3. Architectural Principles
 
-The architecture of Project: SERVERTRON is governed by a set of principles guiding system design, implementation, and evolution.
+The architecture of Project: SERVERTRON is governed by a set of principles guiding system design, implementation, and evolution.  
 
 ### 3.1 Separation of Environments
 
@@ -89,7 +89,7 @@ Design decisions prioritise clarity and maintainability over unnecessary complex
 
 ### 3.11 Conceptual Scalability
 
-The architecture is designed to scale beyond a single node, allowing future expansion without fundamental redesign. Patterns that may impede future growth will be avoided.  
+The architecture is designed to scale beyond a single node, allowing future expansion without fundamental redesign. Patterns that may impede future growth are avoided.  
 
 ### 3.12 Explicit Decision Tracking
 
