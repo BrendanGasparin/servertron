@@ -15,12 +15,11 @@ The architecture of Project: SERVERTRON is guided by a set of design goals that 
 
 ### 2.1. Real-World Alignment
 
-The system is designed to reflect real-world infrastructure patterns and practices. These include workload isolation, service separation, and environment-based deployment models.  
-The goal is to simulate production-like systems within a single-node mini-PC.  
+The system is designed to reflect real-world infrastructure patterns, including workload isolation, service separation, and environment-based deployment models. The goal is to simulate production-like systems within a single-node mini-PC.  
 
 ### 2.2. Environment Separation
 
-A separation is maintained between production and laboratory environments. Production is intended for stable, continuously-running services. The lab environment is for development, testing, learning, and experimentation. This ensures that experimental changes do not impact operational workloads.  
+The system is designed with a separation between production and laboratory environments. Production hosts stable, continuously-running services. The lab environment is for development, testing, and experimentation. This separation reduces risk and ensures that experimental changes do not impact operational workloads.  
 
 ### 2.3. Appropriate Workload Isolation
 
@@ -32,7 +31,7 @@ Although the system operates on a single physical host, the architecture is desi
 
 ### 2.5. Support for Practical Workloads
 
-The platform is intended to run real services, including web hosting, application hosting, media services, and game servers. The architecture prioritises usability and stability for these workloads and the lab environment, while supporting the possibility for future expansions.  
+The platform is intended to run real services, including web hosting, application hosting, media services, and game servers. The architecture prioritises usability and stability for these workloads and the lab environment, while allowing for future expansion.  
 
 ### 2.6. Observability and Operational Awareness
 
@@ -40,7 +39,7 @@ The system is designed to support monitoring and observability through standard 
 
 ### 2.7. Controlled Complexity
 
-The architecture balances realism with practicality. It aims to reflect modern DevOps practices but avoids unnecessary complexity that would hamper progress. Design decisions prioritise clarity, learning value, and incremental growth.  
+The architecture balances realism with practicality. It aims to reflect modern DevOps practices but avoids unnecessary complexity that would hamper progress. Design decisions prioritise clarity, maintainability, and incremental growth.  
 
 ### 2.8. Single-Node Constraint
 
@@ -52,7 +51,7 @@ The architecture of Project: SERVERTRON is governed by a set of principles guidi
 
 ### 3.1 Separation of Environments
 
-Production and lab environments are logically isolated. Production hosts stable services, while the lab is used for development, experimentation, and testing. Changes are validated in the lab before being introduced to production. Experimental changes must never impact production workloads.  
+Production and lab environments are strictly isolated. Changes are validated in the lab environment before being introduced to the production environment. Experimental changes must not impact production workloads.  
 
 ### 3.2 Workload-Appropriate Isolation
 
