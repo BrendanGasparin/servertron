@@ -43,20 +43,26 @@ ZFS is used for the file system as it provides:
 - alignment with production-style infrastructure
 
 ## Proxmox VE Host Layer
-**CPU:** Leave at least 2 threads uncommitted for host.  
-**RAM:** Reserve 8 GB for host before planning guests.  
-**Storage:** 400 GB. 100 for Proxmox, packages, and logs. 100 for ISOs, templates, backups/snippets/misc. 200 GB for ZFS/snapshot/free-space for operations.  
 
-### ZFS ARC
-**RAM:** Allow 8 GB for ZFS ARC and cap later if necessary.  
+### Resource Reservations
+
+**CPU:** Leave at least 2 threads uncommitted for host.  
+**RAM:** Reserve 8 GB for host before planning guests. 
+**ZFS ARC:** Allocate ~8GB (tune if required)
+
+### Storage Allocation
+
+- 100 GB for Proxmox, packages, and logs
+- 100 GB for ISOs, templates, backups/snippets/misc
+- 200 GB for ZFS/snapshots/free-space
 
 ## Virtual Machines / LXC Containers
 
-A layer of virtual machines and Linux containers running on Proxmox. Each contains isolated workloads.  
+A layer of virtual machines and Linux containers providing isolated workloads, running on Proxmox.  
 
 ### Production Lane
 
-The production lane hosts stable, persisent services intended for operational use, including externally exposed services and internal supporting systems.  
+The production lane hosts stable, persisent services intended for operational use.  
 
 #### VM 100 edge-gateway (Edge Gateway)
 
@@ -64,7 +70,7 @@ The production lane hosts stable, persisent services intended for operational us
 **RAM:** 2 GB  
 **Storage:** 32 GB  
 
-This separates VM 110 and VM 300 from outside traffic so that incoming traffic can be handled at the source.  
+Role:  
 
 - Reverse proxy
 - TLS termination
@@ -72,7 +78,7 @@ This separates VM 110 and VM 300 from outside traffic so that incoming traffic c
 
 #### VM 110 apps-platform (Apps Platform)
 
-Applications and services running in Docker containers on an Ubuntu Server VM.  
+Role:  
 
 **vCPU:** 4  
 **RAM:** 6 GB  
@@ -87,7 +93,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 **RAM:** 6 GB  
 **Storage:** 400 GB  
 
-- Databases
+- Databases (PostgreSQL, MariaDB, Redis)
 - Persistent data layer
 
 #### VM 130 media-server (Media Server)
@@ -98,8 +104,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 
 - Media server platform (Jellyfin)
 - Metadata management and indexing
-- External media storage integration
-- Media content stored on external drive
+- External media storage
 
 #### VM 140 games-minecraft (Minecraft Game Server)
 
@@ -108,7 +113,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 **Storage:** 120 GB
 
 - Dedicated Minecraft server
-- Persisten game world and server data
+- Persistent game world and server data
 - Multiplayer game hosting
 
 #### LXC 200 monitoring (Monitoring)
@@ -118,6 +123,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 **Storage:** 40 GB
 
 - Prometheus
+- Loki
 - Grafana
 
 #### LXC 210 utility (Utility Services)
@@ -127,7 +133,7 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 **Storage:** 20 GB  
 
 - Supporting tools
-- Internal helpers
+- Internal services
 
 ### Lab Lane
 
@@ -140,8 +146,19 @@ Applications and services running in Docker containers on an Ubuntu Server VM.
 - Kubernetes (K3s)
 - Development and experimentation environment only
 
-### Total Resources Assigned
+## Resource Allocation Summary
 
-**vCPUs assigned:** 23  
-**RAM assigned:** 61 GB  
-**Storage assigned:** 1412 GB  
+**Total Available:**  
+
+-16 threads
+- 64 GB RAM
+
+**Assigned:**  
+- **vCPUs:** 23 (intentional overcommit)
+- **RAM:** 61 GB (near full utilisation)
+
+### Notes
+
+- CPU overcommit is acceptabled for mixed workloads
+- RAM allocation is high and may require retuning in the future
+- ZFS ARC size may be adjust if underallocated
