@@ -742,6 +742,19 @@ Recovery capabilities include:
 Backup integrity is validated through periodic restore testing.  
 
 ### 14.5. Update and Patch Strategy
+
+Systems are maintained through regular updates:  
+
+- Operating systems are updated using package managers
+- Security patched are applied regularly
+- Application containers are updated as required
+
+Updates are applied in a controlled mannger:  
+
+- Tested in the lab environment where applicable
+- Applied to production after validation
+- Monitored for issues following deployment
+
 ### 14.6. Observability
 ### 14.7. Operational Practices
 ### 14.8. Limitations
