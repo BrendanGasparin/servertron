@@ -726,6 +726,21 @@ Configuration is managed through:
 Changes are tracked and documented to ensure reproducibility and traceability.  
 
 ### 14.4. Backup and Recovery
+
+A structured backup strategy is implemented to protect system data:  
+
+- Regular backups of critical data and configurations
+- Use of ZFS snapshots where applicable
+- Off-site backup for important data
+
+Recovery capabilities include:  
+
+- Restoration of individual services
+- Restoration of full virtual machines
+- Recovery of database state
+
+Backup integrity is validated through periodic restore testing.  
+
 ### 14.5. Update and Patch Strategy
 ### 14.6. Observability
 ### 14.7. Operational Practices
