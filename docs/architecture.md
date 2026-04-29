@@ -482,6 +482,16 @@ These services:
 - Are secured through authentication and system hardening
 
 ### 13.3. Network Security
+
+Network security is enforced through:
+
+- Restricted external exposure (only required services are accessible)
+- Reverse proxy routing for web services
+- Separation between internal and external traffic
+- Internal-only access for sensitive services (databases, monitoring, utilities)
+
+The system follows a **default-deny approach** where services are not exposed unless explicitly required.  
+
 ### 13.4. Host and VM Hardening
 ### 13.5. Application-Level Security
 ### 13.6. Data Security
