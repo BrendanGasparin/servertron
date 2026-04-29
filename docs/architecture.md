@@ -303,8 +303,25 @@ The allocation strategy reserves capacity for:
 CPU overcommit is acceptable for mixed workloads, but RAM allocation is managed more carefully due to the fixed 64 GB limit.  
 
 ## 8. Compute and Workload Model
+
 ### 8.1. Virtual Machines
+
+Virtual machines (VMs) are used for workloads requiring strong isolation, external exposure, or more complex service requirements.  
+
+VMs are used for:
+- VM 100 edge-gateway
+- VM 110 apps-platform
+- VM 120 data-services
+- VM 130 media-server
+- VM 140 games-minecraft
+- VM 300 k3s-lab
+
+This model keeps major services separated and limits the blast radius of failures or misconfigurations.
+
 ### 8.2. Linux Containers (LXC)
+
+
+
 ### 8.3. Containerised Workloads (Docker)
 
 ## 9. Network Architecture
