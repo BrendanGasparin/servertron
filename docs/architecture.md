@@ -540,6 +540,16 @@ The system is designed to support:
 
 This ensures that backups are not only created, but also usable.  
 
+### 12.9. Data Isolation
+
+Data is isolated according to service boundaries:  
+
+- Each service manages its own data storage
+- The data layer is separated from application logic
+- Internal-only access is enforced for sensitive data services
+
+This reduces risk and simplifies management.  
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
