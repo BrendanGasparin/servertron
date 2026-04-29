@@ -9,6 +9,8 @@ This document defines the architecture of Project: SERVERTRON, providing the str
 
 It serves as a reference for how the system is designed and intended to operate, and provides a framework to ensure that future decisions remain aligned with project goals and constraints.  
 
+This document serves as the authoritative reference for the system architecture.  
+
 ## 2. Design Goals
 
 The architecture of Project: SERVERTRON is guided by a set of design goals that reflect its purpose as a DevOps-focused homelab running real services, as well as a learning platform for new technologies.  
@@ -200,8 +202,8 @@ Traffic is handled in two distinct paths:
 
 #### Proxied Web Traffic
 
-1. Client → Cloudflare (proxied)
-2. Cloudflare → NGINX (VM 100 edge-gateway)
+1. Client -> Cloudflare (proxied)
+2. Cloudflare -> NGINX (VM 100 edge-gateway)
 3. NGINX routes requests to:
     - application services (VM 110 apps-platform)
     - lab services (VM 300 k3s-lab, if exposed)
@@ -216,8 +218,8 @@ Certain services bypass Cloudflare proxying due to bandwidth or protocol constra
 
 These services are accessed via direct connections:
 
-1. Client → Public IP (via DNS-only record in Cloudflare)
-2. Router → Port forwarding
+1. Client -> Public IP (via DNS-only record in Cloudflare)
+2. Router -> Port forwarding
 3. Target VM (VM 130 media-server for Jellyfin, VM 140 games-minecraft for Minecraft)
 
 ### 5.3. Environment Separation
@@ -229,7 +231,7 @@ The system is divided into two primary environments:
 
 The lab environment is isolated to prevent experimental changes from impacting production services.  
 
-### 5.4. Architecture Characteristics
+### 5.4. Architectural Characteristics
 
 The architecture is defined by the following characteristics:  
 
@@ -1022,7 +1024,7 @@ Each stage of the DevOps lifecycle is reflected in the system:
 - **Release:** Stable configurations are defined and versioned.
 - **Deploy:** Services are exposed and made available to users.
 - **Operate:** The system is run and maintained, with a focus on stability and reliability.
-- **Monitor:** Metrics and logs are connected to provide visibility and inform future improvements.
+- **Monitor:** Metrics and logs are collected and analysed to provide visibility and inform future improvements.
 
 ### 15.3. Supporting Practices
 
@@ -1070,7 +1072,7 @@ As a result of these constraints and trade-offs, the following risks are accepte
 - Potential resource contention under load
 - Direct exposure of selected services
 
-These risks are mitigated through monitoring, controlled exposure, and regular backups.  
+These risks are mitigated through monitoring, controlled exposure, and regular backups.  They are accepted as part of the trade-offs inherent in a single-node homelab-style architecture.  
 
 ## 17. Planned Evolution
 
@@ -1078,7 +1080,7 @@ These risks are mitigated through monitoring, controlled exposure, and regular b
 
 The architecture of Project: SERVERTRON is designed to support incremental improvement over time.  
 
-Future changes will build on the current system without requiring a complete redesign.  
+Future changes will build on the current system without requiring a complete redesign. The system evolves through iterative improvements rather than large-scale changes.  
 
 ### 17.2. Short-Term Improvements
 
