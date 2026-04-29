@@ -448,6 +448,19 @@ The data and storage design of Project: SERVERTRON is intended to:
 - Support backup and restoration processes
 - Reflect production-style storage practices within a single-node system
 
+### 12.2. Storage Platform
+
+The system uses ZFS as the primary filesystem on the Proxmox host.  
+
+ZFS is selected for:  
+
+- Data integrity through checksumming
+- Snapshot capability for point-in-time recovery
+- Copy-on-write behaviour
+- Alignment with production-style infrastructure patterns
+
+ZFS provides the foundation for all virtual machine and container storage.  
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
