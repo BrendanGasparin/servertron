@@ -210,9 +210,25 @@ The network architecture of Project: SERVERTRON is designed to:
 - Minimise the attack surface of the system
 - Separate externally exposed and internal services
 - Support both HTTP-based and non-HTTP workloads
-- Reflect real-world edge and origin infrastructure patterns
+- Reflect real-world network infrastructure patterns
 
-### 9.2. External Edge (Cloudflare)
+### 9.2. External Edge and DNS
+
+External DNS and edge services are provided by Cloudlfare.  
+
+Cloudflare is responsible for:  
+
+- DNS resolution for all public services
+- TLS termination for proxied web applications
+- Web Applicaiton Firewall (WAF) and DDoS protection for HTTP/HTTPS traffic
+
+Services are divided into two categories:
+
+- **Proxied services:** Web applications routed through Cloudflare
+- **DNS-only services:** High-bandwidth or non-HTTP services that connect directly to the client
+
+This separation ensures compatibility with Cloudflare limitations while maintaining security for web-facing services.  
+
 ### 9.3. Edge Gateway (NGINX)
 ### 9.4. External Access Model
 ### 9.5. Internal Networking
