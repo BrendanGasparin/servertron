@@ -493,6 +493,15 @@ Network security is enforced through:
 The system follows a **default-deny approach** where services are not exposed unless explicitly required.  
 
 ### 13.4. Host and VM Hardening
+
+Security measures are applied at the host and guest levels:  
+
+- Minimal installed packages on servers
+- Regular system updates and security patching
+- SSH hardening (restricted access, non-root login)
+- firewall configuration (UFW) on individual virtual machines
+- Separation of services across VMs to limit damage in case of compromise
+
 ### 13.5. Application-Level Security
 ### 13.6. Data Security
 ### 13.7. Secrets and Sensitive Data
