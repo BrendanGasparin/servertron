@@ -243,6 +243,35 @@ Its responsibilities include:
 All proxied web traffic is routed through the edge gateway before reaching application or lab services.  
 
 ### 9.4. External Access Model
+
+External access to the system follows a hybrid model:  
+
+#### Proxied Web Access
+
+Web services are exposed via HTTPS through Cloudflare and routed to the NGINX edge gateway.  
+
+This provides:  
+
+- TLS encryption
+- WAF protection
+- IP masking
+- Centralised routing
+
+#### Direct Access Services
+
+Certain services bypass Cloudflare proxying and connect directly to the origin:  
+
+- Media services (Jellyfin)
+- Game services (Minecraft)
+
+These services are exposed via port forwarding and secured independently.  
+
+This is approach is required due to:  
+
+- Cloudflare policies
+- high bandwidth usage (media streaming)
+- non-HTTP protocols (game servers)
+
 ### 9.5. Internal Networking
 ### 9.6. Service Exposure Strategy
 ### 9.7. Future Considerations
