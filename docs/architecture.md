@@ -398,6 +398,19 @@ Responsibilities:
 Monitoring services are internal and not publicly exposed.  
 
 ### 10.7. Utility Services
+
+**Location:** LXC 210 utility
+
+Utility services provide internal support functions.  
+
+Responsibilities:  
+
+- Supporting tools and helper services
+- Internal automation or scripts
+- Non-critical background processes
+
+These services are isolated and not internally exposed.  
+
 ### 10.8. Service Interaction Model
 ### 10.9. Design Characteristics
 
