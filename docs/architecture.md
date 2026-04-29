@@ -489,7 +489,7 @@ Responsibilities:
 The data layer is internal-only and not exposed externally.  
 
 
-### 13.5. Application Data Storage
+### 12.5. Application Data Storage
 
 Application data is stored according to workload requirements:  
 
@@ -506,13 +506,27 @@ Application data is stored according to workload requirements:
 
 This separation ensures that large media storage needs do not impact core system storage.  
 
-### 13.6. ZFS ARC (Caching)
+### 12.6. ZFS ARC (Caching)
 
 ZFS uses system memory for caching (ARC).  
 
 - A portion of RAM is allocated to ARC
 - This improves read performance for frequently accessed data
 - ARC size may be tuned based on system performance
+
+### 12.7. Backup Strategy
+
+The system implements a multi-layered backup strategy:  
+
+- Regular backups of critical data (databases, configuration, application data)
+- Snapshot-based backups using ZFS where applicable
+- Off-site backup for important data
+
+Backups are designed to protect against:  
+
+- hardware failure
+- data corruption
+- configuration errors
 
 ## 13. Security Architecture
 
