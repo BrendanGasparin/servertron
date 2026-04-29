@@ -543,6 +543,20 @@ The lab environment is isolated from production:
 This reduces the risk of instability or misconfiguration affecting production services.  
 
 ### 13.9. Risk Considerations
+
+The system operates within the constraints of a home environment, which introduces certain risks:  
+
+- Single-node deployment (i.e. a single point of failure)  
+- Limited physical security compared to data centres
+- Direct exposure of some services (media and game servers)
+
+These risks are mitigated through:  
+
+- Controlled exposure
+- Regular backups
+- Separation of services
+- Monitoring and observability
+
 ### 13.10. Future Improvements
 
 ## 14. Operations Model
