@@ -304,7 +304,7 @@ CPU overcommit is acceptable for mixed workloads, but RAM allocation is managed 
 
 ## 8. Compute and Workload Model
 
-### 8.1. Virtual Machines
+### 8.1. Virtual Machines (VMs)
 
 Virtual machines (VMs) are used for workloads requiring strong isolation, external exposure, or more complex service requirements.  
 
@@ -318,10 +318,17 @@ VMs are used for:
 
 This model keeps major services separated and limits the blast radius of failures or misconfigurations.
 
-### 8.2. Linux Containers (LXC)
+### 8.2. Linux Containers (LXCs)
 
+Linux containers (LXCs) are used for lightweight internal services that do not require full VM isolation.  
 
+LXCs are used for:  
 
+- LXC 200 monitoring
+- LXC 210 utility
+
+LXCs reduce overhead while still keeping supporting services separate from the host.  
+ 
 ### 8.3. Containerised Workloads (Docker)
 
 ## 9. Network Architecture
