@@ -440,10 +440,25 @@ The service architecture is defined by:
 ## 12. Data and Storage Design
 
 ## 13. Security Architecture
-### 13.1. Exposure Model
+
+### 13.1. Security Objectives
+
+The security architecture of Project: SERVERTRON is designed to:
+
+- Minimise exposure of services to the public Internet
+- Protect externally accessible services from common threats
+- Ensure internal services are isolated and not publicly accessible
+- Maintain a clear separation between production and lab environments
+- Support secure operations within a home system context
+
 ### 13.2. Network Security
 ### 13.3. Host and VM Hardening
-### 13.4. Secrets Management
+### 13.4. Application-Level Security
+### 13.5. Data Security
+### 13.6. Secrets and Sensitive Data
+### 13.7. Lab Environment Security
+### 13.8. Risk Considerations
+### 13.9. Future Improvements
 
 ## 14. Operations Model
 ### 14.1. Provisioning Approach
