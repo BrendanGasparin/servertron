@@ -103,7 +103,7 @@ All significant architectural decisions are recorded and justified, ensuring tra
 
 ### 4.1. Overview
 
-Project: SERVERTRON is a single-node, self-hosted infrastructure designed to run real-world services within a hom environment. It operates as both a production platform for practical workloads and a laboratory environment for deployment and experimentation.  
+Project: SERVERTRON is a single-node, self-hosted infrastructure designed to run real-world services within a home environment. It operates as both a production platform for practical workloads and a laboratory environment for deployment and experimentation.  
 
 The system is deployed on a single physical host (SERVERTRON-1) and is accessible over the Internet for selected services.  
 
@@ -120,7 +120,7 @@ Cloudflare acts as the primary external interface for HTTP/HTTPS services, provi
 
 ### 4.3. Internal Context
 
-Interally, the system is composed of multiple isolated components running on a virtualised platform:  
+Internally, the system is composed of multiple isolated components running on a virtualised platform:  
 
 - Virtual machines for core services (edge gateway, applications, data, media, and game servers)
 - Linux containers for lightweight supporting services
@@ -148,8 +148,8 @@ The system is responsible for managing its internal services and their exposure 
 
 Access to the system is controlled through a combination of proxied and direct connections:  
 
-- Web services are accessed via Cloudlfare and routed through the edge gateway
-- Media and game services are access directly through controlled exposure
+- Web services are accessed via Cloudflare and routed through the edge gateway
+- Media and game services are accessed directly through controlled exposure
 - Administrative and internal services are not publicly accessible
 
 This model balances accessibility, security, and system constraints.  
@@ -184,7 +184,7 @@ The architecture follows a layered model:
 
 - **Edge Layer:** External DNS and security (Cloudflare)
 - **Gateway Layer:** Reverse proxy and traffic routing (NGINX on VM 100 edge-gateway)
-- **Application Layer:** Cointainerised services (VM 110 apps-platform)
+- **Application Layer:** Containerised services (VM 110 apps-platform)
 - **Data Layer:** Databases and persistent storage (VM 120 data-services)
 - **Service Layer:** Media and game services (VM 130 media-server and VM 140 games-minecraft)
 - **Observability Layer:** Monitoring and logging (LXC 200)
@@ -444,7 +444,7 @@ This reduces risk while maintaining necessary functionality.
 
 ### 9.7. Future Considerations
 
-Potenetial future improvements include:  
+Potential future improvements include:  
 
 - Network segmentation (e.g. VLANs)
 - Dedicated firewall or routing VM
@@ -582,7 +582,7 @@ The service architecture is defined by:
 
 ### 11.1. Purpose
 
-The lab environment exists to support development, testing, learning, and experimentation without negatively effecting production workloads.  
+The lab environment exists to support development, testing, learning, and experimentation without negatively affecting production workloads.  
 
 It provides a controlled space for:  
 
@@ -640,7 +640,7 @@ ZFS provides the foundation for all virtual machine and container storage.
 
 Storage is divided into logical areas based on usage:  
 
-- **System storage:** Proxmos OS, pakacges, and logs
+- **System storage:** Proxmox OS, packages, and logs
 - **VM and container storage:** Disks for virtual machines and LXCs
 - **Templates and ISOs:** Installation media and base images
 - **Snapshots and overhead:** Reserved space for ZFS operations
@@ -668,7 +668,7 @@ The data layer is internal-only and not exposed externally.
 
 Application data is stored according to workload requirements:  
 
-- **Application services (VM 100 apps-platform):**
+- **Application services (VM 110 apps-platform):**
     - Use Docker volumes for persistent data
     - Store configuration and application state locally
 
@@ -921,10 +921,10 @@ Backup integrity is validated through periodic restore testing.
 Systems are maintained through regular updates:  
 
 - Operating systems are updated using package managers
-- Security patched are applied regularly
+- Security patches are applied regularly
 - Application containers are updated as required
 
-Updates are applied in a controlled mannger:  
+Updates are applied in a controlled manner:  
 
 - Tested in the lab environment where applicable
 - Applied to production after validation
@@ -1033,7 +1033,7 @@ The following trade-offs have been made in the design:
 - **Isolation vs resource efficiency:** Virtual machines are used for strong isolation, at the cost of higher resource usage compared to containers.
 - **Performance vs accessibility:** Certain services (media and game servers) are exposed directly to support performance, reducing the protection provided by proxy-based access.
 - **Automation vs learning:** Infrastructure is provisioned manually in the initial phase to build understanding, rather than using full automation.
-- **Scalability vs constrants:** The system is designed for future scalability, but currently operates within single-node limitations.
+- **Scalability vs constraints:** The system is designed for future scalability, but currently operates within single-node limitations.
 
 ### 16.3. Accepted Risks
 
