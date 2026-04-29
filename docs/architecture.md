@@ -472,6 +472,22 @@ Storage is divided into logical areas based on usage:
 
 Adequate free space is maintained to support ZFS performance and snapshot functionality.  
 
+### 12.4. Data Layer (VM 120 data-services)
+
+The primary data layer is hosted on VM 120 and includes:
+
+- PostgreSQL - primary relational database
+- Redis - caching and real-time data
+- MariaDB - compatibility for applications such as WordPress
+
+Responsibilities:  
+
+- Persistent storage of application data
+- Reliable data access for services
+- Support for backup and recovery processes
+
+The data layer is internal-only and not exposed externally.  
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
