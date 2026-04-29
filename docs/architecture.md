@@ -488,6 +488,24 @@ Responsibilities:
 
 The data layer is internal-only and not exposed externally.  
 
+
+### 13.5. Application Data Storage
+
+Application data is stored according to workload requirements:  
+
+- **Application services (VM 100 apps-platform):**
+    - Use Docker volumes for persistent data
+    - Store configuration and application state locally
+
+- **Media services (VM 130 media-server):**
+    - Media content is stored on an external drive
+    - The VM handles metadata, indexing, and streaming
+
+- **Game services (VM 140):**
+    - World data and server state are stored locally within the VM
+
+This separation ensures that large media storage needs do not impact core system storage.  
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
