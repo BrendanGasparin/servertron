@@ -792,6 +792,13 @@ These limitations are acknowledged and mitigated where possible through backups,
 
 ### 14.9. Future Improvements
 
+Potential future enhancements include:  
+
+- Introduction of automation (e.g. Infrastructure as Code)
+- CI/CD pipelines for application deployment
+- GitOps-based configuration management
+- More advanced monitoring and alerting
+
 ## 15. DevOps Alignment
 
 ## 16. Constraints and Trade-Offs
