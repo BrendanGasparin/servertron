@@ -331,6 +331,19 @@ LXCs reduce overhead while still keeping supporting services separate from the h
  
 ### 8.3. Containerised Workloads (Docker)
 
+Docker is used inside VM 110 apps-platform for application workloads.  
+
+Docker Compose is used to define and run Compose stacks, allowing related containers to be deployed together as repeatable application units.  
+
+Containerised workloads are used for:  
+
+- web applications
+- APIs
+- supporting application services
+- future self-hosted tools
+
+Docker is used in the production environment for application deployment, while K3s is kept separate in the lab environment for learning purposes.  
+
 ## 9. Network Architecture
 
 ## 9. Network Architecture
@@ -566,9 +579,38 @@ The service architecture is defined by:
 **Extensibility:** New services can be added without major redesign
 
 ## 11. Lab Environment Architecture
+
 ### 11.1. Purpose
+
+The lab environment exists to support development, testing, learning, and experimentation without negatively effecting production workloads.  
+
+It provides a controlled space for:  
+
+- Kubernetes learning
+- testing new services
+- experimenting with deployment models
+- validating changes before production use
+
 ### 11.2. K3s Scope
+
+K3s is used as the Kubernetes platform for the lab environment.  
+
+K3s is selected because it provides real Kubernetes concepts while remaining suitable for a single-node, resource-constrained home environment.  
+
+K3s is not used for production workloads in the initial architecture.  
+
 ### 11.3. Workload Isolation
+
+The lab environment is logically separated from production.  
+
+Lab workloads should not:  
+
+- host critical production services
+- depend on production stability
+- expose experimental services publicly unless explicitly required
+- interfere with production data services, networking, or storage
+
+This separation allows experimentation while preserving the reliability of the production environment.  
 
 ## 12. Data and Storage Design
 
