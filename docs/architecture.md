@@ -528,6 +528,18 @@ Backups are designed to protect against:
 - data corruption
 - configuration errors
 
+### 12.8. Restore and Recovery
+
+Backup integrity is validated through periodic restore testing.  
+
+The system is designed to support:  
+
+- restoration of individual services
+- restoration of virtual machines
+- recovery of database state
+
+This ensures that backups are not only created, but also usable.  
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
