@@ -323,6 +323,20 @@ Services in Project: SERVERTRON are organised by function and deployed across de
 This separation improves isolation, maintainability, and operational clarity.  
 
 ### 10.2. Edge and Ingress
+
+**Location:** VM 100 edge-gateway  
+
+The edge layer is implemented using NGINX.  
+
+Responsibilities:  
+
+- Accept inbound HTTP/HTTPS traffic from the Internet
+- Route requests to internal services based on hostnames/paths
+- Terminate TLS at the origin where required
+- Isolate backend services from direct Internet exposure
+
+All proxied web traffic flows through this layer before reaching application services.  
+
 ### 10.3. Application Services
 ### 10.4. Data Services
 ### 10.5. Media and Game Services
