@@ -874,6 +874,15 @@ Potential future enhancements include:
 
 ## 15. DevOps Alignment
 
+### 15.1. Overview
+
+Project: SERVERTRON is designed to align with a modern DevOps lifecycle, guiding the development, deployment, and operation of the system.  
+
+The architecture, tooling, and operational practices are structured to support an iterative workflow:
+
+![The DevOps lifecycle](../images/devops-lifecycle.png)
+*The DevOps lifecycle.*
+
 ## 16. Constraints and Trade-Offs
 
 ## 17. Planned Evolution
