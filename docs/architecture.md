@@ -559,6 +559,14 @@ These risks are mitigated through:
 
 ### 13.10. Future Improvements
 
+Potential future security enhancements include:  
+
+- VPN-based access for administrative services
+- Network segmentation (e.g. VLANs)
+- Dedicated firewall or routing VM
+- Centralised secrets management
+- Enhanced intrusion detection and alerting
+
 ## 14. Operations Model
 ### 14.1. Provisioning Approach
 ### 14.2. Backup and Recovery
