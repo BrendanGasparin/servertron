@@ -503,6 +503,14 @@ Security measures are applied at the host and guest levels:
 - Separation of services across VMs to limit damage in case of compromise
 
 ### 13.5. Application-Level Security
+
+Application services are secured through:
+
+- Reverse proxy isolation
+- Environment-based separation (production vs lab)
+- Use of authentication mechanisms where applicable
+- Controlled access to administrative interfaces
+
 ### 13.6. Data Security
 ### 13.7. Secrets and Sensitive Data
 ### 13.8. Lab Environment Security
