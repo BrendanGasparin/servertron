@@ -273,15 +273,63 @@ This is approach is required due to:
 - non-HTTP protocols (game servers)
 
 ### 9.5. Internal Networking
+
+Internal communication between services occurs within the Proxmox virtual network.  
+
+Key characteristics:  
+
+- Virtual machines communicate over internal bridges
+- Services are not exposed externally unless explicitly required
+- Application services communicate with the data layer internally
+- Monitoring systems collect metrics and logs without being publicly exposed
+
+This ensures clear separation between internal and external traffic.  
+
 ### 9.6. Service Exposure Strategy
+
+The system follows a principle of minimal exposure:  
+
+- Only required services are exposed externally
+- Administrative interfaces are not publicly accessible
+- Internal services (databases, monitoring, utilities) remain private
+- Reverse proxying is used to centralise and control access where possible
+
+This reduces risk while maintaining necessary functionality.  
+
 ### 9.7. Future Considerations
 
+Potenetial future improvements include:  
+
+- Network segmentation (e.g. VLANs)
+- Dedicated firewall or routing VM
+- VPN-based access for administrative services
+- Enhanced traffic filtering and rate limiting
+
+These improvements are not part of the initial implementation, but are supported by the architecture.  
+
 ## 10. Service Architecture
-### 10.1. Edge and Ingress
-### 10.2. Application Services
-### 10.3. Data Services
-### 10.4. Monitoring and Observability
+
+### 10.1. Overview
+
+Services in Project: SERVERTRON are organised by function and deployed across dedicated virtual machines and containers. The architect separates responsibilities into distinct layers:  
+
+- Edge and Ingress
+- Application Services
+- Data Services
+- Media and Game Services
+- Monitoring and Observability
+- Utility Services
+
+This separation improves isolation, maintainability, and operational clarity.  
+
+### 10.2. Edge and Ingress
+### 10.3. Application Services
+### 10.4. Data Services
 ### 10.5. Media and Game Services
+### 10.6. Monitoring and Observability
+### 10.7. Utility Services
+### 10.8. Service Interaction Model
+### 10.9. Design Characteristics
 
 ## 11. Lab Environment Architecture
 ### 11.1. Purpose
