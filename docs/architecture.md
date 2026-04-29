@@ -756,6 +756,21 @@ Updates are applied in a controlled mannger:
 - Monitored for issues following deployment
 
 ### 14.6. Observability
+
+System observability is provided through a monitoring stack running in LXC 200:  
+
+- Loki (log aggregation)
+- Prometheus (metrics collection)
+- Grafana (dashboards and visualisation)
+
+Observability supports: 
+
+- System performance monitoring
+- Service health tracking
+- Troubleshooting and diagnostics
+
+Monitoring systems are internal and not publicly exposed.  
+
 ### 14.7. Operational Practices
 ### 14.8. Limitations
 ### 14.9. Future Improvements
