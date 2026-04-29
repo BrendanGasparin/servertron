@@ -370,7 +370,33 @@ Responsibilities:
 Data services are internal-only and are not exposed externally.  
 
 ### 10.5. Media and Game Services
+
+**Locations:**  
+
+- VM 130 media-server
+- VM 140 games-minecraft
+
+These services are separated due to their resource and networking requirements.  
+
 ### 10.6. Monitoring and Observability
+
+**Location:** LXC 200 monitoring
+
+The monitoring stack consists of:  
+
+- Loki (logs)
+- Prometheus (metrics)
+- Grafana (dashboards)
+
+Responsibilities:  
+
+- Collect system and application metrics
+- Aggregate logs across services
+- Provide dashboards for system visibility
+- Support troubleshooting and analysis
+
+Monitoring services are internal and not publicly exposed.  
+
 ### 10.7. Utility Services
 ### 10.8. Service Interaction Model
 ### 10.9. Design Characteristics
