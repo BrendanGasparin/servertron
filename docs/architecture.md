@@ -128,6 +128,22 @@ Interally, the system is composed of multiple isolated components running on a v
 
 These components communicate over an internal virtual network and are isolated from external access unless explicitly exposed.  
 
+### 4.4. System Boundaries
+
+The boundaries of the system are defined as follows:
+
+- **Included within the system:**
+    - SERVERTRON-1 host hardware
+    - Proxmox virtualisation platform
+    - All virtual machines and containers
+    - Internal networking and service communication
+- **External to the system:**
+    - The public Internet
+    - External DNS and edge services (Cloudflare)
+    - End-user devices and client applications
+
+The system is responsible for managing its internal services and their exposure to external users.  
+
 ## 5. Architecture Overview
 
 ### 5.1. High-Level Architecture
