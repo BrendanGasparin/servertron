@@ -338,6 +338,19 @@ Responsibilities:
 All proxied web traffic flows through this layer before reaching application services.  
 
 ### 10.3. Application Services
+
+**Location:** VM 110 apps-platform
+
+Application services are deployed as containerised workloads using Docker and Docker Compose.  
+
+Responsibilities:  
+
+- Host web applications, APIs, and supporting services
+- Provide a consistent runtime environment for applications
+- Enable repeatable deployments via Compose stacks
+
+Application services communicate with the data layer over internal networking and are not directly exposed to the Internet.  
+
 ### 10.4. Data Services
 ### 10.5. Media and Game Services
 ### 10.6. Monitoring and Observability
