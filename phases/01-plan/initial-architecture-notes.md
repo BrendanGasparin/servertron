@@ -48,7 +48,7 @@ ZFS is used for the file system as it provides:
 
 **CPU:** Leave at least 2 threads uncommitted for host.  
 **RAM:** Reserve 8 GB for host before planning guests. 
-**ZFS ARC:** Allocate ~8GB (tune if required)
+**ZFS ARC:** Allocate ~6GB (tune if required)
 
 ### Storage Allocation
 
@@ -99,7 +99,7 @@ Role:
 #### VM 130 media-server (Media Server)
 
 **vCPU:** 2  
-**RAM:** 6 GB  
+**RAM:** 4 GB  
 **Storage:** 100 GB  
 
 - Media server platform (Jellyfin)
@@ -109,7 +109,7 @@ Role:
 #### VM 140 games-minecraft (Minecraft Game Server)
 
 **vCPU:** 4  
-**RAM:** 12 GB  
+**RAM:** 10 GB  
 **Storage:** 120 GB
 
 - Dedicated Minecraft server
@@ -129,7 +129,7 @@ Role:
 #### LXC 210 utility (Utility Services)
 
 **vCPU:** 1  
-**RAM:** 2 GB  
+**RAM:** 1 GB  
 **Storage:** 20 GB  
 
 - Supporting tools
@@ -140,7 +140,7 @@ Role:
 #### VM 300 k3s-lab (Kubernetes Lab)
 
 **vCPU:** 4  
-**RAM:** 8 GB  
+**RAM:** 6 GB  
 **Storage:** 100 GB
 
 - Kubernetes (K3s)
@@ -155,10 +155,10 @@ Role:
 
 **Assigned:**  
 - **vCPUs:** 23 (intentional overcommit)
-- **RAM:** 61 GB (near full utilisation)
+- **RAM:** 52 GB
 
 ### Notes
 
 - CPU overcommit is acceptabled for mixed workloads
-- RAM allocation is high and may require retuning in the future
-- ZFS ARC size may be adjust if underallocated
+- RAM allocation is intentionally conservative to preserve host stability, allow ZFS ARC to function effetively, and provide headroom for future tuning
+- ZFS ARC size may be adjusted if underallocated

@@ -1047,3 +1047,45 @@ As a result of these constraints and trade-offs, the following risks are accepte
 These risks are mitigated through monitoring, controlled exposure, and regular backups.  
 
 ## 17. Planned Evolution
+
+### 17.1. Overview
+
+The architecture of Project: SERVERTRON is designed to support incremental improvement over time.  
+
+Future changes will build on the current system without requiring a complete redesign.  
+
+### 17.2. Short-Term Improvements
+
+Planned improvements in the near term include:  
+
+- Refinement of monitoring and observability
+- Improved backup scheduling and retention
+- Incremental automation of configuration and deployment
+- Expansion of application services
+
+### 17.3. Medium-Term Improvements
+
+As the system matures, the following enhancements may be introduced:  
+
+- Infrastructure as Code for repeatable provisioning
+- CI/CD pipelines for application deployment
+- More advanced logging and alerting
+- Improved secrets management
+
+### 17.4. Long-Term Evolution
+
+The architecture is designed to support more advanced scenarios if required:  
+
+- Migration to a multi-node environment
+- Introduction of high availability concepts
+- Expansion of Kubernetes beyond the lab environment
+- Network segmentation and advanced routing
+
+### 17.5. Guiding Principles
+
+All future changes will follow the same principles established in this document:
+
+- maintain clear separation of concerns
+- prioritise stability in production
+- validate changes in the lab environment
+- evolve the system incrementally
