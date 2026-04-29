@@ -409,9 +409,19 @@ Responsibilities:
 - Internal automation or scripts
 - Non-critical background processes
 
-These services are isolated and not internally exposed.  
+These services are isolated and not externally exposed.  
 
 ### 10.8. Service Interaction Model
+
+Services interact according to the following patterns:  
+
+- **Edge -> Application:** NGINX routes external traffic to application services
+- **Application -> Data:** Applications read/write to databases and caches
+- **Monitoring -> All:** Monitoring systems collect metrics and logs from all components
+- **Direct Access:** Media and game services are accessed directly by clients
+
+All internal communication occurs over the virtual network and is not exposed externally.  
+
 ### 10.9. Design Characteristics
 
 ## 11. Lab Environment Architecture
