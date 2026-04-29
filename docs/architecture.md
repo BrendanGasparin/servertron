@@ -550,6 +550,15 @@ Data is isolated according to service boundaries:
 
 This reduces risk and simplifies management.  
 
+### 12.10. Future Improvements
+
+Potential future improvements include:  
+
+- Dedicated storage for backups
+- Incremental and automated backup pipelines
+- Remote replication of critical data
+- Improved backup scheduling and retention policies
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
