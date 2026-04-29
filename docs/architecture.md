@@ -896,6 +896,15 @@ Each stage of the DevOps lifecycle is reflected in the system:
 - **Operate:** The system is run and maintained, with a focus on stability and reliability.
 - **Monitor:** Metrics and logs are connected to provide visibility and inform future improvements.
 
+### 15.3. Supporting Practices
+
+The following practices support DevOps alignment:  
+
+- **Version Control:** Configuration and documentation are stored and managed in a Git repository.
+- **Documentation-Driven Development:** Architecture and decisions are documented alongside implementation.
+- **Environment Separation:** Changes are validated in the lab environment before being applied to production.
+- **Incremental Change:** Updates are introduced gradually to minimise risk.
+
 ## 16. Constraints and Trade-Offs
 
 ## 17. Planned Evolution
