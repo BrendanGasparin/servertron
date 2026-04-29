@@ -451,14 +451,44 @@ The security architecture of Project: SERVERTRON is designed to:
 - Maintain a clear separation between production and lab environments
 - Support secure operations within a home system context
 
-### 13.2. Network Security
-### 13.3. Host and VM Hardening
-### 13.4. Application-Level Security
-### 13.5. Data Security
-### 13.6. Secrets and Sensitive Data
-### 13.7. Lab Environment Security
-### 13.8. Risk Considerations
-### 13.9. Future Improvements
+### 13.2. Exposure Model
+
+The system follows a controlled exposure model with two access paths:  
+
+#### Proxied Services
+
+Web applications are exposed via Cloudflare and routed through the NGINX edge gateway.
+
+This provides:
+
+- TLS encryption
+- Web Application Firewall (WAF) protection
+- DDoS mitigation
+- IP masking for origin services
+
+Only HTTP/HTTPS services are exposed through this path.  
+
+#### Direct Exposure Services
+
+Certain services are exposed directly due to technical constraints:  
+
+- Media services (Jellyfin)
+- Game servers (Minecraft)
+
+These services:  
+
+- Bypass Cloudflare proxying (DNS-only)
+- Use port forwarding
+- Are secured through authentication and system hardening
+
+### 13.3. Network Security
+### 13.4. Host and VM Hardening
+### 13.5. Application-Level Security
+### 13.6. Data Security
+### 13.7. Secrets and Sensitive Data
+### 13.8. Lab Environment Security
+### 13.9. Risk Considerations
+### 13.10. Future Improvements
 
 ## 14. Operations Model
 ### 14.1. Provisioning Approach
