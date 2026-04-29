@@ -118,6 +118,16 @@ External actors include:
 
 Cloudflare acts as the primary external interface for HTTP/HTTPS services, providing DNS resolution, TLS termination (for proxied services), and security features.  
 
+### 4.3. Internal Context
+
+Interally, the system is composed of multiple isolated components running on a virtualised platform:  
+
+- Virtual machines for core services (edge gateway, applications, data, media, and game servers)
+- Linux containers for lightweight supporting services
+- A dedicated lab environment for experimentation and learning
+
+These components communicate over an internal virtual network and are isolated from external access unless explicitly exposed.  
+
 ## 5. Architecture Overview
 
 ### 5.1. High-Level Architecture
