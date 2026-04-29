@@ -533,6 +533,15 @@ Secrets management follows basic best practices:
 More advanced secrets management solutions may be introduced in future iterations.  
 
 ### 13.8. Lab Environment Security
+
+The lab environment is isolated from production:  
+
+- Experimental workloads are confined to the lab environment
+- No direct exposure of lab services unless explicitly required
+- Changes are validated in the lab before being applied to production
+
+This reduces the risk of instability or misconfiguration affecting production services.  
+
 ### 13.9. Risk Considerations
 ### 13.10. Future Improvements
 
