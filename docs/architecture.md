@@ -701,6 +701,20 @@ It is designed to:
 - Provide visibility into system health and performance
 
 ### 14.2. Provisioning Approach
+
+Infrastructure is provisioned manually in the initial phase, with a focus on understanding system behaviour and configuration.  
+
+Key characteristics:  
+
+- Virtual machines are created and configured within Proxmox VE
+- Services are installed and configured within their respective VMs
+- Application workloads are deployed using Docker and Docker Compose
+- Configuration files are version controlled in the project repository on GitHub
+
+This approach prioritises learning and transparency over full automation.  
+
+Automation may be introduced in later phases as the system stabilises.  
+
 ### 14.3. Configuration Management
 ### 14.4. Backup and Recovery
 ### 14.5. Update and Patch Strategy
