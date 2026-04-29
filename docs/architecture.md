@@ -461,6 +461,17 @@ ZFS is selected for:
 
 ZFS provides the foundation for all virtual machine and container storage.  
 
+### 12.3. Storage Layout
+
+Storage is divided into logical areas based on usage:  
+
+- **System storage:** Proxmos OS, pakacges, and logs
+- **VM and container storage:** Disks for virtual machines and LXCs
+- **Templates and ISOs:** Installation media and base images
+- **Snapshots and overhead:** Reserved space for ZFS operations
+
+Adequate free space is maintained to support ZFS performance and snapshot functionality.  
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
