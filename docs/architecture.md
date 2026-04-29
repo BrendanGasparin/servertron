@@ -883,6 +883,19 @@ The architecture, tooling, and operational practices are structured to support a
 ![The DevOps lifecycle](../images/devops-lifecycle.png)
 *The DevOps lifecycle.*
 
+### 15.2. Phase Alignment
+
+Each stage of the DevOps lifecycle is reflected in the system:
+
+- **Plan:** Architecture, goals, constraints, and tooling decisions are designed and documented.
+- **Code:** Configuration files, infrastructure definitions, and service configurations are version controlled.
+- **Build:** Virtual machines, containers, and supporting services are provisioned and configured.
+- **Test:** System functionality, networking, and service behaviour are validated before release.
+- **Release:** Stable configurations are defined and versioned.
+- **Deploy:** Services are exposed and made available to users.
+- **Operate:** The system is run and maintained, with a focus on stability and reliability.
+- **Monitor:** Metrics and logs are connected to provide visibility and inform future improvements.
+
 ## 16. Constraints and Trade-Offs
 
 ## 17. Planned Evolution
