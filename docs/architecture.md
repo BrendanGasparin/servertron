@@ -300,6 +300,8 @@ The allocation strategy reserves capacity for:
 - lab workloads
 - future growth and operational overhead
 
+The initial allocation strategy is recorded in [initial-architecture-notes.md](../phases/01-plan/initial-architecture-notes.md#proxmox-ve-host-layer).  
+
 CPU overcommit is acceptable for mixed workloads, but RAM allocation is managed more carefully due to the fixed 64 GB limit.  
 
 ## 8. Compute and Workload Model
@@ -343,8 +345,6 @@ Containerised workloads are used for:
 - future self-hosted tools
 
 Docker is used in the production environment for application deployment, while K3s is kept separate in the lab environment for learning purposes.  
-
-## 9. Network Architecture
 
 ## 9. Network Architecture
 
