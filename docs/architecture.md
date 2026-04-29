@@ -716,6 +716,15 @@ This approach prioritises learning and transparency over full automation.
 Automation may be introduced in later phases as the system stabilises.  
 
 ### 14.3. Configuration Management
+
+Configuration is managed through:  
+
+- Version-controlled configuration files (NGINX, Docker Compose, etc.)
+- Standardised VM roles (edge gateway, application platform, data services, etc.)
+- Consistent system setup across environments
+
+Changes are tracked and documented to ensure reproducibility and traceability.  
+
 ### 14.4. Backup and Recovery
 ### 14.5. Update and Patch Strategy
 ### 14.6. Observability
