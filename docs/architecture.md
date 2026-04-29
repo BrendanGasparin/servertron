@@ -439,6 +439,15 @@ The service architecture is defined by:
 
 ## 12. Data and Storage Design
 
+### 12.1. Objectives
+
+The data and storage design of Project: SERVERTRON is intended to:  
+
+- Provide reliable and persistent storage for all services
+- Ensure data integrity and recoverability
+- Support backup and restoration processes
+- Reflect production-style storage practices within a single-node system
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
