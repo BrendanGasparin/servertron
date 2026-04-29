@@ -144,6 +144,16 @@ The boundaries of the system are defined as follows:
 
 The system is responsible for managing its internal services and their exposure to external users.  
 
+### 4.5. Access Model
+
+Access to the system is controlled through a combination of proxied and direct connections:  
+
+- Web services are accessed via Cloudlfare and routed through the edge gateway
+- Media and game services are access directly through controlled exposure
+- Administrative and internal services are not publicly accessible
+
+This model balances accessibility, security, and system constraints.  
+
 ## 5. Architecture Overview
 
 ### 5.1. High-Level Architecture
