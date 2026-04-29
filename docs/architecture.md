@@ -1015,4 +1015,35 @@ This enables continuous refinement of the system while maintaining alignment wit
 
 ## 16. Constraints and Trade-Offs
 
+### 16.1. Constraints
+
+The architecture of Project: SERVERTRON is shaped by the following constraints:  
+
+- **Single-node deployment:** All services run on a single physical host (SERVERTRON-1), with no clustering or high availability.
+- **Limited hardware resources:** CPU, memory, and storage must be shared across all workloads within a fixed system.  
+- **Residential environment:** The system operates on a residential Internet connection with limited bandwidth and no enterprise-grade SLAs or guarantees.
+- **Selective external exposure:** Only essential services are exposed to the Internet, limiting architectural options for certain workloads.  
+- **Minimal additional expenditure:** The system is designed to operate within existing hardware constraints unless failures occur.
+
+### 16.2. Trade-Offs
+
+The following trade-offs have been made in the design:  
+
+- **Simplicity vs realism:** The architecture reflects real-world patterns while avoiding unnecessary complexity (e.g. no Kubernetes in production).
+- **Isolation vs resource efficiency:** Virtual machines are used for strong isolation, at the cost of higher resource usage compared to containers.
+- **Performance vs accessibility:** Certain services (media and game servers) are exposed directly to support performance, reducing the protection provided by proxy-based access.
+- **Automation vs learning:** Infrastructure is provisioned manually in the initial phase to build understanding, rather than using full automation.
+- **Scalability vs constrants:** The system is designed for future scalability, but currently operates within single-node limitations.
+
+### 16.3. Accepted Risks
+
+As a result of these constraints and trade-offs, the following risks are accepted:  
+
+- Single point of failure at the host level
+- Limited redundancy and fault tolerance
+- Potential resource contention under load
+- Direct exposure of selected services
+
+These risks are mitigated through monitoring, controlled exposure, and regular backups.  
+
 ## 17. Planned Evolution
