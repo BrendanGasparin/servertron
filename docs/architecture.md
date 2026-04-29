@@ -154,6 +154,17 @@ Access to the system is controlled through a combination of proxied and direct c
 
 This model balances accessibility, security, and system constraints.  
 
+### 4.6. Constraints
+
+The system operates within the following constraints:
+
+- Single-node deployment (no clustering or high availability)
+- Limited hardware resources (CPU, RAM, storage)
+- Residential Internet connection
+- Limited external exposure of services
+
+These constraints influence architectural decisions throughout the system.  
+
 ## 5. Architecture Overview
 
 ### 5.1. High-Level Architecture
