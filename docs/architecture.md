@@ -199,10 +199,25 @@ These diagrams show:
 ### 8.3. Containerised Workloads (Docker)
 
 ## 9. Network Architecture
-### 9.1. External Edge (Cloudflare)
-### 9.2. Edge Gateway (NGINX)
-### 9.3. Internal Networking
-### 9.4. Direct Exposure (Jellyfin, Minecraft)
+
+## 9. Network Architecture
+
+### 9.1. Network Objectives
+
+The network architecture of Project: SERVERTRON is designed to:  
+
+- Provide secure external access to required services
+- Minimise the attack surface of the system
+- Separate externally exposed and internal services
+- Support both HTTP-based and non-HTTP workloads
+- Reflect real-world edge and origin infrastructure patterns
+
+### 9.2. External Edge (Cloudflare)
+### 9.3. Edge Gateway (NGINX)
+### 9.4. External Access Model
+### 9.5. Internal Networking
+### 9.6. Service Exposure Strategy
+### 9.7. Future Considerations
 
 ## 10. Service Architecture
 ### 10.1. Edge and Ingress
