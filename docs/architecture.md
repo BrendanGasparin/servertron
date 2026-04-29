@@ -105,7 +105,18 @@ All significant architectural decisions are recorded and justified, ensuring tra
 
 Project: SERVERTRON is a single-node, self-hosted infrastructure designed to run real-world services within a hom environment. It operates as both a production platform for practical workloads and a laboratory environment for deployment and experimentation.  
 
-The system is deployed on a single physical host (SERVERTRON-1) and is accessible over the Internet for selected services.
+The system is deployed on a single physical host (SERVERTRON-1) and is accessible over the Internet for selected services.  
+
+### 4.2. External Context
+
+The system interacts with external users and services through the public Internet.  
+
+External actors include:  
+
+- End users accessing web applications, media services, and game servers
+- External DNS and edge services provided by Cloudflare
+
+Cloudflare acts as the primary external interface for HTTP/HTTPS services, providing DNS resolution, TLS termination (for proxied services), and security features.  
 
 ## 5. Architecture Overview
 
