@@ -262,9 +262,45 @@ These diagrams show:
 ### 6.2. Lab Environment
 
 ## 7. Host Platform
+
 ### 7.1. Hardware Overview
+
+SERVERTRON-1 is a single-node mini-PC used as the physical host for the project.  
+
+The host provides:  
+
+- 16 logical CPU threads
+- 64 GB RAM
+- 2 TB internal NVMe storage
+- external storage for media content
+
+All workloads must operate within the limits of this single physical system.  
+
 ### 7.2. Proxmox Host Configuration
+
+Proxmox VE is installed directly on SERVERTRON-1 as the type 1 hypervisor.  
+
+Proxmox provides:  
+
+- virtual machine management
+- Linux container management
+- virtual networking
+- storage management
+- snapshot and backup support
+
 ### 7.3. Resource Allocation Strategy
+
+Resources are allocated to balance production workloads, lab workloads, and host stability.  
+
+The allocation strategy reserves capacity for:  
+
+- the Proxmox host
+- ZFS ARC
+- production virtual machines
+- lab workloads
+- future growth and operational overhead
+
+CPU overcommit is acceptable for mixed workloads, but RAM allocation is managed more carefully due to the fixed 64 GB limit.  
 
 ## 8. Compute and Workload Model
 ### 8.1. Virtual Machines
