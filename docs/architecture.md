@@ -512,6 +512,16 @@ Application services are secured through:
 - Controlled access to administrative interfaces
 
 ### 13.6. Data Security
+
+Data security is maintained through:  
+
+- Isolation of the data layer (VM 120 data-services)
+- Restricted access from application services only
+- Regular backups and validation of backup integrity
+- Use of database authentication and access controls
+
+Sensitive data is not exposed externally and is only accessible within the internal network.  
+
 ### 13.7. Secrets and Sensitive Data
 ### 13.8. Lab Environment Security
 ### 13.9. Risk Considerations
