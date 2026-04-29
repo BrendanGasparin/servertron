@@ -258,8 +258,34 @@ These diagrams show:
 - separation between production and lab environments
 
 ## 6. Environment Model
+
 ### 6.1. Production Environment
+
+The production environment hosts stable services intended for ongoing operational use.  
+
+Production workloads include:  
+
+- edge gateway and reverse proxy services
+- application services
+- data services
+- media services
+- game services
+- monitoring and utility services
+
+Production workloads are prioritised for stability, persistence, and controlled external access.  
+
 ### 6.2. Lab Environment
+
+The lab environment is used for development, testing, learning, and experimentation.  
+
+The lab environment includes:  
+
+- Kubernetes experimentation using K3s
+- test deployments
+- non-production workloads
+- learning exercises and infrastructure experiments
+
+The lab is isolated from production so experimental changes do not affect operational services.  
 
 ## 7. Host Platform
 
