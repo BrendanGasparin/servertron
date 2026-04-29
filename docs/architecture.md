@@ -905,6 +905,12 @@ The following practices support DevOps alignment:
 - **Environment Separation:** Changes are validated in the lab environment before being applied to production.
 - **Incremental Change:** Updates are introduced gradually to minimise risk.
 
+### 15.4. Iterative Improvement
+
+The lifecycle is iterative. Insights gained from operation and monitoring inform future planning and development.  
+
+This enables continuous refinement of the system while maintaining alignment with project goals and constraints.  
+
 ## 16. Constraints and Trade-Offs
 
 ## 17. Planned Evolution
