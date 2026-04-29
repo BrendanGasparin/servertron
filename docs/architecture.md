@@ -424,6 +424,14 @@ All internal communication occurs over the virtual network and is not exposed ex
 
 ### 10.9. Design Characteristics
 
+The service architecture is defined by:  
+
+- **Separation of concerns:** Each VM has a clear role
+- **Isolation:** Services are separated for security and stability
+- **Internal-first design:** Backend services are not exposed unnecessarily
+- **Hybrid access model:** Combination of proxied and direct access
+**Extensibility:** New services can be added without major redesign
+
 ## 11. Lab Environment Architecture
 ### 11.1. Purpose
 ### 11.2. K3s Scope
