@@ -165,6 +165,15 @@ The system operates within the following constraints:
 
 These constraints influence architectural decisions throughout the system.  
 
+### 4.7. Assumptions
+
+The architecture is based on the following assumptions:  
+
+- Users access services over standard Internet connections
+- Services must be reachable externally when required
+- The system prioritises learning and practical functionality over enterprise-level resilience
+- Failures may occur and must be mitigated through backups and monitoring rather than redundancy systems (such as RAID)
+
 ## 5. Architecture Overview
 
 ### 5.1. High-Level Architecture
