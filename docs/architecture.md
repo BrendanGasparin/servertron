@@ -781,6 +781,15 @@ The system is operated according to the following practices:
 - Documentation is updated alongside system changes
 
 ### 14.8. Limitations
+
+The operations model reflects the constraints of a home environment:  
+
+- Single-node deployment (no high availability)
+- No formal service-level agreements (SLAs)
+- Limited redundancy compared to production data centres
+
+These limitations are acknowledged and mitigated where possible through backups, monitoring, and system management.  
+
 ### 14.9. Future Improvements
 
 ## 15. DevOps Alignment
