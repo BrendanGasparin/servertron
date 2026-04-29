@@ -472,9 +472,9 @@ Storage is divided into logical areas based on usage:
 
 Adequate free space is maintained to support ZFS performance and snapshot functionality.  
 
-### 12.4. Data Layer (VM 120 data-services)
+### 12.4. Data Layer
 
-The primary data layer is hosted on VM 120 and includes:
+The primary data layer is hosted on VM 120 data-services and includes:
 
 - PostgreSQL - primary relational database
 - Redis - caching and real-time data
