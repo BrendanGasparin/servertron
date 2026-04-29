@@ -772,6 +772,14 @@ Observability supports:
 Monitoring systems are internal and not publicly exposed.  
 
 ### 14.7. Operational Practices
+
+The system is operated according to the following practices:  
+
+- Changes are introduced incrementally
+- Production stability is prioritised over rapid change
+- Experimental work is confined to the lab environment
+- Documentation is updated alongside system changes
+
 ### 14.8. Limitations
 ### 14.9. Future Improvements
 
