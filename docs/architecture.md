@@ -49,6 +49,8 @@ All design decisions are made within the constraint of a single-node system. The
 
 The architecture of Project: SERVERTRON is governed by a set of principles guiding system design, implementation, and evolution.  
 
+The principles are intended to guide all architectural decisions and ensure consistency as the system evolves over time.  
+
 ### 3.1 Separation of Environments
 
 Production and lab environments are strictly isolated. Changes are validated in the lab environment before being introduced to the production environment. Experimental changes must not impact production workloads.  
@@ -99,53 +101,137 @@ All significant architectural decisions are recorded and justified, ensuring tra
 
 ## 4. System Context
 
-## 5. Environment Model
-### 5.1. Production Environment
-### 5.2. Lab Environment
+## 5. Architecture Overview
 
-## 6. Host Platform
+### 5.1. High-Level Architecture
 
-## 7. Virtualisation Strategy
-### 7.1. Hypervisor
-### 7.2. Virtual Machines
-### 7.3. Linux Containers
-### 7.4. Containerised Workloads
+Project: SERVERTRON is a single-node, virtualised infrastructure built on Proxmox VE. The system is designed to simulate a production-style environment within the constraints of a homelab.  
 
-## 8. Network Architecture
-### 8.1. Network Objectives
-### 8.2. Bridges and Segmentation
-### 8.3. External Access
-### 8.4. Internal Service Communication
+The architecture follows a layered model:
 
-## 9. Service Architecture
-### 9.1. Edge and Ingress
-### 9.2. Application Services
-### 9.3. Data Services
-### 9.4. Utility Services
-### 9.5. Monitoring and Observability
-### 9.6. Game and Media Services
+- **Edge Layer:** External DNS and security (Cloudflare)
+- **Gateway Layer:** Reverse proxy and traffic routing (NGINX on VM 100 edge-gateway)
+- **Application Layer:** Cointainerised services (VM 110 apps-platform)
+- **Data Layer:** Databases and persistent storage (VM 120 data-services)
+- **Service Layer:** Media and game services (VM 130 media-server and VM 140 games-minecraft)
+- **Observability Layer:** Monitoring and logging (LXC 200)
+- **Lab Environment:** Isolated Kubernetes environment (VM 300)
 
-## 10. Lab Platform Architecture
-### 10.1. Purpose of the Lab
-### 10.2. Kubernetes / K3s Scope
-### 10.3. Non-Production Workloads
+Each layer is logically separated to improve maintainability, security, and clarity of system behaviour.  
 
-## 11. Data and Storage Design
+### 5.2. Traffic Flow
 
-## 12. Security Architecture
-### 12.1. Access Control
-### 12.2. Network Security
-### 12.3. Host Hardening
-### 12.4. Secrets and Sensitive Data
+External traffic enters the system through Cloudflare, which provides DNS resolution, TLS termination for proxied services, and security features such as WAF and DDoS protection.  
 
-## 13. Operations Model
-### 13.1. Provisioning Approach
-### 13.2. Backup and Recovery
-### 13.3. Update and Patch Strategy
-### 13.4. Logging, Monitoring, and Alerting
+Traffic is handled in two distinct paths:  
 
-## 14. DevOps Alignment
+#### Proxied Web Traffic
 
-## 15. Constraints and Trade-Offs
+1. Client → Cloudflare (proxied)
+2. Cloudflare → NGINX (VM 100 edge-gateway)
+3. NGINX routes requests to:
+    - application services (VM 110 apps-platform)
+    - lab services (VM 300 k3s-lab, if exposed)
+4. Services interact with the data layer (VM 120 data-services) as required
 
-## 16. Planned Evolution
+#### Direct Service Access
+
+Certain services bypass Cloudflare proxying due to bandwidth or protocol constraints, and Cloudflare's terms and conditions. These include:  
+
+- Jellyfin (media server)
+- Minecraft (game server)
+
+These services are accessed via direct connections:
+
+1. Client → Public IP (via DNS-only record in Cloudflare)
+2. Router → Port forwarding
+3. Target VM (VM 130 media-server for Jellyfin, VM 140 games-minecraft for Minecraft)
+
+### 5.3. Environment Separation
+
+The system is divided into two primary environments:  
+
+- Production Environment: Hosts stable, persistent services (web, media, game, and data services)
+- Lab Environment: Hosts experimental workloads, including Kubernetes (K3s)
+
+The lab environment is isolated to prevent experimental changes from impacting production services.  
+
+### 5.4. Architecture Characteristics
+
+The architecture is defined by the following characteristics:  
+
+- **Single-node deployment:** All services run on the mini-PC SERVERTRON-1
+- **Layered design:** Clear separation between edge, gateway, application, and data layers
+- **Workload isolation:** Services are separated using virtual machines and containers
+- **Hybrid exposure model:** Combination of proxied (web) and direct (media/game) access
+- **Incremental scalability:** Designed to support future expansion without redesign
+
+### 5.5. Diagram References
+
+The architecture is illustrated in the diagram below:
+
+![Project: SERVERTRON architectural diagram](../images/servertron-architecture.png)
+*Project: SERVERTRON architectural diagram.*  
+
+The network flow is shown in the diagram below:
+
+![Project: SERVERTRON network flow diagram](../images/servertron-network-flow.png)
+
+These diagrams show:  
+
+- system architecture details
+- traffic flow through the system
+- relationships between virtual machines
+- separation between production and lab environments
+
+## 6. Environment Model
+### 6.1. Production Environment
+### 6.2. Lab Environment
+
+## 7. Host Platform
+### 7.1. Hardware Overview
+### 7.2. Proxmox Host Configuration
+### 7.3. Resource Allocation Strategy
+
+## 8. Compute and Workload Model
+### 8.1. Virtual Machines
+### 8.2. Linux Containers (LXC)
+### 8.3. Containerised Workloads (Docker)
+
+## 9. Network Architecture
+### 9.1. External Edge (Cloudflare)
+### 9.2. Edge Gateway (NGINX)
+### 9.3. Internal Networking
+### 9.4. Direct Exposure (Jellyfin, Minecraft)
+
+## 10. Service Architecture
+### 10.1. Edge and Ingress
+### 10.2. Application Services
+### 10.3. Data Services
+### 10.4. Monitoring and Observability
+### 10.5. Media and Game Services
+
+## 11. Lab Environment Architecture
+### 11.1. Purpose
+### 11.2. K3s Scope
+### 11.3. Workload Isolation
+
+## 12. Data and Storage Design
+
+## 13. Security Architecture
+### 13.1. Exposure Model
+### 13.2. Network Security
+### 13.3. Host and VM Hardening
+### 13.4. Secrets Management
+
+## 14. Operations Model
+### 14.1. Provisioning Approach
+### 14.2. Backup and Recovery
+### 14.3. Update Strategy
+### 14.4. Observability (Logging, Metrics, and Alerts)
+
+## 15. DevOps Alignment
+
+## 16. Constraints and Trade-Offs
+
+## 17. Planned Evolution
