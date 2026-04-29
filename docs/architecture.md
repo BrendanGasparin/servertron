@@ -230,6 +230,18 @@ Services are divided into two categories:
 This separation ensures compatibility with Cloudflare limitations while maintaining security for web-facing services.  
 
 ### 9.3. Edge Gateway (NGINX)
+
+The edge gateway is implemented using NGINX on VM 100 edge-gateway.  
+
+Its responsibilities include:  
+
+- Acting as the primary entry point for HTTP/HTTPS traffic
+- Routing incoming requests to internal services
+- Providing TLS termination at the origin where required
+- Isolating backend services from direct Internet exposure
+
+All proxied web traffic is routed through the edge gateway before reaching application or lab services.  
+
 ### 9.4. External Access Model
 ### 9.5. Internal Networking
 ### 9.6. Service Exposure Strategy
