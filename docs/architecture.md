@@ -523,6 +523,15 @@ Data security is maintained through:
 Sensitive data is not exposed externally and is only accessible within the internal network.  
 
 ### 13.7. Secrets and Sensitive Data
+
+Secrets management follows basic best practices:  
+
+- Credentials are not stored in public repositories
+- Environment variables are used where appropriate
+- Access to sensitive configuration is restricted
+
+More advanced secrets management solutions may be introduced in future iterations.  
+
 ### 13.8. Lab Environment Security
 ### 13.9. Risk Considerations
 ### 13.10. Future Improvements
