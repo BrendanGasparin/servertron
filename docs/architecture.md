@@ -506,6 +506,14 @@ Application data is stored according to workload requirements:
 
 This separation ensures that large media storage needs do not impact core system storage.  
 
+### 13.6. ZFS ARC (Caching)
+
+ZFS uses system memory for caching (ARC).  
+
+- A portion of RAM is allocated to ARC
+- This improves read performance for frequently accessed data
+- ARC size may be tuned based on system performance
+
 ## 13. Security Architecture
 
 ### 13.1. Security Objectives
