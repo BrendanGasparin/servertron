@@ -352,6 +352,23 @@ Responsibilities:
 Application services communicate with the data layer over internal networking and are not directly exposed to the Internet.  
 
 ### 10.4. Data Services
+
+**Location:** VM 120 data-services  
+
+The data layer provides persistent storage and database services, including:  
+
+- PostgreSQL (primary database)
+- Redis (caching, sessions, real-time data)
+- MariaDB (for application compatibility, e.g. WordPress)
+
+Responsibilities:  
+
+- Store and manage persistent application data
+- Provide reliable and consistent data access
+- Support backup and recovery processes
+
+Data services are internal-only and are not exposed externally.  
+
 ### 10.5. Media and Game Services
 ### 10.6. Monitoring and Observability
 ### 10.7. Utility Services
