@@ -35,5 +35,6 @@ The following documents are specific to Phase 1 (PLAN) and represent the initial
 - [constraints.md](./constraints.md): Project constraints and assumptions
 - [initial-architecture-notes.md](./initial-architecture-notes.md): Early architectural exploration
 - [tooling-evaluation.md](./tooling-evaluation.md): Tool selection and justification
+- [retrospective](./retrospective.md): A retrospective of Phase 1.
 
 These documents capture the state of the system during the planning phase and are not expected to change significantly after that phase is completed.  
