@@ -2,7 +2,7 @@
 
 Initial notes on architecture for the planning phase of the first iteration of Project: SERVERTRON.  
 
-![Project: SERVERTRON Architecture Diagram](./images/servertron-architecture.png)
+![Project: SERVERTRON Architecture Diagram](../../images/servertron-architecture.png)
 *Project: SERVERTRON Architecture Diagram*
 
 ## Internet/Users

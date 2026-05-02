@@ -98,7 +98,7 @@ These risks are mitigated through controlled exposure, monitoring, and backups.
 
 The project follows an iterative DevOps lifecycle:  
 
-![The DevOps lifecycle](../../../images/devops-lifecycle.png)
+![The DevOps lifecycle](../../images/devops-lifecycle.png)
 *The DevOps lifecycle.*
 
 Phase 1 (PLAN) establishes the architecture, goals, constraints, and tooling decisions.  
