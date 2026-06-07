@@ -4,7 +4,7 @@
 
 Phase 1 of Project: SERVERTRON focused on defining the structure, goals, and architecture of the project, before implementation work begins.  
 
-This phased produced:
+This phase produced:
 - [Project goals](./goals.md)
 - [Project constraints and assumptions](./constraints.md)
 - [Initial architecture notes](./initial-architecture-notes.md)
@@ -21,7 +21,7 @@ Things that went well with the project included:
 - The decision to fully design the system before building provides clarity and direction
 - The architecture evolved into a clean, layered structure with separation of concerns
 - Production and lab environments were clearly defined and isolated
-- Architectural and tooling decisions were made with clear rationales and recorded in [../../docs/decisions.md]
+- Architectural and tooling decisions were made with clear rationales and recorded in the [decisions document](../../docs/decisions.md)
 - Research into architecture and tooling topics will make future phases easier
 - Decision to switch from Plex media server to Jellyfin will likely save money in the future
 
@@ -51,7 +51,7 @@ Specific challenges encountered in the project included:
 
 The following lessons were learned in Phase 1:  
 
-- Defining document structure early reduces reqorks later
+- Defining document structure early reduces rework later
 - Architecture documents should focus on principles and design, not implementation detail
 - Perfect is the enemy of good: better to move forward with a good structure than delay for a perfect one
 - Resource allocation should be conservative during planning and adjusted during implementation
@@ -59,7 +59,7 @@ The following lessons were learned in Phase 1:
 
 ## 6. What Would Be Done Differently
 
-Improvements for future projects include:  
+Improvements to keep in mind for future projects include:  
 
 - Establishing a full document structure earlier in the phase
 - Limiting iteration on non-critical details like wording and formatting
@@ -91,8 +91,6 @@ Actions to be carried forward to future phases include:
 - Keeping documentation aligned with implementation as the system evolves
 
 ## 9. Final Reflection
-
-Short closing paragraph:
 
 Phase 1 successfully established a clear and structured foundation for Project: SERVERTRON.  
 
