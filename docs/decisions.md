@@ -188,7 +188,7 @@ The edge gateway provides a single control point for traffic coming in and out o
 - Monitoring and utility tools each isolated in lightweight containers, reducing system resource consumption
 - Plenty of learning experiences managing a relatively complex set of virtual machines and containers in Proxmox
 
-# DEC-007: Use ZFS for File System
+## DEC-007: Use ZFS for File System
 
 Status: Accepted  
 Date: 2026-04-20  
