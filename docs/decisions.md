@@ -89,13 +89,20 @@ Not all workloads need the same level of isolation, flexibility, or operational 
 
 Complex and persistent services benefit from the strong isolation of full virtual machines, with their own kernel, and can be treated as distinct systems. This best reflects how production infrastructures are commonly segmented. Internet-facing services in particular should be isolated so that failures, misconfiguration, or compromise in one service is less likely to affect others.  
 
-LXCs are more efficient for lightweight ools and utilities as they use fewer resources, start quickly, and are simpler to run when full isolation is necessary.  
+LXCs are more efficient for lightweight tools and utilities as they use fewer resources, start quickly, and are simpler to run when full isolation is necessary.  
 
 This approach balances realism and practicality on a single-node system, providing workload-appropriate isolation while avoiding unnecessary overhead for small services.  
 
 ### Alternatives Considered
 
+- **LXCs for Services:** Rejected because VMs have better security and system isolation, are more representative of production-grade environments, and have better support for hardware passthrough (e.g. hardware transcoding).
+- **Use VMs for Everything:** Rejected because lightweight admin tools do not require a full guest OS, and VMs for these would waste system resources and require more maintenance effort.
+
 ### Consequences
+
+- Persistent services get stronger isolation and clear operational boundaries.
+- A balance of VMs and LXCs ensures appropriate allocation of resources per workload.
+- Backups, monitoring, patching, documentation, and service migration will need to account for both VMs and LXCs.
 
 ## DEC-004: Docker for Containers in the Production Environment
 
@@ -211,7 +218,7 @@ ZFS is used in enterprise storage, production systems, and serious homelabs. Thi
 
 ### Alternatives Considered
 
-- **ext4:** ext4 is simpler and uses less RAM than ZFS, but the primary goals of Project: SERVERTRON is to provide a learning environment for new technologies, 
+- **ext4:** ext4 is simpler and uses less RAM than ZFS, but one of the primary goals of Project: SERVERTRON is to provide a learning environment for new technology, so ext4 was rejected in favour of superior technology.
 
 ### Consequences
 
@@ -251,6 +258,9 @@ Current resource allocations still allow for the addition of new VMs, LXCs, and 
 
 ## DEC-009: Use Jellyfin for Media Server
 
+Status: Accepted
+Date: 2026-06-22
+
 ### Context
 
 Project: SERVERTRON requires a media server application. The most popular options are Plex and Jellyfin. Plex was used on SERVERTRON-1 previous to Project: SERVERTRON.  
@@ -258,6 +268,14 @@ Project: SERVERTRON requires a media server application. The most popular option
 ### Decision
 
 Use Jellyfin as the media server platform and store media on a dedicated external USB 3.2 drive.  
+
+### Rationale
+
+Jellyfin media server allows hardware transcoding and remote streaming, while Plex locks these behind a paywall.  
+
+One or more dedicated external USB 3.2 drives can provide extra storage beyond the capacity of SERVERTRON-1's internal drive, e.g. for large media collections.
+
+If Jellyfin does not prove to be a satisfying solution, then it can be replaced with Plex.  
 
 ### Alternatives Considered
 
@@ -311,8 +329,8 @@ External storage will be kept simple and separated from the more robust ZFS inte
 
 ## DEC-011: Use an Edge Gateway with NGINX Reverse Proxy
 
-Status: Accepted
-Date: 2026-04-22
+Status: Accepted  
+Date: 2026-04-22  
 
 ### Context
 
@@ -327,6 +345,7 @@ Use a dedicated edge gateway VM as a reverse proxy server and TLS termination po
 An edge gateway VM with a reverse proxy (NGINX) providing a single entry point into the system that will receive Internet traffic and route it to the correct internal service. Routing and security can be largely managed on a single VM.  
 
 ### Alternative Considered
+
 - **Port forwarding for all VMs and LXCs:** Individually configuring each VM and LXC to access the Internet would increase complexity and reduce security. An edge gateway is better practice, so this alternative was discarded.  
 
 ### Consequences
@@ -337,6 +356,9 @@ An edge gateway VM with a reverse proxy (NGINX) providing a single entry point i
 - Steep learning curve to use Nginx for everything it is required for
 
 ## DEC-012: Run Docker on Ubuntu Server for VM 110 apps-platform
+
+Status: Accepted  
+Date: 2026-04-22  
 
 ### Context
 
@@ -404,7 +426,50 @@ Using Ubuntu Server across the main VMs reduces unnecessary variation in package
 
 ## DEC-014: Use NGINX for Networking and Reverse Proxy on VM 110
 
+- Status: Accepted
+- Date: 2026-04-22
+
+### Context
+
+SERVERTRON requires a single entry point for routing external web traffic to internal services. The system needs to support multiple domains and subdomains, TLS certificates, reverse proxy routing, and a clear separation between public-facing network traffic and internal application services.
+
+### Decision
+
+Use NGINX as the networking and reverse proxy layer for SERVERTRON, hosted on VM 100.  
+
+### Rationale
+
+NGINX is widely used, well documented, lightweight, and reliable. It is an industry standard for routing HTTP and HTTPS traffic from the public Internet to internal services.  
+
+It also supports:  
+
+- Reverse proxying
+- TLS termination
+- Virtual hosts
+- Multiple domains and subdomains
+- Integration with Let's Encrypt
+- Text-based configuration
+- A lot of learning value
+
+Using a dedicated VM keeps the public-facing routing layer separate from applications services and the Proxmox host.
+
+### Alternatives Considered
+
+- **Traefik:** Rejected because it is more oriented to Docker and Kubernetes. NGINX is a more common solution to the same problems and requirements.
+- **Cloudflare Tunnel:** Rejected for the core architecture because SERVERTRON must demonstrate tradition DNS, port forwarding, TLS, and reverse proxy concepts.
+- **Reverse proxy on Proxmox:** Rekected because the Proxmox host should remain dedicated to virtualisation.
+
+### Consequences
+
+- SERVERTRON will have a clear public entry point for web traffic.
+- Application services can stay behind the reverse proxy instead of being directly exposed
+- NGINX gives strong experience with real-world Linux web server congifuration
+- A misconfiguration in NGINX could break access to multiple services
+
 ## DEC-015: Use Cloudflare for DNS, Proxy, SSL, and Zero-Trust Tunnels
+
+- Status: Accepted
+- Date: 2026-04-22
 
 ### Context
 
@@ -414,7 +479,33 @@ Cloudflare provides a proxy, DNS services, SSL, DDoS protection, a web applicati
 
 Cloudflare will be used as a proxy for VM 100 edge-gateway, and for SSL, a web application firewall, and DDoS protection on related services. It will also be used as a DNS server for all components of the architecture. High bandwidth applications such as Jellyfin and Plex are against Cloudflare's Terms of Service and will be port-forwarded through the router directly to the client.  
 
+### Rationale
+
+Cloudflare provides multiple networking and security services through a single platform, reducing the complexity of managing separate DNS, SSL, DDoS protection, and web application firewall solutions.
+
+The free tier is sufficient for the requirements of SERVERTRON and integrates well with a self-hosted environment. Cloudlflare simplifies certificate management, improves security for Internet-facing services, and provides additional flexibility through Zero Trust features and tunnels.  
+
+Using Cloudflare allows SERVERTRON to retain of a focus on application hosting, operations, and learning infrastructure without the overhead of managing enterprise-grade security services independently.
+
+### Alternatives Considered
+
+- **Registrar DNS Only:** Rejected because it would provide DNS resolution but not SSL management, DDoS protection, web application firewall capabilities, or reverse proxy services.
+- **Self-hosted DNS and Certificate Management:** Rejected because it would increase operational complexity and administrative overhead without providing significant benefits to a small-scale homelab environment.
+- **Router Port Forwarding:** Rejected because it would expose web services directly to the Internet without the additional protection provided by Cloudflare's proxy, WAF, and DDoS mitigation features.
+- **Alternative Providers:** Rejected because they would introduce additional cost and complexity while offering limited advantages for the project's requirements.
+
+### Consequences
+
+- Centralised management of DNS, SLL, proxy, and security services
+- Reduced exposure of internal infrastructure to the public Internet
+- Simplified certificate management and HTTPS deployment
+- Introduces a dependency to a third-party service that may change over time
+- Certain services, such as game and media servers, cannot be proxied through Cloudflare due to Terms of Service restrictions.
+
 ## DEC-016: Use PostgreSQL as Primary Database and MariaDB for WordPress
+
+- Status: Accepted
+- Date: 2026-04-22
 
 ### Context
 
@@ -438,9 +529,13 @@ MariaDB will be as a secondary database for WordPress compatibility.
 
 ### Consequences
 
-- 
+- PostgreSQL will closely match the most commonly used infrastructure in enterprise environments
+- MariaDB will provide compatibility for WordPress sites
 
 ## DEC-017: Use Redis for Fast, Temporary Data
+
+- Status: Accepted
+- Date: 2026-04-22
 
 ### Context
 
@@ -454,17 +549,53 @@ Use Redis for fast, temporary storage.
 
 Redis is an in-memory data store used for caching, session management, and real-time data, complementing PostgreSQL by handling high-speed, temporary workloads that do not require persistence.  
 
+### Alternatives Considered
+
+- **PostgreSQL and MariaDB Only:** Rejected because PostgreSQL and MariaDB are designed for persistent relational data rather than high-speed caching and temporary data storage. Using PostgreSQL for cache workloads would increase database load and reduce performance.
+- **Application-Level Cachin Only:** Rejected because caching would limited to individual applications and could not be shared across services. A dedicated cache service provides a centralised solution.
+- **No caching layer:** Rejected because it would increase response times and place unnecessary load on databases and applications as the system grows.
+
+### Consequences
+
+- Faster access to frequently used data.
+- Reduced load on PostgreSQL and other backend services.
+- Improved performance for web applications and APIs
+- Introduced another service that must be deployed, monitored, backed up, and maintained.
+- Additional memory consumption on VM 120.
+
 ## DEC-018: Expose Jellyfin via an NGINX Reverse Proxy
+
+- Status: Accepted
+- Date: 2026-04-22
 
 ### Decision
 
 Expose Jellyfind via an NGINX reverse proxy with TLS termination using Let's Encrypt certificates.  
 
+### Rationale
+
+Jellyfin requires remote access for media streaming, but high-bandwidth media traffic should not be proxied through Cloudflare. Using NGINX with Let's Encrypt provides standard HTTPS access while keeping the traffic path simple and under SERVERTRON's control.
+
+This approach gives users a familiar and secure access pattern: a normal domain name, HTTPS, and no special client configuration.
+
+### Alternatives Considered
+
+- **Router Port Forwarding to Jellyfin:** Rejected because direct exposure provides less control over TLS, routing, logging, and future access rules.
+- **Proxy Jellyfin Through Cloudflare:** Rejected because high-bandwidth media streaming violates Cloudflare's service terms.
+- **VPN-Only Access Model:** Rejected because it would improve security but create more friction for users.
+- **Use Jellyfin Only On Local Network:** Rejected because remote access is part of the intended SERVERTRON use case.
+
 ### Consequences
 
-- Provide encrypted HTTPS access to media while avoiding Cloudflare proxy limitations by using DNS-only routing  
+- Provide encrypted HTTPS access to media (through Let's Encrypt certificates) while avoiding Cloudflare proxy limitations by using DNS-only routing.
+- Router port forwarding and firewall rules must be configured carefully.
+- NGINX and Let's Encrypt renewal must be maintained.
+- A reverse proxy misconfiguration could break remote media access.
 
 ## DEC-019: Use Prometheus, Grafana, and Loki for Monitoring and Observability
+
+- Status: Accepted
+- Date: 2026-04-22
 
 ### Context
 
@@ -483,3 +614,16 @@ Loki collects and stores logs such as NGINX access logs, Jellyfin logs, Docker c
 Grafana connects to Promethus and Loki and displays their relevant data in visual dashboards (graphs, charts, alerts, and overview panels).  
 
 These tools are industry standard and well-suited to working with Docker, Kubernetes, NGINX, and Linux VM. They are scaleable and separate concerns into three neat tools for metrics, logs, and visualisation.  
+
+### Alternatives Considered
+
+- **Proxmox Monitoring Only:** Rejected because Proxmox primarily provides host and VM statistics. It does not offer the same level of application monitoring, log aggregation, dashboard customisation, or long-term observability across the entire environment.
+- **Grafana Cloud and Other Hosted Monitoring Services:** Rejected because the project aims to operate self-hosted infrastructure rather than relying on external platforms.
+
+### Consequences
+
+- Centralised monitoring for hosts, VMs, LXCs, containers, and pplications.
+- Integrates well with Docker, Linux, NGINX, PostgreSQL, and future K3s workloads.
+- Creates a foundation for dashboards, operation reporting, and alerting as the environment grows.
+- Introduces additional services that must be deployed, maintained, secured, and backed up.
+- Consumes CPU, memory, storage, and network resources.
