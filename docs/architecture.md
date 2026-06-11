@@ -196,7 +196,7 @@ Each layer is logically separated to improve maintainability, security, and clar
 
 ### 5.2. Traffic Flow
 
-External traffic enters the system through Cloudflare, which provides DNS resolution, TLS termination for proxied services, and security features such as WAF and DDoS protection.  
+External traffic enters the system through Cloudflare, which provides DNS resolution, TLS termination for proxied services, and security features such as a web application firewall (WAF) and DDoS protection.  
 
 Traffic is handled in two distinct paths:  
 
@@ -251,6 +251,7 @@ The architecture is illustrated in the diagram below:
 The network flow is shown in the diagram below:
 
 ![Project: SERVERTRON network flow diagram](../images/servertron-network-flow.png)
+*Project: SERVERTRON network flow diagram.*
 
 These diagrams show:  
 
@@ -485,14 +486,14 @@ These improvements are not part of the initial implementation, but are supported
 
 ### 10.1. Overview
 
-Services in Project: SERVERTRON are organised by function and deployed across dedicated virtual machines and containers. The architect separates responsibilities into distinct layers:  
+Services in Project: SERVERTRON are organised by function and deployed across dedicated virtual machines and containers. The architecture separates responsibilities into distinct layers:  
 
-- Edge and Ingress
-- Application Services
-- Data Services
-- Media and Game Services
-- Monitoring and Observability
-- Utility Services
+- Edge and ingress
+- Application services
+- Data services
+- Media and game services
+- Monitoring and observability
+- Utility services
 
 This separation improves isolation, maintainability, and operational clarity.  
 
@@ -604,7 +605,7 @@ The service architecture is defined by:
 - **Isolation:** Services are separated for security and stability
 - **Internal-first design:** Backend services are not exposed unnecessarily
 - **Hybrid access model:** Combination of proxied and direct access
-**Extensibility:** New services can be added without major redesign
+- **Extensibility:** New services can be added without major redesign
 
 ## 11. Lab Environment Architecture
 
