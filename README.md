@@ -1,6 +1,6 @@
 # Project: SERVERTRON
 
-A production-style DevOps homelab built on a single-node Proxmox infrastructure, designed to host real workloads and document the full system lifecycle.  
+A production-style DevOps homelab built on a single-node Proxmox infrastructure, designed to host real workloads, with thorough documentation of the full system lifecycle.  
 
 ![Project SERVERTRON cover image](./images/servertron-github-cover.png)
 
@@ -43,7 +43,7 @@ Project goals include:
 - Building a production-style infrastructure within a single-node constraint
 - Maintaining comprehensive public documentation of all decisions and implementation
 
-A more complete list of project goals is documented in [./phases/01-plan.md].  
+A more complete list of project goals is documented in the goals document [./phases/01-plan/goals.md].  
 
 ## 4. Scope
 
@@ -75,7 +75,7 @@ Workloads are distributed according to the following principles:
 
 - Virtual Machines (VMs) are used for Internet-facing services, and complex services requiring strong isolation.  
 - Linux Containers (LXCs) are used for lightweight internal utilities and supporting services.
-- Containerised applications are deployed within dedicated a VM using Docker and Docker Compose.
+- Containerised applications are deployed within a dedicated VM using Docker and Docker Compose.
 
 The architecture includes dedicated roles for networking, application hosting, data services, and observability. Monitoring and logging are implemented to provide observability across system performance and health.  
 
@@ -104,7 +104,7 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 
 ## 7. Technology Stack
 
-- **Infrastructure:** Single-node mini-PIC (Intel NUC 13 Pro).
+- **Infrastructure:** Single-node mini-PC (Intel NUC 13 Pro).
 - **Virtualisation:** Proxmox VE
 - **Operating systems:** Ubuntu Server (all VMs)
 - **Containerisation:** Docker and Docker Compose
@@ -121,8 +121,6 @@ The scope of the project involves two environments: a production environment and
 
 - The **production environment** is for hosting persistent services such as web, media, and game servers.  
 - The **lab environment** is used for learning, development, and experimentation.
-
----
 
 ## 10. Getting Started
 
