@@ -4,11 +4,11 @@ The following constraints and assumptions define the operating boundaries of Pro
 
 ## 1. Hardware Constraints
 
-- The host machine, SERVERTRON-1, is pre-existing infrastructure
+- The host machine, SERVERTRON-1, is pre-existing infrastructure.
 - Further expenditure on the project will be minimal and limited to necessary hardware due to failure.
 - SERVERTRON-1 is a single-node environment with the following limits:
-    - 16 logical cores
-    - 64 GB RAM
+    - 16 logical cores,
+    - 64 GB RAM,
     - 2 TB NVMe internal storage.
 
 ## 2. Architecture Constraints
@@ -67,7 +67,7 @@ The following are explicitly **out of scope** for the initial phase of Project: 
 - Maximising performance at the expense of simplicity, learning value, or maintainability
 - Fully automating infrastructure (e.g. complete Infrastructure as Code or GitOps) in the initial phase
 - Supporting large-scale public traffic or operating as a commercial hosting platform
-- Eliminating all single point of failure within the system
+- Eliminating all single points of failure within the system
 - Implementing advanced network segmentation (e.g. VLANs, complex firewall topologies) beyond basic security requirements
 - Using paid enterprise tooling where suitable open-source alternatives exist
 
