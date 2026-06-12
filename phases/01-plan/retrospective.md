@@ -18,7 +18,7 @@ The objective of establishing a production-style system design prior to implemen
 
 Things that went well with the project included:
 
-- The decision to fully design the system before building provides clarity and direction
+- The decision to fully design the system before building provided clarity and direction
 - The architecture evolved into a clean, layered structure with separation of concerns
 - Production and lab environments were clearly defined and isolated
 - Architectural and tooling decisions were made with clear rationales and recorded in the [decisions document](../../docs/decisions.md)
@@ -44,7 +44,7 @@ Specific challenges encountered in the project included:
 
 - Balancing realism with simplicity in a single-node home environment
 - Avoiding overengineering while also aiming to mirror real-world infrastructure
-- Deciding the correct level of detail for architectural document
+- Deciding the correct level of detail for the architectural document
 - Maintaining separation between documentation types (e.g. architecture, notes, decisions)
 
 ## 5. Lessons Learned
