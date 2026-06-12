@@ -47,7 +47,7 @@ ZFS is used for the file system as it provides:
 ### Resource Reservations
 
 **CPU:** Leave at least 2 threads uncommitted for host.  
-**RAM:** Reserve 8 GB for host before planning guests. 
+**RAM:** Reserve 8 GB for host before planning guests.  
 **ZFS ARC:** Allocate ~6GB (tune if required)
 
 ### Storage Allocation
@@ -93,7 +93,8 @@ Role:
 **RAM:** 6 GB  
 **Storage:** 400 GB  
 
-- Databases (PostgreSQL, MariaDB, Redis)
+- Databases (PostgreSQL, MariaDB)
+- Cache (Redis)
 - Persistent data layer
 
 #### VM 130 media-server (Media Server)
@@ -115,6 +116,7 @@ Role:
 - Dedicated Minecraft server
 - Persistent game world and server data
 - Multiplayer game hosting
+- Proof of concept for future persistent game worlds
 
 #### LXC 200 monitoring (Monitoring)
 
@@ -151,14 +153,15 @@ Role:
 **Total Available:**  
 
 -16 threads
-- 64 GB RAM
+    - 64 GB RAM
 
 **Assigned:**  
+
 - **vCPUs:** 23 (intentional overcommit)
 - **RAM:** 52 GB
 
 ### Notes
 
 - CPU overcommit is acceptabled for mixed workloads
-- RAM allocation is intentionally conservative to preserve host stability, allow ZFS ARC to function effetively, and provide headroom for future tuning
+- RAM allocation is intentionally conservative to preserve host stability, allow ZFS ARC to function effectively, and provide headroom for future tuning
 - ZFS ARC size may be adjusted if underallocated
