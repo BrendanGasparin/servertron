@@ -4,7 +4,7 @@
 
 This document is an evaluation of core infrastructure tooling for Project: SERVERTRON. It exists to justify stack choices before the build phase.  
 
-Proxmox was selected for the hypervisor. Ubuntu Server was selected as the operating system for guest VMs (with Debian-based LXCs). Docker will be used for containerisation in the production environment. Kubernetes will be used for container orchestration in the laboratory environment. Nginx will be used on the edge gateway as a reverse proxy.  
+Proxmox was selected for the hypervisor. Ubuntu Server was selected as the operating system for guest VMs (with Debian-based LXCs). Docker will be used for containerisation in the production environment. Kubernetes will be used for container orchestration in the laboratory environment. NGINX will be used on the edge gateway as a reverse proxy.  
 
 The selected tooling reflects a balance between real-world industry practices and the constraints of a single-node homelab environment.  
 
@@ -130,7 +130,7 @@ Kubernetes (via K3s) will be used for container orchestration in the laboratory 
 
 - NGINX
 - Traefik
-- **No edge gateway:** No edge gateway whatsoever would require multiple guest machines to be connected to the Internet and configured for security. This option was discarded as too complex, with too much redundant configuration.  
+- No edge gateway: No edge gateway whatsoever would require multiple guest machines to be connected to the Internet and configured for security. This option was discarded as too complex, with too much redundant configuration.  
 
 ### Decision
 
@@ -169,7 +169,7 @@ Prometheus and Loki will be used for aggregation, and Grafana will be used for v
 
 ### Rationale
 
-Prometheus provides time-series metrics collection,Loki provides aggregation, and Grafana provides visualisation. Together they form a modern observability stack aligned with cloud-native and DevOps practices.  
+Prometheus provides time-series metrics collection, Loki provides aggregation, and Grafana provides visualisation. Together they form a modern observability stack aligned with cloud-native and DevOps practices.  
 
 ## 12. Networking Approach
 
