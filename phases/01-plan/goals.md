@@ -4,7 +4,7 @@ The following are the goals of Project: SERVERTRON:
 
 ## 1. Core Infrastructure
 
-- Install a type 1 hypervisor on a single-node host system (SERVERTRON-1 using )
+- Install a type 1 hypervisor on a single-node host system (SERVERTRON-1 using Proxmox)
 - Configure ZFS storage on SERVERTRON-1 for virtual machines and container workloads
 - Provision and configure virtual machines to support:
     - reverse proxy (NGINX)
