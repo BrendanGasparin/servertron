@@ -15,7 +15,7 @@ These phases, their related documentation, and their roles within Project: SERVE
 2. CODE: Write the code. For Project: SERVERTRON, this means creating configuration files, infrastructure definitions, and automated installation scripts.
 3. BUILD: Build the project. For SERVERTRON, this involves provisioning infrastructure and services.
 4. TEST: Validate the system's functionality.
-5. RELEASE: Release the project.
+5. RELEASE: Release the project. Create versioned artifacts for deployment.
 6. DEPLOY: Deploy the system into operating environment(s). For SERVERTRON, this means exposing services externally, to the Internet.
 7. OPERATE: Run and maintain the system.
 8. MONITOR: Observe system performance as feedback for improvement in the next iteration of the lifecycle.
