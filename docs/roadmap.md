@@ -4,7 +4,7 @@
 
 SERVERTRON is a DevOps homelab and production-style infrastructure for hosting websites, media, game services, and other future services.
 
-The goal is to mirror real-world enterprise infrastructure as closely as possible (without adding unnecessary costs, complexity, or  other major drawbacks) for learning purposes.  
+The goal is to mirror real-world enterprise infrastructure as closely as possible (without adding unnecessary costs, complexity, or  other major drawbacks) both for learning purposes and to serve real workloads.  
 
 This roadmap outlines the phased development of the SERVERTRON infrastructure from planning through to coding, testing, deployment, operations, and monitoring. The DevOps lifecycle is outlined in section 4.  
 
@@ -24,7 +24,7 @@ The guiding principles of Project: SERVERTRON are as follows:
 
 ## 4. DevOps Lifecycle Roadmap
 
-The DevOps lifecycle is an iterative loop, divided into both (software) development and operations, and consists of four phases.  
+The DevOps lifecycle is an iterative loop, divided into both (software) development and operations, and consists of eight phases.  
 
 ![Diagram of the DevOps lifecycle.](../images/devops-lifecycle.png)
 
@@ -165,7 +165,7 @@ The DevOps lifecycle is an iterative loop, divided into both (software) developm
 
 This roadmap is iterative and will evolve in the future.  
 
-The focus of this project is on both learning and real world applicability, while also self-hosting services I want.  
+The focus of this project is on both learning and real world applicability, while also self-hosting services I want or need for business and personal use.  
 
 Phases may overlap in practice.  
 
