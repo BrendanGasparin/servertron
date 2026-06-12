@@ -27,7 +27,7 @@ Using Proxmox also offers a learning opportunity, as I have never used a type 1 
 
 - **VMware ESXi:** An industry-standard hypervisor with strong performance and features. Limited functionality on the free tier and less flexibility for container-based workloads.
 
-- **Microsoft Hyper-V:** Integrates well with Windows environment, but less suitable for the Linux-based stack and tooling planned for Project: SERVERTRON.  
+- **Microsoft Hyper-V:** Integrates well with Windows environments, but less suitable for the Linux-based stack and tooling planned for Project: SERVERTRON.  
 
 - **Bare-metal Linux (no hypervisor):** This is a simpler setup but lacks isolation, flexibility, and the ability to model multi-system architectures. It should be noted that SERVERTRON-1 (the node) was running bare-metal Linux previously to being rebuilt as a Proxmox hypervisor in Project: SERVERTRON.  
 
@@ -57,7 +57,7 @@ Isolated production and lab environments allow SERVERTRON-1 to support continual
 
 The lab environment can be used for development, testing learning, and experimentation without negatively affecting the production environment. This allows me to "break stuff" in the lab environment with confidence that the production environment will continue to function properly.  
 
-This also maintains flexibility for the introduction of other environments (e.g. development or testing environments) after the completion of the project.  
+This also maintains flexibility for the introduction of other environments (e.g. development or testing environments) in future iterations of the lifecycle.  
 
 ### Alternatives Considered
 
@@ -68,7 +68,7 @@ This also maintains flexibility for the introduction of other environments (e.g.
 
 - Production workloads will take place in the production environment, while the lab environment will be used for development, testing, learning, and experimentation.
 - The lab environment can be stressed, broken, and rebuilt without affecting production workloads.
-- Future expansion to more than two environments is possible, but not within the scope of the project.
+- Future expansion to more than two environments is possible, but not within the initial scope of the project.
 
 ## DEC-003: Virtual Machines for Persistent Services, LXC for Lightweight Utilities
 
@@ -125,17 +125,17 @@ Use Docker for persistent containers in the production environment.
 
 Docker is specifically designed as a lightweight solution to running and managing containerised applications within virtual machines. Kubernetes is designed to manage containers across multiple nodes.  
 
-Kubernetes is powerful technology and should eventually be adopted. But to reduce the complexity of the project, Docker will be used to manage all containerised applications in the production environment.  
+Kubernetes is powerful technology and should eventually be adopted. But to reduce the complexity of the initial project, Docker will be used to manage all containerised applications in the production environment.  
 
 ### Alternatives Considered
 
-- **Kubernetes Only:** Kubernetes is used to orechstrate container workloads across multiple nodes. It would ass significant and unnecessary operational overhead and architectural complexity to the project.
+- **Kubernetes Only:** Kubernetes is used to orchestrate container workloads across multiple nodes. It would add significant and unnecessary operational overhead and architectural complexity to the project.
 - **Docker Only:** This is a feasible option that is sufficient for current workloads, but was not selected because it does not support the goal of learning Kubernetes and orchestration concepts.
-- **No containers:** SERVERTRON-1 ran bare-metal Ubuntu Server and did not use container technology previous to Project: SERVERTRON. A goal of this project is to provide a containerised DevOps environment on the existing hardware.  
+- **No containers:** SERVERTRON-1 ran bare-metal Ubuntu Server and did not use container technology previous to Project: SERVERTRON. A goal of this project is to provide a containerised DevOps environment on the existing hardware so this option was rejected.  
 
 ### Consequences
 
-- Docker used to simplify deployment and management of application services in the production environment
+- Docker will simplify deployment and management of application services in the production environment
 - Lower operation overhead, faster iteration, easier troubleshooting
 - Kubernetes currently restricted to lab environments for learning purposes only
 - Unfortunately, less representative of large-scale distributed systems
@@ -183,11 +183,11 @@ VMs for an edge gateway, an apps platform, data services, a Minecraft server, an
 
 ### Rationale
 
-The edge gateway provides a single control point for traffic coming in and out of the Internet. The web server, game server, and media server must be isolated from each other to enhance security and prevent failures in one from affecting the others. Lightweight tools like monitoring and utility applications can be run in Linux containers to reduce operational workloads. Kubernetes (K3s) will be implemented in a separate lab environment from production workloads.  
+The edge gateway provides a control point for HTTP traffic coming in and out of the Internet. The web server, game server, and media server must be isolated from each other to enhance security and prevent failures in one from affecting the others. Lightweight tools like monitoring and utility applications can be run in Linux containers to reduce operational workloads. Kubernetes (K3s) will be implemented in a separate lab environment from production workloads.  
 
 ### Alternatives Considered
 
-- **Simpler configurations** were considered, such as running all major persistent services from the same virtual machines, but were rejected in favour of best practices of isolation and containerisation.
+- **Simpler configurations** were considered, such as running all major persistent services from the same virtual machine, but were rejected in favour of best practices of isolation and containerisation.
 - **More complex configurations** were considered (e.g. an ARK: Survival Evolved server) but rejected in favour of reducing project scope. Additional virtual machines, containers, and services can be added after the minimum goals of the project have been achieved.
 
 ### Consequences
@@ -202,11 +202,11 @@ Date: 2026-04-20
 
 ## Context
 
-A file system must be chosen for SERVERTRON-1.  
+A file system must be chosen for SERVERTRON-1's primary storage drive.  
 
 ## Decision
 
-Use ZFS for SERVERTRON-1's file system.  
+Use ZFS for SERVERTRON-1's primary file system.  
 
 ## Rationale
 
@@ -248,7 +248,7 @@ Current resource allocations still allow for the addition of new VMs, LXCs, and 
 
 ### Alternatives Considered
 
-**Different resource allocatons:** Different resource allocations were considered. This includes both less and more of CPU cores, RAM, and storage space. The current configuration was settled on as a good initial configuration, and alternatives were discarded until the current configuration is tested.  
+**Different resource allocations:** Different resource allocations were considered. This includes both less and more of CPU cores, RAM, and storage space. The current configuration was settled on as a good initial configuration, and alternatives were discarded until the current configuration is tested.  
 
 ### Consequences
 
@@ -279,13 +279,13 @@ If Jellyfin does not prove to be a satisfying solution, then it can be replaced 
 
 ### Alternatives Considered
 
-- **Plex:** Plex was considered (and used on SERVERTRON-1 prior to this project). But the Plex Pass is prohibitively expensive and is required for hardware transcoding and remote streaming. These features are free with Jellyfin.
+- **Plex:** Plex was considered (and used on SERVERTRON-1 prior to this project). But the Plex paid ecosystem is becoming prohibitively more expensive and is required for hardware transcoding and remote streaming. These features are free with Jellyfin.
 - **No media server platform:** The media server platform could be hosted on a different dedicated system like a NAS, but it is included in the scope of this project to get as much functionality out of SERVERTRON-1 as possible, and because SERVERTRON-1's iGPU is capable of hardware transcoding.
 
 ### Consequences
 
 - Allows for free hardware transcoding and rmeote streaming of media.
-- Free, open source, and entirely
+- Free and open source
 - Will require hardware passthrough of iGPU for hardware transcoding
 - No client app for PlayStation 5 and perhaps some smart TVs. Fairly good support on all other platforms.  
 
@@ -308,9 +308,9 @@ An external media drive (or NAS) is necessary as there is not enough room on SER
 
 ext4 was selected for the filesystem because it is stable, low-overhead, and well-suited to large, mostly read-heavy files such as video content.
 
-Because the drive will be connected through USB, the filesystem must tolerate occasional disconnects or instability. ext4's simplicity and makturity makes it more resilient for this context than more complex filesystems that assume stable, persistently connected disks.  
+Because the drive will be connected through USB, the filesystem must tolerate occasional disconnects or instability. ext4's simplicity and maturity makes it more resilient for this context than more complex filesystems that assume stable, persistently connected disks.  
 
-External storage will be kept simple and separated from the more robust ZFS internal storage used for critical data.  
+External storage will be kept simple and separate from the more robust ZFS internal storage used for critical data.  
 
 ## Alternatives Considered
 
@@ -350,10 +350,10 @@ An edge gateway VM with a reverse proxy (NGINX) providing a single entry point i
 
 ### Consequences
 
-- Only one machine will be exposed to the Internet
+- Reduces exposure of VMs to the Internet
 - Routing and security can be managed in one place
-- TLS termination allows all incoming requests to be handled with a single certificate
-- Steep learning curve to use Nginx for everything it is required for
+- TLS termination allows incoming requests to be handled with a single certificate
+- Steep learning curve to use NGINX for everything it is required for
 
 ## DEC-012: Run Docker on Ubuntu Server for VM 110 apps-platform
 
@@ -383,7 +383,7 @@ Ubuntu Server has excellent Docker support, and is often the standard guest oper
 ### Consequences
 
 - Containerisation through Docker on VM 110 apps-platform
-- Clean application layer with apps groups by purpose
+- Clean application layer with apps grouped by purpose
 - Separation of concerns
 - VM 110 becomes a concentration point and single point of failure for multiple application services
 - Extra abstraction layer to manage, more moving parts
@@ -405,13 +405,13 @@ Ubuntu Server will be used as the standard guest operating system across all VMs
 
 ### Rationale
 
-Ubuntu service provides a balance of stability, ecosystem support, and alignment with modern infrastructure practices. It is widely used in cloud, DevOps, container, and self-hosted environments.  
+Ubuntu Server provides a balance of stability, ecosystem support, and alignment with modern infrastructure practices. It is widely used in cloud, DevOps, container, and self-hosted environments.  
 
 Using Ubuntu Server across the main VMs reduces unnecessary variation in package management, service administration, documentation, and troubleshooting. It also reduces the learning complexity required to administer and operate the system.  
 
 ### Alternatives Considered
 
-- **Rocky Linux:** Used for traditional enterprise infrasttrucure, especially on-premises environments. Rejected for VM 120 data-services because it would introduce an additional operating system and related overhead and reduce consistency across the platform.
+- **Rocky Linux:** Used for traditional enterprise infrastructure, especially on-premises environments. Rejected for VM 120 data-services because it would introduce an additional operating system and related overhead and reduce consistency across the platform.
 - **AlmaLinux:** Similar to Rocky Linux. Rejected for the same reasons as Rocky Linux.
 - **Debian:** Stable, lightweight, and well-suited to infrastructure services. Not selected because Ubuntu offers stronger documentation, alignment with the rest of the infrastructure, and a common reference point for container and Kubernetes workflows. Debian is still a valid option for lightweight LXCs.
 **Mixed operating system strategy from the outset:** While this might more slosely reflect some real-world environments, it was rejected for adding complexity before establishing a baseline architecture and operations.
@@ -456,15 +456,15 @@ Using a dedicated VM keeps the public-facing routing layer separate from applica
 ### Alternatives Considered
 
 - **Traefik:** Rejected because it is more oriented to Docker and Kubernetes. NGINX is a more common solution to the same problems and requirements.
-- **Cloudflare Tunnel:** Rejected for the core architecture because SERVERTRON must demonstrate tradition DNS, port forwarding, TLS, and reverse proxy concepts.
-- **Reverse proxy on Proxmox:** Rekected because the Proxmox host should remain dedicated to virtualisation.
+- **Cloudflare Tunnel:** Rejected for the core architecture because SERVERTRON must demonstrate traditional DNS, port forwarding, TLS, and reverse proxy concepts.
+- **Reverse proxy on Proxmox:** Rejected because the Proxmox host should remain dedicated to virtualisation.
 
 ### Consequences
 
 - SERVERTRON will have a clear public entry point for web traffic.
-- Application services can stay behind the reverse proxy instead of being directly exposed
-- NGINX gives strong experience with real-world Linux web server congifuration
-- A misconfiguration in NGINX could break access to multiple services
+- Application services can stay behind the reverse proxy instead of being directly exposed.
+- NGINX gives strong experience with real-world Linux web server congifuration.
+- A misconfiguration in NGINX could break access to multiple services.
 
 ## DEC-015: Use Cloudflare for DNS, Proxy, SSL, and Zero-Trust Tunnels
 
@@ -485,21 +485,21 @@ Cloudflare provides multiple networking and security services through a single p
 
 The free tier is sufficient for the requirements of SERVERTRON and integrates well with a self-hosted environment. Cloudlflare simplifies certificate management, improves security for Internet-facing services, and provides additional flexibility through Zero Trust features and tunnels.  
 
-Using Cloudflare allows SERVERTRON to retain of a focus on application hosting, operations, and learning infrastructure without the overhead of managing enterprise-grade security services independently.
+Using Cloudflare allows SERVERTRON to retain a focus on application hosting, operations, and learning infrastructure without the overhead of managing enterprise-grade security services independently.
 
 ### Alternatives Considered
 
 - **Registrar DNS Only:** Rejected because it would provide DNS resolution but not SSL management, DDoS protection, web application firewall capabilities, or reverse proxy services.
 - **Self-hosted DNS and Certificate Management:** Rejected because it would increase operational complexity and administrative overhead without providing significant benefits to a small-scale homelab environment.
-- **Router Port Forwarding:** Rejected because it would expose web services directly to the Internet without the additional protection provided by Cloudflare's proxy, WAF, and DDoS mitigation features.
+- **Router Port Forwarding Only:** Rejected because it would expose web services directly to the Internet without the additional protection provided by Cloudflare's proxy, WAF, and DDoS mitigation features.
 - **Alternative Providers:** Rejected because they would introduce additional cost and complexity while offering limited advantages for the project's requirements.
 
 ### Consequences
 
-- Centralised management of DNS, SLL, proxy, and security services
-- Reduced exposure of internal infrastructure to the public Internet
-- Simplified certificate management and HTTPS deployment
-- Introduces a dependency to a third-party service that may change over time
+- Centralised management of DNS, SLL, proxy, and security services.
+- Reduced exposure of internal infrastructure to the public Internet.
+- Simplified certificate management and HTTPS deployment.
+- Introduces a dependency to a third-party service that may change over time.
 - Certain services, such as game and media servers, cannot be proxied through Cloudflare due to Terms of Service restrictions.
 
 ## DEC-016: Use PostgreSQL as Primary Database and MariaDB for WordPress
@@ -523,9 +523,9 @@ MariaDB will be as a secondary database for WordPress compatibility.
 
 ### Alternatives Considered
 
-- PostgreSQL
-- MariaDB
-- MySQL
+- **PostgreSQL Only:** No WordPress compatibility and my primary website has WordPress sections.
+- **MariaDB Only:** PostgreSQL is a more robust and commonly used data solution than MariaDB and I wanted to incorporate it into the project, so MariaDB was rejected as the primary database.
+- **MySQL:** Rejected because PostgreSQL and MariaDB are better suited to the goals and required workloads of the project. May be used in the lab environment.
 
 ### Consequences
 
@@ -552,15 +552,15 @@ Redis is an in-memory data store used for caching, session management, and real-
 ### Alternatives Considered
 
 - **PostgreSQL and MariaDB Only:** Rejected because PostgreSQL and MariaDB are designed for persistent relational data rather than high-speed caching and temporary data storage. Using PostgreSQL for cache workloads would increase database load and reduce performance.
-- **Application-Level Cachin Only:** Rejected because caching would limited to individual applications and could not be shared across services. A dedicated cache service provides a centralised solution.
+- **Application-Level Caching Only:** Rejected because caching would be limited to individual applications and could not be shared across services. A dedicated cache service provides a centralised solution.
 - **No caching layer:** Rejected because it would increase response times and place unnecessary load on databases and applications as the system grows.
 
 ### Consequences
 
 - Faster access to frequently used data.
 - Reduced load on PostgreSQL and other backend services.
-- Improved performance for web applications and APIs
-- Introduced another service that must be deployed, monitored, backed up, and maintained.
+- Improved performance for web applications and APIs.
+- Introduces another service that must be deployed, monitored, backed up, and maintained.
 - Additional memory consumption on VM 120.
 
 ## DEC-018: Expose Jellyfin via an NGINX Reverse Proxy
@@ -570,7 +570,7 @@ Redis is an in-memory data store used for caching, session management, and real-
 
 ### Decision
 
-Expose Jellyfind via an NGINX reverse proxy with TLS termination using Let's Encrypt certificates.  
+Expose Jellyfin via an NGINX reverse proxy with TLS termination using Let's Encrypt certificates.  
 
 ### Rationale
 
@@ -611,9 +611,9 @@ Prometheus collects system metrics such as CPU, RAM, and disk usage, network tra
 
 Loki collects and stores logs such as NGINX access logs, Jellyfin logs, Docker container logs, and system logs.  
 
-Grafana connects to Promethus and Loki and displays their relevant data in visual dashboards (graphs, charts, alerts, and overview panels).  
+Grafana connects to Prometheus and Loki and displays their relevant data in visual dashboards (graphs, charts, alerts, and overview panels).  
 
-These tools are industry standard and well-suited to working with Docker, Kubernetes, NGINX, and Linux VM. They are scaleable and separate concerns into three neat tools for metrics, logs, and visualisation.  
+These tools are industry standard and well-suited to working with Docker, Kubernetes, NGINX, and Linux VMs. They are scaleable and separate concerns into three neat tools for metrics, logs, and visualisation.  
 
 ### Alternatives Considered
 
@@ -622,7 +622,7 @@ These tools are industry standard and well-suited to working with Docker, Kubern
 
 ### Consequences
 
-- Centralised monitoring for hosts, VMs, LXCs, containers, and pplications.
+- Centralised monitoring for hosts, VMs, LXCs, containers, applications, servers, and the data layer.
 - Integrates well with Docker, Linux, NGINX, PostgreSQL, and future K3s workloads.
 - Creates a foundation for dashboards, operation reporting, and alerting as the environment grows.
 - Introduces additional services that must be deployed, maintained, secured, and backed up.
