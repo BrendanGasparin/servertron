@@ -1,6 +1,6 @@
 # Project: SERVERTRON Documents
 
-This directory contains the core documentation for Project: SERVERTON.  
+This directory contains the core documentation for Project: SERVERTRON.  
 
 The purpose of this documentation is to describe the architecture, decisions, and design principles behind the system, and to provide a reference for how the infrastructure is built and operated.  
 
