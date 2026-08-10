@@ -627,3 +627,34 @@ These tools are industry standard and well-suited to working with Docker, Kubern
 - Creates a foundation for dashboards, operation reporting, and alerting as the environment grows.
 - Introduces additional services that must be deployed, maintained, secured, and backed up.
 - Consumes CPU, memory, storage, and network resources.
+
+## DEC-020: Use Ubuntu 24.04 Templates for Linux Containers
+
+- Status: Accepted
+- Date: 2026-08-10
+
+### Context
+
+A standard should be adopted for Linux container templates used in Project: SERVERTRON.  
+
+### Decision
+
+The Ubuntu 24.04 template will be used for both Linux containers, LXC 200 and 210.  
+
+### Rationale
+
+Ubuntu Server 24.04 is already being used for VMs so this standardises Ubuntu version 24.04 across all VMs and Linux containers.  
+
+This will make the learning curve to administer and operate the system much easier.  
+
+Ubuntu 24.04 is an LTS version that will be supported with security updates through to 2029.  
+
+### Alternatives Considered
+
+- **Ubuntu 25.04:** Rejected because it would unnecessarily complicate the system, and any eventual Ansible automation.
+
+### Consequences
+
+- Standardised operating system and version used across all VMs and LXCs.
+- Simplified learning curve.
+- Extensive security updates, support, and community.
