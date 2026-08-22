@@ -658,3 +658,29 @@ Ubuntu 24.04 is an LTS version that will be supported with security updates thro
 - Standardised operating system and version used across all VMs and LXCs.
 - Simplified learning curve.
 - Extensive security updates, support, and community.
+
+## DEC-021: Terraform for VM Provisioning
+
+- Status: Accepted
+- Date: 2026-08-23
+
+### Content
+
+A method is required to automate the provisioning of virtual machines (VMs) and Linux containers (LXCs) on SERVERTRON-1.  
+
+### Decision
+
+Terraform will be used to automate provisioning of virtual machines (VMs) and Linux containers (LXCs) on SERVERTRON-1.  
+
+### Rationale
+
+Terraform is the industry standard for provisioning VMs in virtual environments.  
+
+### Alternatives Considered
+
+- **OpenTofu:** Open source, but nevertheless rejected because Terraform is industry standard and therefore more representative of industry practices than OpenTofu.
+
+### Consequences
+
+- Project: SERVERTRON will be more representative of enterprise environments than if using open-source software such as OpenTofu.
+- Terraform is not open-source and is therefore not as reliable and transparent as open-source alternatives.
