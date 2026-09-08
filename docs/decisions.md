@@ -659,12 +659,12 @@ Ubuntu 24.04 is an LTS version that will be supported with security updates thro
 - Simplified learning curve.
 - Extensive security updates, support, and community.
 
-## DEC-021: Terraform for VM Provisioning
+## DEC-021: Terraform for Infrastructure Provisioning
 
 - Status: Accepted
 - Date: 2026-08-23
 
-### Content
+### Context
 
 A method is required to automate the provisioning of virtual machines (VMs) and Linux containers (LXCs) on SERVERTRON-1.  
 
@@ -678,9 +678,102 @@ Terraform is the industry standard for provisioning VMs in virtual environments.
 
 ### Alternatives Considered
 
-- **OpenTofu:** Open source, but nevertheless rejected because Terraform is industry standard and therefore more representative of industry practices than OpenTofu.
+- **OpenTofu:** Open source, but nevertheless rejected because Terraform is industry standard and therefore more representative of industry practices than OpenTofu.  
 
 ### Consequences
 
-- Project: SERVERTRON will be more representative of enterprise environments than if using open-source software such as OpenTofu.
-- Terraform is not open-source and is therefore not as reliable and transparent as open-source alternatives.
+- Project: SERVERTRON will be more representative of enterprise environments than if using open-source software such as OpenTofu.  
+- Terraform is not open-source and is therefore not as reliable and transparent as open-source alternatives.  
+
+## DEC-022: Ansible for Configuration Management
+
+- Status: Accepted
+- Date: 2026-09-07
+
+### Context
+
+The virtual machines and containers on SERVERTRON-1 will be configured using Infrastructure as Code, and a suitable tool must be chosen for this.  
+
+Terraform was chosen for infrastructure deployment, but does not necessarily complete the configuration of those systems.  
+
+Other things requiring automation include:
+
+- Installation and updating of software packages
+- Creating users and groups
+- Managing files and directories
+- Deploying configuration files and configuring system services
+- Security and OS configuration
+
+### Decision
+
+Ansible will be used for configuration management in Project: SERVERTRON.  
+
+Cloud-init will perform the minimum initial configuration required to bootstrap a new system, and then Ansible will configure the guest OS, services, and applications.  
+
+### Rationale
+
+Ansible is specifically designed for configurantion management, using a declarative, idempotent approach.  
+
+Ansible is also agentless and does not require persistent Ansible agents on managed hosts, instead managing them through SSH.  
+
+Because Ansible is widely used in real enterprise environments, it supports Project: SERVERTRON's objective of providing practical experience with established industry tools and workflows.  
+
+### Alternatives Considered
+
+- **Terraform:** Terraform can provide some post-provisioning configuration but is primarily designed for infrastructure provisioning. Ansible is more powerful for repeatedly configuring systems and is also another avenue for learning.  
+- **Bash or Other Shell Scripts:** Shell-scripting could implement much of the behaviour provided by Ansible but with more unneeded complexity. Bash or other shell scripts may still be used for custom tools and automation, but Ansible will be preferred for system configuration.  
+- **Python or other General-Purpose Programming Languages:** Once again, Ansible provides much of the functionality that would otherwise require more time and effort to implement in a general-purpose programming language such as Python. Python may still be used for custom tools and automation.  
+
+### Consequences
+
+- SERVERTRON will depend on Ansible, in addition to Terraform and cloud-init, increasing the number of technologies to be learned and maintained.
+- The project must establish conventions for organising Ansible inventories, playbooks, roles, variables, templates, and secrets.
+- Configuration-management logic will be separated from Terraform provisioning. This introduces an additional stage in the deployment workflow but creates clearer separation of responsibilities.
+- Ansible playbooks should be written to be idempotent when practical so configuration can be safely reapplied.
+- Ansible will provide practical experience and make configuration processes more reproducible, maintainable, and transferable.
+
+## DEC-023: Use BPG Terraform Provider for Proxmox VE
+
+- Status: Accepted
+- Date: 2026-09-07
+
+### Context
+
+Terraform has been selected as the primary infrastructure provisioning tool for Project: SERVERTRON. Terraform communicates with infrastructure platforms through providers, but does not currently maintain an official Terraform provider. This means SERVERTRON must use a community-developed provider.
+
+The provider should:
+
+- Support current versions of Proxmox VE.
+- Support QEMU virtual machines
+- Support LXC containers
+- Support Proxmox API-token authentication
+- Support cloud-init based VM provisioning
+- Be actively maintained
+- Have sufficiently detailed documentation
+- Allow Infrastructure as Code implementations beyond basic VM creation
+- Minimise unnecessary dependence on SSH or imperative provisioning mechanisms
+
+### Decision
+
+Project: SERVERTRON will use the BPG Proxmox provider (bpg/proxmox) as its Terraform provider for Proxmox VE. SERVERTRON will pin the provider to a known compatible version rather than automatically adopting future releases.  
+
+Terraform authentication credentials (such as the Proxmox API token) will not be stored directly in committed Terraform configurations. Instead they will be supplied through environment variables or other appropriate secrets-management mechanisms.  
+
+### Rationale
+
+The BPG provider provides a modern and actively maintained Terraform interface to Proxmox VE and supports a broader range of Proxmox resources than the considered alternatives. It supports QEMU virtual machines, LXC containers, API-token authentication, and cloud-init based provisioning. Most operations can be performed through the Proxmox API, minimising reliance on SSH-based provisioning.  
+
+Extensive Terraform Registry documentation allows the use of the BPG provider's version-specific documentation, rather than relying on potentially outdated third-party tutorials and examples. This is important as SERVERTRON is intended as a learning and documentation project.  
+
+### Alternatives Considered
+
+- **Telmate Proxmox Provider (Telmate/proxmox):** The Telmate provider is one of the oldest and most widely used Terraform providers for Proxmox, with a large existing user base and support for many of SERVERTRON's requirements. But it exposes a comparatively limited Terraform resource model. Its extensive history also creates a documentation risk as search results return examples targeting older provider versions. While Telmate is a viable alternative, BPG was chosen as it provides a better foundation for a new Infrastructure as Code implementation.
+- **Manual Proxmox Configuration:** The infrastructure could be created and configured manually through the Proxmox interface or command-line tools. This would reduce project complexity but undermines the Infrastructure as Code objectives of Project: SERVERTRON.
+- **Direct Proxmox API Automation:** Scripts could be used to interact directly over the Proxmox REST API. This would provide maximum control, but requires implementing functionality that Terraform already provides, introducing unneccessary custome code. It also does not satisfy the project's objective of gaining practical experience with DevOps tools such as Terraform.
+
+### Consequences
+
+ - SERVERTRON's Terraform configuration will depend on the community-maintained `bpg/proxmox` provider.
+ - Provider behaviour and resource schemas may change between releases.
+ - SERVERTRON must pin provider versions and treat provider upgrades as deliberate changes.
+ - The `.terraform.lock.hcl` file will be committed to the Git repository so that Terraform installations use consistent provider versions.  
