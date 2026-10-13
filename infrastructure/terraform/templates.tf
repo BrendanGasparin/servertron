@@ -21,10 +21,10 @@ resource "proxmox_virtual_environment_vm" "ubuntu_24_04_template" {
 
   disk {
     datastore_id = "local-zfs"
-    file_id      = proxmox_download_file.ubuntu_24_04_cloud_image.id
-    interface    = "scsi0"
-    discard      = "on"
-    size         = 20
+    import_from = proxmox_download_file.ubuntu_24_04_cloud_image.id
+    interface = "scsi0"
+    discard = "on"
+    size = 20
   }
 
   initialization {
