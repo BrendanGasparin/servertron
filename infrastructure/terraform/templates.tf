@@ -1,3 +1,4 @@
+# Resource templates
 resource "proxmox_virtual_environment_vm" "ubuntu_24_04_template" {
   name        = "ubuntu-2404-template"
   description = "Ubuntu Server 24.04 LTS cloud image template managed by Terraform"

@@ -1,3 +1,4 @@
+# Provider required for Terraform to communicate with Proxmox
 terraform {
   required_providers {
     proxmox = {

@@ -1,3 +1,4 @@
+# Images to download in Proxmox
 resource "proxmox_download_file" "ubuntu_24_04_cloud_image" {
   content_type = "import"
   datastore_id = "local"
