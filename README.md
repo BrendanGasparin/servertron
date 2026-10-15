@@ -2,7 +2,7 @@
 
 A production-style DevOps homelab built on a single-node Proxmox infrastructure, designed to host real workloads, with thorough documentation of the full system lifecycle.  
 
-![Project SERVERTRON cover image](./images/servertron-github-cover.png)
+[![Homelab DevOps platform](https://img.youtube.com/vi/5wXwqfGqP28/maxresdefault.jpg)](https://www.youtube.com/watch?v=5wXwqfGqP28)  
 
 ## Architecture Overview
 
