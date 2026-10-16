@@ -158,8 +158,8 @@ The development of SERVERTRON follows a structured DevOps lifecycle represented 
 
 ![DevOps lifecycle diagram](./images/devops-lifecycle.png)
 
-1. [PLAN](./images/devops-lifecycle.png): Define architecture, goals, and constraints.
-2. CODE: Create configuration files and infrastructure definitions.
+1. [PLAN](./phases/01-plan/README.md): Define architecture, goals, and constraints.
+2. [CODE](./phases/02-code/README.md): Create configuration files and infrastructure definitions.
 3. BUILD: Provision infrastructure and services.
 4. TEST: Validate system functionality.
 5. RELEASE: Define stable configurations.
