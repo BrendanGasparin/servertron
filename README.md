@@ -23,7 +23,14 @@ The project focuses on:
 
 **Status:** Phase 2 - CODE  
 
-Coding of infrastructure is in progress.  
+The code phase translates the infrastructure architecture established in Phase 1 into version-controlled configuration.  
+
+Technologies include:  
+
+- Terraform for infrastructure provisioning.
+- Cloud-init for initial VM configuration.
+- Ansible for configuration management.
+- GitHub Actions for automated validation.
 
 ## Key Features
 
