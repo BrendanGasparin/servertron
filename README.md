@@ -32,6 +32,8 @@ Technologies include:
 - Ansible for configuration management.
 - GitHub Actions for automated validation.
 
+See [Phase 2: CODE](phases/02-code/README.md) for implementation details and progress.  
+
 ## Key Features
 
 - Single-node Proxmox infrastructure
