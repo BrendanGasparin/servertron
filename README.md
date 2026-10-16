@@ -112,15 +112,16 @@ This is an iterative cycle, with the feedback from the monitoring phase informin
 ## 7. Technology Stack
 
 - **Infrastructure:** Single-node mini-PC (Intel NUC 13 Pro).
-- **Virtualisation:** Proxmox VE
-- **Operating systems:** Ubuntu Server (all VMs)
-- **Containerisation:** Docker and Docker Compose
-- **Orchestration (lab):** K3s
-- **Reverse Proxy:** NGINX
-- **DNS and Edge:** Cloudflare
-- **Data Services:** PostgreSQL, MariaDB, Redis
-- **Monitoring:** Prometheus, Loki, and Grafana
-- **Version Control & DevOps:** GitHub
+- **Virtualisation:** Proxmox VE.
+- **Operating Systems:** Ubuntu Server (all VMs).
+- **Infrasture Automation and Configuration Management:** Terraform, Cloud-init, Ansible.
+- **Containerisation:** Docker and Docker Compose.
+- **Orchestration (lab):** K3s.
+- **Reverse Proxy:** NGINX.
+- **DNS and Edge:** Cloudflare.
+- **Data Services:** PostgreSQL, MariaDB, Redis.
+- **Monitoring:** Prometheus, Loki, and Grafana.
+- **Version Control & DevOps:** GitHub.
 
 ## 9. Environments
 
