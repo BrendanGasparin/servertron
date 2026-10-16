@@ -12,7 +12,7 @@ This lifecycle is usually represented by an iterative loop of eight consecutive 
 These phases, their related documentation, and their roles within Project: SERVERTRON, are:  
 
 1. [PLAN](./01-plan/README.md): Plan the project. For this project, that means defining goals, constraints, architecture, and tooling.
-2. CODE: Write the code. For Project: SERVERTRON, this means creating configuration files, infrastructure definitions, and automated installation scripts.
+2. [CODE](./02-plan/README.md): Write the code. For Project: SERVERTRON, this means creating configuration files, infrastructure definitions, and automated installation scripts.
 3. BUILD: Build the project. For SERVERTRON, this involves provisioning infrastructure and services.
 4. TEST: Validate the system's functionality.
 5. RELEASE: Release the project. Create versioned artifacts for deployment.
