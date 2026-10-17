@@ -25,6 +25,34 @@ Specific software versions should be recorded where they affect implementation o
 
 Development activities are recorded chronologically. Each entry identifies the work undertaken, its outcome, and any outstanding issues.  
 
+### 2.1. Proxmox Installation and Configuration
+
+**Status:** Completed
+
+**Objective:** Install Proxmox VE on the physical host and configure control machine access.
+
+**Implementation:**  
+
+- Create Proxmox VE installation USB.
+- Install Proxmox VE on hardware using installation USB.
+- Web browser login, switch to no-subscription repository, update, reboot.
+- Create new Proxmox user with Linux PAM authentication.
+- Set a ZFS Arc limit on RAM consumption.
+- Harden Proxmox.
+- Copy public key from control machine to Proxmox VE installation.
+
+**Challenges:**  
+
+- No major challenges.
+
+**Outcome:**  
+
+Proxmox VE is installed, with web browser and SSH access available over LAN from control machines.  
+
+**Related files:**  
+
+N/A  
+
 ## 3. Technical Challenges and Resolutions
 
 This section summarises significant technical problems encountered during implementation.  
